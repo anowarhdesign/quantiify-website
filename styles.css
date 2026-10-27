@@ -286,7 +286,8 @@ tr.new td{animation:rowin .4s both}
 .sb-mail:hover{color:#fff}
 .sb-cta{display:flex;align-items:center;gap:8px;height:26px;padding:0 12px;border-radius:4px;background:var(--blue);color:#fff;text-decoration:none;text-transform:uppercase;font-weight:600}
 .sb-cta:hover{background:var(--blue-2)}
-.sb-prompt{color:#cfe0ff;font-weight:400;text-transform:none;letter-spacing:.02em}
+.sb-sep{width:1px;height:14px;background:#2d3650}
+.sb-coords{color:#c8d3e6;min-width:240px;white-space:pre}
 /* crosshair: short, faded arms */
 .xhair{position:fixed;inset:0;pointer-events:none;z-index:60;display:none}
 .xh-h,.xh-v,.xh-box{position:absolute;left:0;top:0;will-change:transform;transition:opacity .2s}
@@ -354,7 +355,7 @@ body.snapping .snap{opacity:1}
   .tb-cell{border-left:0!important;border-top:1px solid #3a4560}
   .tb-brand{border-top:0}
   .tb-cell:nth-child(odd):not(.tb-brand){border-left:1px solid #3a4560!important}
-  .sb-mail,.sb-prompt{display:none}
+  .sb-mail,.sb-sep,.sb-coords{display:none}
   .sb-sheet span{display:none}
   .dim{margin:20px auto 14px}
 }
