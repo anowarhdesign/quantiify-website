@@ -33,7 +33,6 @@
   // ---------- crosshair + OSNAP-style hover ----------
   const xh = document.querySelector('.xhair');
   const snap = document.querySelector('.snap'), tag = snap.querySelector('.snap-tag');
-  const coords = document.getElementById('coords');
   if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
     document.body.classList.add('cad');
     const h = xh.querySelector('.xh-h'), v = xh.querySelector('.xh-v'), b = xh.querySelector('.xh-box');
@@ -49,8 +48,6 @@
       h.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       v.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       b.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-      const X = (e.clientX / 8).toFixed(2), Y = ((document.documentElement.scrollHeight - e.pageY) / 8).toFixed(2);
-      coords.textContent = `X ${X}   Y ${Y}   Z 0.00`;
     });
     addEventListener('scroll', place, { passive: true });
     document.querySelectorAll('a, button, .who-card, .quote, .duo-card').forEach(el => {
