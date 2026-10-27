@@ -358,3 +358,16 @@ body.snapping .snap{opacity:1}
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* hero process as a continuous dimension chain (DIMCONTINUE) */
+.dimchain{position:relative;display:grid;grid-template-columns:repeat(4,1fr);max-width:620px;margin:0 auto 26px;color:var(--blue-2);border-left:1px solid currentColor}
+.dimchain::before{content:"";position:absolute;left:-1px;top:calc(50% - 7px);width:1.5px;height:14px;background:currentColor;rotate:45deg}
+.dimchain .seg{position:relative;height:30px;border-right:1px solid currentColor;display:flex;align-items:center;justify-content:center}
+.dimchain .seg::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:currentColor;opacity:.55}
+.dimchain .seg::after{content:"";position:absolute;right:-1px;top:calc(50% - 7px);width:1.5px;height:14px;background:currentColor;rotate:45deg}
+.dimchain .seg:last-of-type::after{display:none}
+.dimchain .dl{position:relative;z-index:1;font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:var(--paper-2);padding:3px 9px;border-radius:3px;transition:background .4s,color .4s}
+.dimchain .seg.on .dl{background:var(--blue);color:#fff}
+.dimchain .runner{position:absolute;top:calc(50% - 3px);left:0;width:6px;height:6px;background:var(--blue);rotate:45deg;margin-left:-3px;animation:run 7s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes run{0%{left:0}100%{left:100%}}
+@media (max-width:720px){.dimchain .dl{font-size:9px;letter-spacing:.08em;padding:3px 5px}}
