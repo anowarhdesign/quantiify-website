@@ -208,17 +208,37 @@
   <!-- CTA -->
   <section class="rb-band">
     <div class="wrap">
-      <div class="rb" id="rb" role="slider" tabindex="0" aria-label="Compare drawing and finished building" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <div class="rb" id="rb" role="slider" tabindex="0" aria-label="Compare the estimate view with the finished building" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
         <img class="rb-base" src="assets/product/building-blueprint.webp" width="1824" height="500" alt="" loading="lazy">
-        <div class="rb-ink" aria-hidden="true"></div>
-        <div class="rb-top"><img src="assets/product/building-blueprint.webp" width="1824" height="500" alt="Building rendered over its construction drawings" loading="lazy"></div>
+        <svg class="rb-est" viewBox="0 0 1824 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><pattern id="ansi31" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="12"/></pattern></defs>
+          <g class="m glaze"><rect x="796" y="8" width="206" height="262" fill="url(#ansi31)"/><rect x="796" y="8" width="206" height="262"/></g>
+          <g class="m win"><rect x="1104" y="62" width="26" height="30"/><rect x="1150" y="62" width="26" height="30"/><rect x="1104" y="112" width="26" height="30"/><rect x="1150" y="112" width="26" height="30"/><rect x="1104" y="162" width="26" height="30"/><rect x="1150" y="162" width="26" height="30"/><rect x="1104" y="212" width="26" height="30"/><rect x="1150" y="212" width="26" height="30"/><rect x="1104" y="262" width="26" height="30"/><rect x="1150" y="262" width="26" height="30"/></g>
+          <g class="m store"><rect x="540" y="312" width="672" height="88"/></g>
+          <g class="dimn"><path d="M470 30H780 M470 22V38 M780 22V38"/><path d="M1560 8V300 M1552 8H1568 M1552 300H1568"/></g>
+          <g class="lbl">
+            <g transform="translate(812 150)"><rect width="176" height="42" rx="4"/><text x="12" y="17">GLAZING</text><text x="12" y="34" class="v">412 m²</text></g>
+            <g transform="translate(1200 120)"><rect width="168" height="42" rx="4"/><text x="12" y="17">WINDOWS</text><text x="12" y="34" class="v">96 nos</text></g>
+            <g transform="translate(560 330)"><rect width="200" height="42" rx="4"/><text x="12" y="17">STOREFRONT</text><text x="12" y="34" class="v">68 lm</text></g>
+            <text x="625" y="20" class="d" text-anchor="middle">42.6 m</text>
+            <text x="1580" y="160" class="d">6 floors · 21.0 m</text>
+          </g>
+        </svg>
+        <div class="rb-boq mono" aria-hidden="true">
+          <p class="h"><span>BOQ · Facade</span><span>Sample</span></p>
+          <p><span>Curtain-wall glazing</span><b>412 m²</b></p>
+          <p><span>Windows, double-glazed</span><b>96 nos</b></p>
+          <p><span>Storefront system</span><b>68 lm</b></p>
+          <p><span>Facade cladding</span><b>1,860 m²</b></p>
+        </div>
+        <div class="rb-top"><img src="assets/product/building-blueprint.webp" width="1824" height="500" alt="Finished building" loading="lazy"></div>
         <div class="rb-handle" aria-hidden="true"><span class="mono">&#x2194;</span></div>
-        <span class="rb-tag l mono">A-201 · Drawing</span>
+        <span class="rb-tag l mono">Estimate · BOQ</span>
         <span class="rb-tag r mono">As built</span>
       </div>
       <div class="dim rb-dim" aria-hidden="true">
         <span class="dim-tick"></span><span class="dim-line"></span>
-        <span class="dim-label">FROM THE FIRST QUANTITY TO THE BUILDING IT BECOMES</span>
+        <span class="dim-label">EVERY QUANTITY ESTIMATED BEFORE THE BUILDING GOES UP</span>
         <span class="dim-line"></span><span class="dim-tick"></span>
       </div>
     </div>
