@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantiify · AI Takeoff — by Conneqted Agents</title>
+<meta name="description" content="Quantiify reads PDF and CAD drawings and produces reviewable quantities for estimators. Built by Conneqted Agents.">
+<link rel="icon" href="assets/quantiify-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CAD crosshair (desktop pointer only) -->
+<div class="xhair" aria-hidden="true"><span class="xh-h"></span><span class="xh-v"></span><span class="xh-box"></span></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Quantiify home">
+      <img src="assets/quantiify-logo.svg" alt="Quantiify" class="q-logo">
+      <span class="by"><span>by</span><img src="assets/conneqted-logo-dark.svg" alt="Conneqted Agents"></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#workflow">Workflow</a>
+      <a href="#trades">Trades</a>
+      <a href="#results">Results</a>
+      <a href="#platform">Platform</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://quantiify.ai/book-a-call/" target="_blank" rel="noopener">Book a demo</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="ruler-v left" aria-hidden="true"></div>
+    <div class="ruler-v right" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <span class="chip"><i class="dot"></i>Live demo at our booth · AI takeoff</span>
+
+      <div class="dim" aria-hidden="true">
+        <span class="dim-tick"></span><span class="dim-line"></span>
+        <span class="dim-label">3&nbsp;DAYS &nbsp;&rarr;&nbsp; 6&nbsp;HRS</span>
+        <span class="dim-line"></span><span class="dim-tick"></span>
+      </div>
+
+      <h1>Takeoffs measured in <em>hours</em>,<br>not days.</h1>
+      <p class="lede">Quantiify reads your PDF and CAD drawings, then detects, counts and measures every symbol, run and area, so your estimators review quantities instead of clicking them.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://quantiify.ai/book-a-call/" target="_blank" rel="noopener">Book a demo</a>
+        <a class="btn btn-ghost" href="#workflow">See the workflow</a>
+      </div>
+      <ul class="tags">
+        <li>Human in the loop</li><li>AI-powered takeoff</li><li>Connected calculations</li><li>BOQ-ready export</li>
+      </ul>
+    </div>
+
+    <!-- Model-space viewport -->
+    <div class="wrap">
+      <div class="viewport reveal">
+        <div class="vp-bar">
+          <div class="vp-tabs"><span class="on">Model</span><span>Layout1</span><span>E-101 Lighting Plan</span></div>
+          <div class="vp-meta"><span class="mono">SCALE 1/8" = 1'-0"</span><span class="pill">AI · Detecting</span></div>
+        </div>
+        <div class="vp-body">
+          <aside class="vp-layers">
+            <p class="cap">Layers</p>
+            <ul>
+              <li><i style="--c:#ff4d4d"></i>E-LITE<b data-count="lite">0</b></li>
+              <li><i style="--c:#ffd84d"></i>E-POWR<b data-count="powr">0</b></li>
+              <li><i style="--c:#4dd88a"></i>E-DATA<b data-count="data">0</b></li>
+              <li><i style="--c:#4dd3ff"></i>A-WALL<b>lf</b></li>
+              <li><i style="--c:#c77dff"></i>A-DOOR<b data-count="door">0</b></li>
+            </ul>
+            <p class="cap">Takeoff</p>
+            <div class="vp-total"><span class="mono" id="vpTotal">0</span><small>objects counted</small></div>
+            <div class="vp-progress"><span id="vpBar"></span></div>
+          </aside>
+          <div class="vp-canvas">
+            <svg id="plan" viewBox="0 0 800 440" role="img" aria-label="Floor plan with AI-detected lighting, power and data symbols"></svg>
+            <div class="ucs" aria-hidden="true"><span>Y</span><span>X</span></div>
+          </div>
+        </div>
+        <div class="vp-cmd mono"><span class="prompt">Command:</span> <span id="cmdText"></span><span class="caret">_</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="ruler-h" aria-hidden="true"></div></div>
+
+  <!-- RESULTS -->
+  <section id="results" class="section">
+    <div class="wrap">
+      <p class="eyebrow"><span class="ref">S-01</span> Results from estimating teams</p>
+      <div class="stats">
+        <div class="stat"><span class="num" data-to="70" data-suffix="%">0</span><p>less repetitive takeoff work</p></div>
+        <div class="stat"><span class="num" data-to="3" data-suffix="×">0</span><p>faster takeoff workflow</p></div>
+        <div class="stat"><span class="num" data-to="500" data-suffix="+">0</span><p>projects processed</p></div>
+        <div class="stat"><span class="num" data-to="10" data-suffix="+">0</span><p>hours saved per project</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section id="workflow" class="section section-dark">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow light"><span class="ref">S-02</span> Workflow</p>
+      <h2>From drawing set to bill of quantities<br>in five commands.</h2>
+      <ol class="steps">
+        <li class="reveal"><span class="cmd mono">UPLOAD</span><h3>Upload</h3><p>Drop in PDF or CAD drawing sets. Multi-sheet, multi-document projects are fine.</p></li>
+        <li class="reveal"><span class="cmd mono">ANALYZE</span><h3>Analyze</h3><p>AI reads every sheet, finds symbols, components, runs and areas, and sorts them by trade.</p></li>
+        <li class="reveal"><span class="cmd mono">TAKEOFF</span><h3>Takeoff</h3><p>Counts, lengths and areas come back as quantities your team can review, edit and approve.</p></li>
+        <li class="reveal"><span class="cmd mono">ESTIMATE</span><h3>Estimate</h3><p>Quantities feed connected calculations and an integrated pricing workflow. No re-keying.</p></li>
+        <li class="reveal"><span class="cmd mono">EXPORT</span><h3>Export</h3><p>BOQ-ready output for pricing and tender preparation.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TRADES -->
+  <section id="trades" class="section">
+    <div class="wrap">
+      <p class="eyebrow"><span class="ref">S-03</span> Built for every trade on the set</p>
+      <h2>One takeoff engine, four layer sets.</h2>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-tab="0"><i style="--c:#ffd84d"></i>Electrical</button>
+        <button role="tab" aria-selected="false" data-tab="1"><i style="--c:#4dd3ff"></i>Architectural</button>
+        <button role="tab" aria-selected="false" data-tab="2"><i style="--c:#4dd88a"></i>Mechanical</button>
+        <button role="tab" aria-selected="false" data-tab="3"><i style="--c:#ff4d4d"></i>Civil</button>
+      </div>
+      <div class="trade">
+        <div class="trade-copy">
+          <h3 id="tradeTitle"></h3>
+          <p id="tradeText"></p>
+          <a class="link" id="tradeLink" href="#" target="_blank" rel="noopener">Explore this trade &rarr;</a>
+        </div>
+        <div class="sheet">
+          <div class="sheet-head mono"><span>QTY SCHEDULE</span><span id="tradeSheet"></span></div>
+          <table>
+            <thead><tr><th>Item</th><th>Layer</th><th class="r">Qty</th><th class="r">Unit</th></tr></thead>
+            <tbody id="tradeRows"></tbody>
+          </table>
+          <p class="sheet-note mono">Sample output · every line reviewable before pricing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="ruler-h" aria-hidden="true"></div></div>
+
+  <!-- PROOF -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow"><span class="ref">S-04</span> What estimators say</p>
+      <div class="quotes">
+        <figure class="quote reveal">
+          <span class="big mono">3 days &rarr; 6 hrs</span>
+          <p>Takeoff time on an electrical package went from three days to under six hours.</p>
+          <figcaption>Reported by an electrical contractor</figcaption>
+        </figure>
+        <figure class="quote reveal">
+          <span class="big mono">95%+</span>
+          <p>Accuracy above 95% on complex civil drawing sets, with every quantity still reviewed by the team.</p>
+          <figcaption>Reported by a civil estimator</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM / CONNEQTED -->
+  <section id="platform" class="section section-tint">
+    <div class="wrap">
+      <p class="eyebrow"><span class="ref">S-05</span> The Conneqted Agents platform</p>
+      <h2>The takeoff is where the building starts.</h2>
+      <p class="lede left">Conneqted Agents builds agentic AI products for the built environment, from the first quantity on a drawing to the building it becomes.</p>
+
+      <div class="lifecycle">
+        <div class="lc-ruler" aria-hidden="true"></div>
+        <div class="lc-stage"><span class="mono">01</span><h4>Design</h4><p>Drawings and specs</p></div>
+        <div class="lc-stage on"><span class="mono">02</span><h4>Estimate</h4><p><img src="assets/quantiify-logo.svg" alt="Quantiify" class="lc-logo"></p></div>
+        <div class="lc-stage"><span class="mono">03</span><h4>Build</h4><p>Procurement and site</p></div>
+        <div class="lc-stage soft"><span class="mono">04</span><h4>Operate</h4><p><img src="assets/optiify-logo-dark.svg" alt="Optiify" class="lc-logo o"></p></div>
+      </div>
+
+      <div class="duo">
+        <div class="duo-card main">
+          <img src="assets/quantiify-logo.svg" alt="Quantiify" class="duo-logo">
+          <p>AI takeoff and estimating for construction teams. The reason we're here: come see it count your drawings.</p>
+          <a class="link" href="https://quantiify.ai/" target="_blank" rel="noopener">quantiify.ai &rarr;</a>
+        </div>
+        <div class="duo-card">
+          <img src="assets/optiify-logo-dark.svg" alt="Optiify" class="duo-logo sm">
+          <p>Once the building is handed over, Optiify gives operations teams an AI CoPilot they can ask in plain language.</p>
+          <a class="link" href="https://www.optiify.ai/" target="_blank" rel="noopener">optiify.ai &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="ruler-v left" aria-hidden="true"></div>
+    <div class="ruler-v right" aria-hidden="true"></div>
+    <div class="wrap center">
+      <div class="dim" aria-hidden="true">
+        <span class="dim-tick"></span><span class="dim-line"></span>
+        <span class="dim-label">AT THE BOOTH</span>
+        <span class="dim-line"></span><span class="dim-tick"></span>
+      </div>
+      <h2>Bring a drawing set.<br>Leave with a takeoff.</h2>
+      <p class="lede">Stop by for a live run on your own sheets, or book a call with the team.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://quantiify.ai/book-a-call/" target="_blank" rel="noopener">Book a demo</a>
+        <a class="btn btn-ghost" href="mailto:support@conneqtedagents.ai?subject=Quantiify%20demo">Email the team</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer as a drawing title block -->
+<footer class="titleblock">
+  <div class="wrap">
+    <div class="tb">
+      <div class="tb-cell tb-brand">
+        <span class="tb-k">Drawn by</span>
+        <img src="assets/conneqted-logo.svg" alt="Conneqted Agents">
+        <p>Agentic SaaS and AI products, from idea to production.</p>
+      </div>
+      <div class="tb-cell"><span class="tb-k">Project</span><span class="tb-v">Quantiify · AI Takeoff</span></div>
+      <div class="tb-cell"><span class="tb-k">Products</span><span class="tb-v"><a href="https://quantiify.ai/" target="_blank" rel="noopener">Quantiify</a> · <a href="https://www.optiify.ai/" target="_blank" rel="noopener">Optiify</a></span></div>
+      <div class="tb-cell"><span class="tb-k">Contact</span><span class="tb-v"><a href="mailto:support@conneqtedagents.ai">support@conneqtedagents.ai</a><br><a href="tel:+14085005613">+1 (408) 500-5613</a></span></div>
+      <div class="tb-cell"><span class="tb-k">Address</span><span class="tb-v">6412 Spring Meadow Ct<br>San Jose, CA, USA</span></div>
+      <div class="tb-cell tb-sheet"><span class="tb-k">Sheet</span><span class="tb-v big mono">Q-001</span><span class="tb-k">Rev 01 · NTS</span></div>
+    </div>
+    <p class="fine mono">© <span id="yr"></span> Conneqted Agents · <a href="https://conneqtedagents.ai/" target="_blank" rel="noopener">conneqtedagents.ai</a></p>
+  </div>
+</footer>
+
+<!-- AutoCAD-style status bar -->
+<div class="statusbar mono" aria-hidden="true">
+  <span>MODEL</span><span class="sep"></span>
+  <span id="coords">X 0.00 &nbsp; Y 0.00 &nbsp; Z 0.00</span>
+  <span class="grow"></span>
+  <span class="tog on">GRID</span><span class="tog on">SNAP</span><span class="tog">ORTHO</span><span class="tog on">OSNAP</span><span class="tog on">AI</span>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
