@@ -2,6 +2,11 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const NS = 'http://www.w3.org/2000/svg';
   document.getElementById('yr').textContent = new Date().getFullYear();
+  // Booth-screen mode (?booth): show the QR code so visitors can book from their phones
+  if (new URLSearchParams(location.search).has('booth')) {
+    document.querySelector('.qr').hidden = false;
+    document.querySelector('.cta .lede').textContent = 'Stop by for a live run on your own sheets, or scan to book a call with the team.';
+  }
 
   // ---------- rulers ----------
   function numberRulers() {
@@ -60,6 +65,110 @@
       el.addEventListener('mouseleave', () => { target = null; document.body.classList.remove('snapping'); });
     });
   }
+
+  // ---------- hero product walkthrough ----------
+  // Coordinates are pixels on app-symbol-count.webp (1560 × 1209).
+  const IMG = { w: 1560, h: 1209 }, UI = { x: 85, y: 103, w: 1375, h: 1002 };
+  const regions = [
+    { x: 1237, y: 200, w: 215, h: 400 },   // AI auto-detect + legend counts
+    { x: 352, y: 283, w: 858, h: 615 },    // drawing canvas
+    { x: 1240, y: 815, w: 212, h: 230 }    // unsaved edits + commit
+  ];
+  const symbols = [[550,477],[608,477],[665,477],[884,427],[883,524],[537,535],[646,546],[776,580],[816,580],[873,580],[970,580],
+    [560,613],[651,613],[651,641],[762,635],[560,686],[651,686],[762,693],[850,691],[819,720],[840,734],[926,672],[1028,734],
+    [560,757],[651,757],[711,759],[762,767],[934,788],[997,655],[831,580],[651,657]];
+  const frame = document.getElementById('productFrame');
+  const spot = frame.querySelector('.spot'), dets = frame.querySelector('.dets'), scanEl = frame.querySelector('.scanline');
+  const steps = [...frame.querySelectorAll('.callout')];
+  const pct = (v, total) => (v / total * 100) + '%';
+  symbols.sort((a, b) => a[0] - b[0]).forEach(([x, y]) => {
+    const d = document.createElement('i');
+    d.style.left = pct(x, IMG.w); d.style.top = pct(y, IMG.h);
+    dets.appendChild(d);
+  });
+  const detEls = [...dets.children];
+  let step = -1, auto = true, timer, scanRaf;
+
+  function scan() {
+    cancelAnimationFrame(scanRaf);
+    detEls.forEach(d => d.classList.remove('on'));
+    const x0 = 400, x1 = 1145, t0 = performance.now(), dur = reduce ? 1 : 1800;
+    frame.classList.add('scanning');
+    (function f(t) {
+      const p = Math.min(1, (t - t0) / dur), x = x0 + (x1 - x0) * p;
+      scanEl.style.left = pct(x, IMG.w);
+      detEls.forEach((d, i) => { if (symbols[i][0] <= x) d.classList.add('on'); });
+      if (p < 1) scanRaf = requestAnimationFrame(f); else frame.classList.remove('scanning');
+    })(t0);
+  }
+  function setStep(i) {
+    if (i === step) return;
+    step = i;
+    const r = regions[i];
+    spot.style.left = pct(r.x - UI.x, UI.w); spot.style.top = pct(r.y - UI.y, UI.h);
+    spot.style.width = pct(r.w, UI.w); spot.style.height = pct(r.h, UI.h);
+    steps.forEach((b, j) => b.setAttribute('aria-pressed', i === j));
+    frame.dataset.step = i;
+    if (i === 1) scan(); else { cancelAnimationFrame(scanRaf); frame.classList.remove('scanning'); }
+  }
+  function cycle() { clearTimeout(timer); if (!auto) return; timer = setTimeout(() => { setStep((step + 1) % 3); cycle(); }, step === 1 ? 4600 : 3600); }
+  steps.forEach((b, i) => {
+    b.addEventListener('click', () => { auto = false; clearTimeout(timer); step = -1; setStep(i); });
+    b.addEventListener('mouseenter', () => { if (auto) { clearTimeout(timer); setStep(i); } });
+    b.addEventListener('mouseleave', () => cycle());
+  });
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { frame.classList.add('live'); if (step < 0) setStep(0); cycle(); }
+    else clearTimeout(timer);
+  }, { threshold: .4 }).observe(frame);
+
+  // subtle 3D tilt + parallax callouts
+  if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    let tx = 0, ty = 0, cx = 0, cy = 0, tiltRaf = 0;
+    const tick = () => {
+      cx += (tx - cx) * .08; cy += (ty - cy) * .08;
+      frame.style.setProperty('--rx', (-cy * 4).toFixed(3) + 'deg');
+      frame.style.setProperty('--ry', (cx * 5).toFixed(3) + 'deg');
+      frame.style.setProperty('--px', (cx * 14).toFixed(2) + 'px');
+      frame.style.setProperty('--py', (cy * 10).toFixed(2) + 'px');
+      tiltRaf = (Math.abs(tx - cx) + Math.abs(ty - cy) > .001) ? requestAnimationFrame(tick) : 0;
+    };
+    frame.addEventListener('pointermove', e => {
+      const r = frame.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width - .5; ty = (e.clientY - r.top) / r.height - .5;
+      if (!tiltRaf) tiltRaf = requestAnimationFrame(tick);
+    });
+    frame.addEventListener('pointerleave', () => { tx = ty = 0; if (!tiltRaf) tiltRaf = requestAnimationFrame(tick); });
+  }
+
+  // ---------- drawing → as-built reveal ----------
+  const rb = document.getElementById('rb');
+  let rbHover = false, rbManual = null;
+  const setP = v => {
+    v = Math.max(4, Math.min(96, v));
+    rb.style.setProperty('--p', v + '%');
+    rb.setAttribute('aria-valuenow', Math.round(v));
+  };
+  const fromScroll = () => {
+    if (rbHover || rbManual !== null) return;
+    const r = rb.getBoundingClientRect();
+    const t = 1 - (r.top + r.height / 2) / innerHeight;   // 0 entering bottom → 1 leaving top
+    setP(15 + Math.max(0, Math.min(1, (t - .15) / .7)) * 70);
+  };
+  addEventListener('scroll', fromScroll, { passive: true });
+  fromScroll();
+  rb.addEventListener('pointermove', e => {
+    rbHover = true;
+    const r = rb.getBoundingClientRect();
+    setP((e.clientX - r.left) / r.width * 100);
+  });
+  rb.addEventListener('pointerleave', () => { rbHover = false; rbManual = null; fromScroll(); });
+  rb.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    e.preventDefault();
+    rbManual = (rbManual ?? +rb.getAttribute('aria-valuenow')) + (e.key === 'ArrowRight' ? 5 : -5);
+    setP(rbManual);
+  });
 
   // ---------- trades ----------
   const T = [
