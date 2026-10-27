@@ -15,6 +15,7 @@
 
 <!-- CAD crosshair (desktop pointer only) -->
 <div class="xhair" aria-hidden="true"><span class="xh-h"></span><span class="xh-v"></span><span class="xh-box"></span></div>
+<div class="snap" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="snap-tag mono"></span></div>
 
 <header class="nav">
   <div class="wrap nav-in">
@@ -36,6 +37,7 @@
 
   <!-- HERO -->
   <section class="hero">
+    <canvas class="shader" data-shader="light" aria-hidden="true"></canvas>
     <div class="ruler-v left" aria-hidden="true"></div>
     <div class="ruler-v right" aria-hidden="true"></div>
     <div class="wrap hero-in">
@@ -58,34 +60,21 @@
       </ul>
     </div>
 
-    <!-- Model-space viewport -->
+    <!-- Real product screenshot, annotated like a drawing -->
     <div class="wrap">
-      <div class="viewport reveal">
-        <div class="vp-bar">
-          <div class="vp-tabs"><span class="on">Model</span><span>Layout1</span><span>E-101 Lighting Plan</span></div>
-          <div class="vp-meta"><span class="mono">SCALE 1/8" = 1'-0"</span><span class="pill">AI · Detecting</span></div>
+      <figure class="product reveal">
+        <div class="dim dim-wide" aria-hidden="true">
+          <span class="dim-tick"></span><span class="dim-line"></span>
+          <span class="dim-label">QUANTIIFY · SYMBOL COUNTING &amp; OVERVIEW</span>
+          <span class="dim-line"></span><span class="dim-tick"></span>
         </div>
-        <div class="vp-body">
-          <aside class="vp-layers">
-            <p class="cap">Layers</p>
-            <ul>
-              <li><i style="--c:#ff4d4d"></i>E-LITE<b data-count="lite">0</b></li>
-              <li><i style="--c:#ffd84d"></i>E-POWR<b data-count="powr">0</b></li>
-              <li><i style="--c:#4dd88a"></i>E-DATA<b data-count="data">0</b></li>
-              <li><i style="--c:#4dd3ff"></i>A-WALL<b>lf</b></li>
-              <li><i style="--c:#c77dff"></i>A-DOOR<b data-count="door">0</b></li>
-            </ul>
-            <p class="cap">Takeoff</p>
-            <div class="vp-total"><span class="mono" id="vpTotal">0</span><small>objects counted</small></div>
-            <div class="vp-progress"><span id="vpBar"></span></div>
-          </aside>
-          <div class="vp-canvas">
-            <svg id="plan" viewBox="0 0 800 440" role="img" aria-label="Floor plan with AI-detected lighting, power and data symbols"></svg>
-            <div class="ucs" aria-hidden="true"><span>Y</span><span>X</span></div>
-          </div>
+        <div class="product-frame">
+          <img src="assets/product/app-symbol-count.webp" width="1560" height="1209" alt="Quantiify Symbol Counting screen: an electrical floor plan with AI-detected symbols and legend counts for review">
+          <span class="callout c1"><b class="mono">01</b>AI auto-detect from the legend</span>
+          <span class="callout c2"><b class="mono">02</b>Symbols found on the drawing</span>
+          <span class="callout c3"><b class="mono">03</b>Review edits, then commit</span>
         </div>
-        <div class="vp-cmd mono"><span class="prompt">Command:</span> <span id="cmdText"></span><span class="caret">_</span></div>
-      </div>
+      </figure>
     </div>
   </section>
 
@@ -107,7 +96,7 @@
 
   <!-- WORKFLOW -->
   <section id="workflow" class="section section-dark">
-    <div class="grid-bg" aria-hidden="true"></div>
+    <canvas class="shader" data-shader="dark" aria-hidden="true"></canvas>
     <div class="wrap">
       <p class="eyebrow light"><span class="ref">S-02</span> Workflow</p>
       <h2>From drawing set to bill of quantities<br>in five commands.</h2>
@@ -134,6 +123,7 @@
       </div>
       <div class="trade">
         <div class="trade-copy">
+          <div class="trade-photo"><img id="tradeImg" src="assets/product/trade-electrification.webp" width="600" height="336" alt=""></div>
           <h3 id="tradeTitle"></h3>
           <p id="tradeText"></p>
           <a class="link" href="https://quantiify.ai/book-a-call/" target="_blank" rel="noopener">See it on your drawings &rarr;</a>
@@ -214,7 +204,9 @@
   </section>
 
   <!-- CTA -->
+  <div class="banner" role="img" aria-label="Building rendered over its construction drawings"><img src="assets/product/building-blueprint.webp" width="1824" height="500" alt="" loading="lazy"></div>
   <section class="section cta">
+    <canvas class="shader" data-shader="light" aria-hidden="true"></canvas>
     <div class="ruler-v left" aria-hidden="true"></div>
     <div class="ruler-v right" aria-hidden="true"></div>
     <div class="wrap center">
@@ -261,6 +253,7 @@
   <span class="tog on">GRID</span><span class="tog on">SNAP</span><span class="tog">ORTHO</span><span class="tog on">OSNAP</span><span class="tog on">AI</span>
 </div>
 
+<script src="shader.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
