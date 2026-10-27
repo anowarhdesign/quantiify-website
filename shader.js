@@ -76,11 +76,10 @@
 
     vec3 col;
     if (dark > .5){
-      col = vec3(.129, .157, .188);                          // model-space background
-      vec3 layer = k == 0 ? vec3(1., .85, .3) : k == 1 ? vec3(.3, .85, .55) : k == 2 ? vec3(.3, .83, 1.) : vec3(.78, .49, 1.);
-      col = mix(col, layer, hv * .15 * a);
-      col = mix(col, vec3(.85, .9, .96), max(wall * .12, ext * .24) * a);
-      if (hover){ col = mix(col, vec3(.15, .39, .96), .05 * a); col = mix(col, vec3(.56, .76, .98), (hp * .25 + wall * .25) * a); }
+      col = vec3(.043, .071, .125);                          // section navy
+      col = mix(col, vec3(.56, .76, .98), hv * .05 * a);
+      col = mix(col, vec3(.56, .76, .98), max(wall * .04, ext * .07) * a);
+      if (hover){ col = mix(col, vec3(.56, .76, .98), (hp * .1 + wall * .1) * a); }
     } else {
       col = vec3(.984, .992, 1.);
       col = mix(col, vec3(.886, .925, 1.), .5 * smoothstep(.85, 0., length(uv - vec2(.15 + .05 * sin(t * .07), .85))));
