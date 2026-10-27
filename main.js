@@ -30,10 +30,9 @@
   numberRulers();
   addEventListener('resize', numberRulers);
 
-  // ---------- crosshair + status bar coords + OSNAP-style hover ----------
+  // ---------- crosshair + OSNAP-style hover ----------
   const xh = document.querySelector('.xhair');
   const snap = document.querySelector('.snap'), tag = snap.querySelector('.snap-tag');
-  const coords = document.getElementById('coords');
   if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
     document.body.classList.add('cad');
     const h = xh.querySelector('.xh-h'), v = xh.querySelector('.xh-v'), b = xh.querySelector('.xh-box');
@@ -49,8 +48,6 @@
       h.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       v.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       b.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-      const X = (e.clientX / 8).toFixed(2), Y = ((document.documentElement.scrollHeight - e.pageY) / 8).toFixed(2);
-      coords.textContent = `X ${X}   Y ${Y}   Z 0.00`;
     });
     addEventListener('scroll', place, { passive: true });
     document.querySelectorAll('a, button, .who-card, .quote, .duo-card').forEach(el => {
@@ -169,6 +166,26 @@
     rbManual = (rbManual ?? +rb.getAttribute('aria-valuenow')) + (e.key === 'ArrowRight' ? 5 : -5);
     setP(rbManual);
   });
+
+  // ---------- status bar: current sheet + scroll progress ----------
+  const sbRef = document.getElementById('sbRef'), sbName = document.getElementById('sbName');
+  const sbBar = document.querySelector('.sb-progress');
+  const sheets = [...document.querySelectorAll('main > section')].map(sec => {
+    const eb = sec.querySelector('.eyebrow');
+    if (sec.classList.contains('hero')) return { sec, ref: 'Q-001', name: 'Overview' };
+    if (sec.classList.contains('cta')) return { sec, ref: 'Q-002', name: 'At the booth' };
+    if (!eb) return null;
+    const ref = eb.querySelector('.ref').textContent;
+    return { sec, ref, name: eb.textContent.replace(ref, '').trim() };
+  }).filter(Boolean);
+  const sheetIO = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const sh = sheets.find(x => x.sec === e.target);
+    sbRef.textContent = sh.ref; sbName.textContent = sh.name;
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  sheets.forEach(x => sheetIO.observe(x.sec));
+  const prog = () => { const h = document.documentElement; sbBar.style.transform = `scaleX(${h.scrollTop / Math.max(1, h.scrollHeight - innerHeight)})`; };
+  addEventListener('scroll', prog, { passive: true }); prog();
 
   // ---------- trades ----------
   const T = [

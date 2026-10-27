@@ -269,12 +269,13 @@
   </div>
 </footer>
 
-<!-- AutoCAD-style status bar -->
-<div class="statusbar mono" aria-hidden="true">
-  <span>MODEL</span><span class="sep"></span>
-  <span id="coords">X 0.00 &nbsp; Y 0.00 &nbsp; Z 0.00</span>
+<!-- Status bar: where you are on the page + book a demo -->
+<div class="statusbar mono">
+  <span class="sb-progress" aria-hidden="true"></span>
+  <span class="sb-sheet"><b id="sbRef">Q-001</b><span id="sbName">Overview</span></span>
   <span class="grow"></span>
-  <span class="tog on">GRID</span><span class="tog on">SNAP</span><span class="tog">ORTHO</span><span class="tog on">OSNAP</span><span class="tog on">AI</span>
+  <a class="sb-mail" href="mailto:info@quantiify.ai">info@quantiify.ai</a>
+  <a class="sb-cta" href="https://quantiify.ai/book-a-call/" target="_blank" rel="noopener"><span class="sb-prompt">Command:</span> Book a demo <span aria-hidden="true">&#x21B5;</span></a>
 </div>
 
 <script src="shader.js"></script>
