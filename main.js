@@ -173,14 +173,14 @@
 
   // ---------- trades ----------
   const T = [
-    { t: 'Electrical, symbol to cable', p: 'Count fixtures, devices and panels straight from the legend, then measure conduit and cable runs across every sheet in the set.', u: 'electrical', s: 'E-101', c: '#ffd84d',
-      r: [['LED downlight 2×2', 'E-LITE', '148', 'EA'], ['Duplex receptacle', 'E-POWR', '212', 'EA'], ['Data outlet', 'E-DATA', '96', 'EA'], ['Panelboard', 'E-POWR', '6', 'EA'], ['EMT conduit ¾"', 'E-COND', '1,284', 'LF']] },
-    { t: 'Architectural, space by space', p: 'Measure rooms, partitions, finishes and openings, so areas, lengths and element counts are ready for pricing.', u: 'architectural', s: 'A-201', c: '#4dd3ff',
-      r: [['Gypsum partition', 'A-WALL', '3,420', 'LF'], ['Carpet tile', 'A-FLOR', '18,600', 'SF'], ['Door, single leaf', 'A-DOOR', '64', 'EA'], ['Storefront window', 'A-GLAZ', '42', 'EA'], ['Ceiling, ACT 2×2', 'A-CLNG', '15,900', 'SF']] },
-    { t: 'Mechanical, duct to rooftop', p: 'Pick up HVAC components, duct runs and rooftop equipment, and keep them tied to the sheets they came from.', u: 'mechanical', s: 'M-301', c: '#4dd88a',
-      r: [['Supply diffuser', 'M-HVAC', '132', 'EA'], ['Return grille', 'M-HVAC', '74', 'EA'], ['Rectangular duct', 'M-DUCT', '2,150', 'LF'], ['VAV box', 'M-EQPM', '28', 'EA'], ['Rooftop unit', 'M-EQPM', '4', 'EA']] },
-    { t: 'Civil, site and infrastructure', p: 'Quantify pipe runs, structures, paving and curbs across site plans for infrastructure and sitework bids.', u: 'civil', s: 'C-401', c: '#ff4d4d',
-      r: [['Storm pipe 18" RCP', 'C-STRM', '1,860', 'LF'], ['Catch basin', 'C-STRM', '22', 'EA'], ['Asphalt paving', 'C-PAVE', '42,300', 'SF'], ['Concrete curb', 'C-CURB', '3,140', 'LF'], ['Sanitary manhole', 'C-SSWR', '9', 'EA']] }
+    { t: 'Electrification', p: 'Lighting, switches, sockets, MDB and SDB, circuits, cables, LPS, wiring and conduiting, HT/LT systems and solar installations.', s: 'E-101', c: '#ffd84d',
+      r: [['Lighting fixture', 'E-LITE', '148', 'NOS'], ['Switch / socket outlet', 'E-POWR', '212', 'NOS'], ['Distribution board (SDB)', 'E-PANL', '6', 'NOS'], ['PVC conduit 25 mm', 'E-COND', '1,284', 'M'], ['Cable 4C × 16 mm²', 'E-CABL', '386', 'M']] },
+    { t: 'Sanitary & plumbing', p: 'Fixtures, fittings, ETP and STP, rainwater harvesting, wastewater treatment systems, drainage networks and water supply.', s: 'P-201', c: '#4dd3ff',
+      r: [['Water closet', 'P-FIXT', '48', 'NOS'], ['Wash basin', 'P-FIXT', '52', 'NOS'], ['uPVC drain pipe 110 mm', 'P-DRNG', '920', 'M'], ['PPR supply pipe 25 mm', 'P-WATR', '1,460', 'M'], ['Inspection chamber', 'P-DRNG', '14', 'NOS']] },
+    { t: 'Electromechanical', p: 'HVAC systems, fire detection and protection, security and surveillance, integrated building management (IBMS), ventilation and utilities.', s: 'M-301', c: '#4dd88a',
+      r: [['Supply air diffuser', 'M-HVAC', '132', 'NOS'], ['GI duct', 'M-DUCT', '2,150', 'M'], ['Smoke detector', 'F-ALRM', '186', 'NOS'], ['Sprinkler head', 'F-SPRK', '412', 'NOS'], ['CCTV camera', 'S-CCTV', '38', 'NOS']] },
+    { t: 'Structural & finishing', p: 'Sub-structure and super-structure elements: foundations, columns, beams and slabs, plus architectural finishes.', s: 'S-401', c: '#ff4d4d',
+      r: [['Isolated footing', 'S-FNDN', '36', 'NOS'], ['RCC column', 'S-COLS', '84', 'NOS'], ['RCC beam', 'S-BEAM', '1,120', 'M'], ['RCC slab 150 mm', 'S-SLAB', '2,860', 'M²'], ['Floor tile finish', 'A-FLOR', '2,410', 'M²']] }
   ];
   const tabs = document.querySelectorAll('.tabs button');
   function showTrade(i) {
@@ -188,7 +188,6 @@
     tabs.forEach((b, j) => b.setAttribute('aria-selected', i === j));
     document.getElementById('tradeTitle').textContent = d.t;
     document.getElementById('tradeText').textContent = d.p;
-    document.getElementById('tradeLink').href = `https://quantiify.ai/solutions/${d.u}/`;
     document.getElementById('tradeSheet').textContent = 'SHEET ' + d.s;
     document.getElementById('tradeRows').innerHTML = d.r.map((r, k) =>
       `<tr class="new"><td style="animation-delay:${k * 60}ms">${r[0]}</td><td class="l" style="animation-delay:${k * 60}ms"><i style="--c:${d.c}"></i>${r[1]}</td><td class="r" style="animation-delay:${k * 60}ms">${r[2]}</td><td class="r u" style="animation-delay:${k * 60}ms">${r[3]}</td></tr>`).join('');
@@ -202,10 +201,10 @@
     const n = e.target;
     io.unobserve(n);
     if (n.classList.contains('num')) {
-      const to = +n.dataset.to, suf = n.dataset.suffix || '', t0 = performance.now(), dur = reduce ? 1 : 1400;
+      const to = +n.dataset.to, pre = n.dataset.prefix || '', suf = n.dataset.suffix || '', t0 = performance.now(), dur = reduce ? 1 : 1400;
       (function f(t) {
         const p = Math.min(1, (t - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - p, 3)));
-        n.textContent = v + suf;
+        n.textContent = pre + v + suf;
         if (p < 1) requestAnimationFrame(f);
       })(t0);
     } else n.classList.add('in');

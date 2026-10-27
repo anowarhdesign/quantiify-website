@@ -148,10 +148,20 @@ h3{font-size:20px;letter-spacing:-.01em;font-weight:700}
   linear-gradient(90deg,rgba(143,194,250,.08) 1px,transparent 1px) 0 0/32px 32px;
   mask-image:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 75%)}
 
+#results h2{margin-bottom:36px}
+.who{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.who-card{background:#fff;border:1px solid var(--line-2);border-radius:var(--r);padding:24px;position:relative}
+.who-card::after{content:"";position:absolute;top:10px;right:10px;width:10px;height:10px;border-top:1px solid var(--blue);border-right:1px solid var(--blue)}
+.who-card span{font-size:11px;color:var(--blue-2)}
+.who-card h3{font-size:17px;margin:10px 0 8px}
+.who-card p{color:var(--muted);font-size:15px}
+.qr{display:inline-flex;flex-direction:column;align-items:center;gap:8px;margin-top:36px;padding:14px;background:#fff;border:1px solid var(--line-2);border-radius:var(--r)}
+.qr img{width:120px;height:120px}
+.qr span{font-size:10px;letter-spacing:.14em;color:var(--muted)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-2)}
 .stat{padding:28px 22px 6px;border-left:1px dashed var(--line-2)}
 .stat:first-child{border-left:0;padding-left:0}
-.num{font-size:clamp(44px,5.4vw,68px);font-weight:700;letter-spacing:-.04em;color:var(--ink);line-height:1}
+.num{white-space:nowrap;font-size:clamp(34px,4.6vw,60px);font-weight:700;letter-spacing:-.04em;color:var(--ink);line-height:1}
 .stat p{color:var(--muted);margin-top:10px}
 
 .steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:56px;counter-reset:s;position:relative}
@@ -255,6 +265,7 @@ tr.new td{animation:rowin .4s both}
   .steps{grid-template-columns:1fr 1fr;row-gap:36px}
   .steps::before{display:none}
   .trade{grid-template-columns:1fr;gap:28px}
+  .who{grid-template-columns:1fr 1fr}
   .tb{grid-template-columns:1fr 1fr 1fr}
   .tb-cell:nth-child(4){border-left:0}
   .tb-cell:nth-child(n+4){border-top:1px solid #3a4560}
@@ -283,7 +294,8 @@ tr.new td{animation:rowin .4s both}
   .tabs{grid-template-columns:1fr 1fr}
   .tabs button:nth-child(3){border-left:0}
   .tabs button:nth-child(n+3){border-top:1px solid var(--ink)}
-  .quotes,.duo{grid-template-columns:1fr}
+  .quotes,.duo,.who{grid-template-columns:1fr}
+  .tabs button{font-size:11px;letter-spacing:.06em;padding:14px 6px}
   .lifecycle{grid-template-columns:1fr 1fr;row-gap:24px}
   .tb{grid-template-columns:1fr 1fr}
   .tb-brand{grid-column:1/-1}
