@@ -110,7 +110,7 @@ def page(p):
     sub_head = re.sub(r'(<meta name="twitter:description" content=")[^"]*', r'\g<1>' + p['lede'], sub_head)
     sub_head = re.sub(r'(<link rel="canonical" href="[^"]*/)"', rf'\1projects/{p["slug"]}.html"', sub_head)
     sub_head = re.sub(r'(<meta property="og:url" content="[^"]*/)"', rf'\1projects/{p["slug"]}.html"', sub_head)
-    sub_head = sub_head.replace('href="styles.css', 'href="../styles.css')
+    sub_head = sub_head.replace('href="styles.min.css', 'href="../styles.min.css')
     return f'''{sub_head}
 <body class="subpage">
 
@@ -212,8 +212,8 @@ def page(p):
 
 {to_sub(status)}
 
-<script src="../shader.js?v={version}"></script>
-<script src="../main.js?v={version}"></script>
+<script defer src="../shader.min.js?v={version}"></script>
+<script defer src="../main.min.js?v={version}"></script>
 </body>
 </html>
 '''

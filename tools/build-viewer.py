@@ -113,6 +113,7 @@ stage = ''.join(frame(k).replace('<div class="fr"', f'<div class="fr" data-i="{i
                 for i, (_, k) in enumerate(TOUR))
 tabs = ''.join(f'<li><button type="button" data-tour="{i}"{" aria-current=\"step\"" if i == 0 else ""}><span>{i + 1:02d}</span>{t}<i class="pb"></i></button></li>'
                for i, (t, _) in enumerate(TOUR))
+stage = stage.replace('loading="lazy"', 'fetchpriority="high"', 1)   # first chapter is the LCP image
 tour = f'''      <figure class="tour reveal" id="tour" aria-label="Quantiify product tour">
         <div class="tour-frame">
           <div class="tour-stage">

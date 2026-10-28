@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anowarhdesign.github.io/quantiify-website/sitemap.xml

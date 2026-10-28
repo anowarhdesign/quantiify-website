@@ -1,0 +1,54 @@
+# Quantiify
+
+> Quantiify is AI-assisted construction takeoff and estimation software by Conneqted Agents. It reads PDF and CAD drawings, detects and counts symbols, measures lengths and areas, and turns reviewed quantities into priced estimates and BOQs. Estimators stay in control: every AI result is reviewed, edited and approved before it is used.
+
+Trades: Electrification; Sanitary & plumbing; Electromechanical; Structural & finishing.
+Workflow: Project setup, Upload, AI legend detection, Symbol count, Cable takeoff, Estimate, Export (Excel, CSV, PDF).
+
+## Plans
+- Free: $0/month. Explore Quantiify and test AI-assisted workflows before scaling.
+- Basic (Team): $299/month. Perfect for individual estimators and small contractor teams.
+- Enterprise: $899/month. Built for growing organizations managing multiple projects and trades.
+
+## Pages
+- [About Quantiify · AI Takeoff for Estimators](https://anowarhdesign.github.io/quantiify-website/about.html): Quantiify helps construction estimators spend less time on repetitive quantity preparation and more time on the decisions that need experience, context and judgment.
+- [Bridging Architectural Schedules and Drawing Geometry · Quantiify Blog](https://anowarhdesign.github.io/quantiify-website/blog/finishes-and-openings.html): Architectural takeoffs require reconciling room finish schedules, door and window schedules, partition types, and detail sections across dozens of…
+- [Eliminating Repetitive Lighting and Power Symbol Counting · Quantiify Blog](https://anowarhdesign.github.io/quantiify-website/blog/lighting-power-takeoffs.html): Electrical estimators often spend up to 70% of their takeoff time manually clicking fixture symbols and counting receptacles across multi-sheet…
+- [Accelerating Mechanical HVAC and Piping Estimation · Quantiify Blog](https://anowarhdesign.github.io/quantiify-website/blog/mechanical-ductwork-piping.html): Commercial HVAC packages involve thousands of linear feet of ductwork, fittings, diffusers, and mechanical equipment schedules. Manually tracing each…
+- [Preventing Costly Omissions in Mechanical Piping Bids · Quantiify Blog](https://anowarhdesign.github.io/quantiify-website/blog/piping-valve-omissions.html): Missing a single specialized balancing valve, backflow preventer, or high-pressure expansion joint can drastically reduce contractor margins on…
+- [Precision Earthwork and Infrastructure Estimation · Quantiify Blog](https://anowarhdesign.github.io/quantiify-website/blog/sitework-earthwork.html): Civil estimating requires calculating cut-and-fill balances, underground utilities, storm drainage networks, and paving quantities from civil grading…
+- [Quantity Takeoff Vs Cost Estimate: What Changes Between Them? · Quantiify Blog](https://anowarhdesign.github.io/quantiify-website/blog/takeoff-vs-cost-estimate.html): In construction estimating, the terms quantity takeoff and cost estimate are often used together. While they are closely connected, they are not the…
+- [Construction Estimating & AI Takeoff Blog · Quantiify](https://anowarhdesign.github.io/quantiify-website/blog.html): Practical guides on construction takeoff, quantity estimation, AI-assisted workflows, drawing review, and trade-specific estimating.
+- [Book a Demo · Quantiify](https://anowarhdesign.github.io/quantiify-website/book.html): Book a Quantiify demo from the calendar or request a call. Discuss your construction takeoff, project volume, and trade requirements with the Quantiify team.
+- [Simplifying electrical estimating from drawings · Quantiify Case Study](https://anowarhdesign.github.io/quantiify-website/case-studies/simplifying-electrical-estimating.html): How Quantiify helps estimators turn electrical drawing pages into structured quantities and cost estimates.
+- [Case Studies · Quantiify](https://anowarhdesign.github.io/quantiify-website/case-studies.html): See how construction teams use Quantiify to simplify drawing analysis, accelerate takeoff, and build more connected estimating workflows.
+- [AI Takeoff & Estimation Software for Construction | Quantiify](https://anowarhdesign.github.io/quantiify-website/): Quantiify reads your PDF and CAD drawings, counts and measures every element with AI, and turns reviewed quantities into priced estimates and BOQs. Book a demo.
+- [Privacy Policy · Quantiify](https://anowarhdesign.github.io/quantiify-website/privacy.html): How Quantiify collects, uses and protects personal data, in line with the laws of Bangladesh.
+- [Electrification Takeoff Software for Estimators | Quantiify](https://anowarhdesign.github.io/quantiify-website/projects/electrification.html): Quantiify helps electrical estimating teams detect repeated components, organize counts, review locations, and prepare structured quantities from complex drawing sets.
+- [Electromechanical Takeoff Software for Estimators | Quantiify](https://anowarhdesign.github.io/quantiify-website/projects/electromechanical.html): Quantiify helps mechanical estimators identify equipment and fixtures, measure relevant scope, organize quantities, and review every result before it moves into the estimate.
+- [Sanitary & Plumbing Takeoff Software | Quantiify](https://anowarhdesign.github.io/quantiify-website/projects/sanitary-plumbing.html): Quantiify helps civil estimating teams measure areas, trace utility and pipe runs, and calculate site quantities with traceable drawing references.
+- [Structural & Finishing Takeoff Software | Quantiify](https://anowarhdesign.github.io/quantiify-website/projects/structural-finishing.html): Quantiify helps architectural estimators extract room dimensions, wall lengths, finish areas, and door/window counts from coordinated drawing sets.
+- [Terms of Service · Quantiify](https://anowarhdesign.github.io/quantiify-website/terms.html): The terms that govern use of the Quantiify website and platform, under the laws of Bangladesh.
+
+## FAQ
+**Can I use Quantiify if my estimating process still requires manual takeoff?**
+Yes. Quantiify supports manual, AI-assisted, and hybrid takeoff workflows. Your estimator can review, edit, override, or complete quantities rather than being forced to accept an automated result.
+
+**How does Quantiify handle projects with multiple sheets and document types?**
+Quantiify is designed to work with project document sets, not just isolated drawings. Your documents can be organized and processed together so the relevant sheets and information are available throughout the takeoff workflow.
+
+**Can Quantiify support different estimating logic for different trades?**
+Yes. Quantiify supports trade-aware workflows where components, measurement methods, calculations, review steps, and structured outputs can be aligned with electrical, mechanical, architectural, and civil estimating requirements.
+
+**Can multiple estimators or quantity surveyors collaborate on the same project?**
+Yes. Team plans support multiple users within the estimating workflow, allowing project work, quantity review, and approval processes to be managed across the team according to the selected plan.
+
+**Which drawing and document formats does Quantiify support?**
+Quantiify supports project drawing sets in approved PDF and CAD formats.
+
+**Can Quantiify generate BOQ-ready outputs for pricing and tender preparation?**
+Quantiify can turn reviewed quantities into structured BOQ outputs that can support pricing, reporting, and downstream tender or estimating workflows. The estimator or quantity surveyor remains responsible for reviewing and approving the final information.
+
+## Contact
+- Book a demo: https://anowarhdesign.github.io/quantiify-website/book.html
+- Email: info@quantiify.ai

@@ -20,6 +20,7 @@ def to_book(html):
 header = home[home.index('<header class="nav">'):home.index('</header>')]
 book = book[:book.index('<header class="nav">')] + to_book(header) + book[book.index('</header>'):]
 book = book[:book.index('<footer')] + to_book(home[home.index('<footer'):])
+book = re.sub(r'href="styles(\.min)?\.css', 'href="styles.min.css', book)
 version = re.search(r'\?v=(\d+)', home).group(1)
 book = re.sub(r'\?v=\d+', '?v=' + version, book)
 (ROOT / 'book.html').write_text(book, encoding='utf-8')

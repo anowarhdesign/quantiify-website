@@ -30,7 +30,7 @@ def fix(html, depth):
     html = re.sub(r'href="#([\w-]+)"', rf'href="{p}index.html#\1"', html)
     html = html.replace(f'href="{p}index.html#top"', f'href="{p}index.html"')
     if depth:
-        for a in ('src="assets/', 'href="assets/', 'href="styles.css', 'src="shader.js', 'src="main.js',
+        for a in ('src="assets/', 'href="assets/', 'href="styles.min.css', 'src="shader.min.js', 'src="main.min.js',
                   'href="projects/', 'href="blog/', 'href="case-studies/') + tuple(f'href="{x}' for x in PAGES):
             html = html.replace(a, a.replace('"', '"' + p, 1))
     return html

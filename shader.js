@@ -90,7 +90,9 @@
     o = vec4(col, 1.);
   }`;
 
-  document.querySelectorAll('canvas.shader').forEach(cv => {
+  // Each background is compiled only when it nears the viewport, in idle time, so it
+  // never competes with the first paint.
+  const init = cv => {
     const gl = cv.getContext('webgl2', { antialias: false, premultipliedAlpha: false });
     if (!gl) { cv.remove(); return; }
     const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
@@ -143,5 +145,12 @@
       kick();
     }).observe(cv);
     cv.classList.add('on');
-  });
+  };
+  const idle = window.requestIdleCallback || (f => setTimeout(f, 200));
+  const near = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    near.unobserve(e.target);
+    idle(() => init(e.target), { timeout: 1500 });
+  }), { rootMargin: '200px 0px' });
+  document.querySelectorAll('canvas.shader').forEach(cv => near.observe(cv));
 })();
