@@ -45,10 +45,11 @@
   }
 
   void main(){
-    vec2 uv = gl_FragCoord.xy / res;
+    vec2 uv = vec2(gl_FragCoord.x, res.y - gl_FragCoord.y) / res.x;   // from the top, in widths: height changes don't move it
     vec2 pan = vec2(t * .055, t * .022);
-    vec2 w = (gl_FragCoord.xy - .5 * res) / S + pan;
-    vec2 wm = (mouse - .5 * res) / S + pan;
+    // anchored to the section's top edge, so a change in section height never shifts the plan
+    vec2 w = vec2(gl_FragCoord.x - .5 * res.x, res.y - gl_FragCoord.y) / S + pan;
+    vec2 wm = vec2(mouse.x - .5 * res.x, res.y - mouse.y) / S + pan;
 
     vec2 cell, lo, hi; room(w, cell, lo, hi);
     vec2 mc, mlo, mhi; room(wm, mc, mlo, mhi);
@@ -71,7 +72,7 @@
     bool hover = all(equal(cell, mc)) && all(equal(lo, mlo)) && all(equal(hi, mhi)) && mouse.x > -9000.;
     float hp = hover ? hatch(0, w) * inset : 0.;            // HATCH preview under the cursor
 
-    float edge = smoothstep(.12, .7, length((uv - .5) * vec2(1.3, 1.)));
+    float edge = smoothstep(.12, .7, length((uv - vec2(.5, .28)) * vec2(1.3, 1.6)));
     float a = .18 + .82 * edge;
 
     vec3 col;
@@ -82,7 +83,7 @@
       if (hover){ col = mix(col, vec3(.56, .76, .98), (hp * .1 + wall * .1) * a); }
     } else {
       col = vec3(.984, .992, 1.);
-      col = mix(col, vec3(.886, .925, 1.), .5 * smoothstep(.85, 0., length(uv - vec2(.15 + .05 * sin(t * .07), .85))));
+      col = mix(col, vec3(.886, .925, 1.), .5 * smoothstep(.85, 0., length(uv - vec2(.15 + .05 * sin(t * .07), .1))));
       col = mix(col, vec3(.56, .76, .98), hv * .11 * a);
       col = mix(col, vec3(.2, .25, .37), max(wall * .05, ext * .09) * a);
       if (hover){ col = mix(col, vec3(.89, .93, 1.), .3 * a); col = mix(col, vec3(.15, .39, .96), (hp * .14 + wall * .2) * a); }
@@ -118,7 +119,8 @@
       cv.width = Math.max(1, r.width * dpr); cv.height = Math.max(1, r.height * dpr);
       gl.viewport(0, 0, cv.width, cv.height);
     }
-    size(); addEventListener('resize', () => { size(); kick(); });
+    size();
+    new ResizeObserver(() => { size(); kick(); }).observe(cv);
     cv.parentElement.addEventListener('pointermove', e => {
       const r = cv.getBoundingClientRect();
       mouse.tx = (e.clientX - r.left) * dpr; mouse.ty = (r.bottom - e.clientY) * dpr;

@@ -1040,3 +1040,5 @@ main > section:not(.hero):not(.p-hero):not(.list-hero),.titleblock{content-visib
 /* contrast */
 .eyebrow{color:var(--slate)}
 .ref{color:#1559c0}
+.links .dd-item{font-family:var(--sans);letter-spacing:0;text-transform:none}
+.links .dd-item span{font-family:var(--sans);letter-spacing:0;text-transform:none;line-height:1.4}

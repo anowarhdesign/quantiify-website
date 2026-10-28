@@ -246,7 +246,7 @@
       el.addEventListener('mouseenter', () => {
         target = el;
         const kind = el.matches('a, button') ? (el.matches('.btn, button') ? 'SELECT' : 'LINK') : 'OBJECT';
-        const label = (el.getAttribute('aria-label') || el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 28);
+        const label = (el.getAttribute('aria-label') || (el.querySelector('b') || el).textContent || '').trim().replace(/\s+/g, ' ').slice(0, 28);
         tag.textContent = `${kind} · ${label}`;
         place();
         document.body.classList.add('snapping');
