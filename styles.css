@@ -264,7 +264,7 @@ tr.new td{animation:rowin .4s both}
 
 /* ---------- title block footer ---------- */
 .titleblock{background:var(--ink);color:#c8d3e6;padding:56px 0 30px}
-.tb{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr 1fr .8fr;border:1.5px solid #3a4560}
+.tb{display:grid;grid-template-columns:1.6fr 1.4fr 1.1fr .7fr;border:1.5px solid #3a4560}
 .tb-cell{padding:16px 18px;border-left:1px solid #3a4560;display:flex;flex-direction:column;gap:6px}
 .tb-cell:first-child{border-left:0}
 .tb-brand img{height:44px;width:auto;margin:4px 0}
@@ -319,8 +319,9 @@ body.snapping .snap{opacity:1}
   .trade{grid-template-columns:1fr;gap:28px}
   .who{grid-template-columns:1fr 1fr}
   .tb{grid-template-columns:1fr 1fr 1fr}
-  .tb-cell:nth-child(4){border-left:0}
-  .tb-cell:nth-child(n+4){border-top:1px solid #3a4560}
+  .tb-brand{grid-column:1/-1}
+  .tb-cell:nth-child(2){border-left:0}
+  .tb-cell:nth-child(n+2){border-top:1px solid #3a4560}
 }
 @media (max-width:720px){
   :root{--gutter:16px}
@@ -348,11 +349,9 @@ body.snapping .snap{opacity:1}
   .quotes,.duo,.who{grid-template-columns:1fr}
   .tabs button{font-size:11px;letter-spacing:.06em;padding:14px 6px}
   .lifecycle{grid-template-columns:1fr 1fr;row-gap:24px}
-  .tb{grid-template-columns:1fr 1fr}
-  .tb-brand{grid-column:1/-1}
+  .tb{grid-template-columns:1fr}
   .tb-cell{border-left:0!important;border-top:1px solid #3a4560}
   .tb-brand{border-top:0}
-  .tb-cell:nth-child(odd):not(.tb-brand){border-left:1px solid #3a4560!important}
   .sb-mail{display:none}
   .sb-sheet span{display:none}
   .dim{margin:20px auto 14px}
