@@ -7,6 +7,19 @@
     document.querySelector('.qr').hidden = false;
   }
 
+  // ---------- nav: Projects menu ----------
+  document.querySelectorAll('.nav-dd').forEach(dd => {
+    const btn = dd.querySelector('.dd-btn');
+    let t;
+    const set = open => { dd.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); };
+    btn.addEventListener('click', () => set(!dd.classList.contains('open')));
+    dd.addEventListener('mouseenter', () => { clearTimeout(t); set(true); });
+    dd.addEventListener('mouseleave', () => { t = setTimeout(() => set(false), 150); });
+    dd.addEventListener('focusout', e => { if (!dd.contains(e.relatedTarget)) set(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && dd.classList.contains('open')) { set(false); btn.focus(); } });
+    document.addEventListener('click', e => { if (!dd.contains(e.target)) set(false); });
+  });
+
   // ---------- rulers ----------
   function numberRulers() {
     document.querySelectorAll('.ruler-v').forEach(r => {
@@ -63,6 +76,7 @@
   }
 
   // ---------- hero product walkthrough ----------
+  if (document.getElementById('productFrame')) {
   // Coordinates are pixels on app-symbol-count.webp (1560 × 1209).
   const IMG = { w: 1560, h: 1209 }, UI = { x: 85, y: 103, w: 1375, h: 1002 };
   const regions = [
@@ -137,7 +151,9 @@
     frame.addEventListener('pointerleave', () => { tx = ty = 0; if (!tiltRaf) tiltRaf = requestAnimationFrame(tick); });
   }
 
+  }
   // ---------- drawing → as-built reveal ----------
+  if (document.getElementById('rb')) {
   const rb = document.getElementById('rb');
   let rbHover = false, rbManual = null;
   const setP = v => {
@@ -166,6 +182,7 @@
     setP(rbManual);
   });
 
+  }
   // ---------- status bar: current sheet + scroll progress ----------
   const sbRef = document.getElementById('sbRef'), sbName = document.getElementById('sbName');
   const sbBar = document.querySelector('.sb-progress');
@@ -187,6 +204,7 @@
   addEventListener('scroll', prog, { passive: true }); prog();
 
   // ---------- customer stories slider ----------
+  if (document.getElementById('stories-track')) {
   const track = document.getElementById('stories-track');
   const slides = [...track.children];
   const slPrev = document.getElementById('slPrev'), slNext = document.getElementById('slNext');
@@ -231,6 +249,7 @@
   addEventListener('resize', sync);
   sync();
 
+  }
   // ---------- pricing: monthly / annual ----------
   document.querySelectorAll('.bill button').forEach(b => b.addEventListener('click', () => {
     document.querySelectorAll('.bill button').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); });
@@ -299,14 +318,15 @@
   });
 
   // ---------- trades ----------
+  if (document.getElementById('tradeRows')) {
   const T = [
-    { t: 'Electrification', img: 'trade-electrification', p: 'Lighting, switches, sockets, MDB and SDB, circuits, cables, LPS, wiring and conduiting, HT/LT systems and solar installations.', s: 'E-101', c: '#ffd84d',
+    { t: 'Electrification', slug: 'electrification', img: 'trade-electrification', p: 'Lighting, switches, sockets, MDB and SDB, circuits, cables, LPS, wiring and conduiting, HT/LT systems and solar installations.', s: 'E-101', c: '#ffd84d',
       r: [['Lighting fixture', 'E-LITE', '148', 'NOS'], ['Switch / socket outlet', 'E-POWR', '212', 'NOS'], ['Distribution board (SDB)', 'E-PANL', '6', 'NOS'], ['PVC conduit 25 mm', 'E-COND', '1,284', 'M'], ['Cable 4C × 16 mm²', 'E-CABL', '386', 'M']] },
-    { t: 'Sanitary & plumbing', img: 'trade-plumbing', p: 'Fixtures, fittings, ETP and STP, rainwater harvesting, wastewater treatment systems, drainage networks and water supply.', s: 'P-201', c: '#4dd3ff',
+    { t: 'Sanitary & plumbing', slug: 'sanitary-plumbing', img: 'trade-plumbing', p: 'Fixtures, fittings, ETP and STP, rainwater harvesting, wastewater treatment systems, drainage networks and water supply.', s: 'P-201', c: '#4dd3ff',
       r: [['Water closet', 'P-FIXT', '48', 'NOS'], ['Wash basin', 'P-FIXT', '52', 'NOS'], ['uPVC drain pipe 110 mm', 'P-DRNG', '920', 'M'], ['PPR supply pipe 25 mm', 'P-WATR', '1,460', 'M'], ['Inspection chamber', 'P-DRNG', '14', 'NOS']] },
-    { t: 'Electromechanical', img: 'trade-electromechanical', p: 'HVAC systems, fire detection and protection, security and surveillance, integrated building management (IBMS), ventilation and utilities.', s: 'M-301', c: '#4dd88a',
+    { t: 'Electromechanical', slug: 'electromechanical', img: 'trade-electromechanical', p: 'HVAC systems, fire detection and protection, security and surveillance, integrated building management (IBMS), ventilation and utilities.', s: 'M-301', c: '#4dd88a',
       r: [['Supply air diffuser', 'M-HVAC', '132', 'NOS'], ['GI duct', 'M-DUCT', '2,150', 'M'], ['Smoke detector', 'F-ALRM', '186', 'NOS'], ['Sprinkler head', 'F-SPRK', '412', 'NOS'], ['CCTV camera', 'S-CCTV', '38', 'NOS']] },
-    { t: 'Structural & finishing', img: 'trade-structural', p: 'Sub-structure and super-structure elements: foundations, columns, beams and slabs, plus architectural finishes.', s: 'S-401', c: '#ff4d4d',
+    { t: 'Structural & finishing', slug: 'structural-finishing', img: 'trade-structural', p: 'Sub-structure and super-structure elements: foundations, columns, beams and slabs, plus architectural finishes.', s: 'S-401', c: '#ff4d4d',
       r: [['Isolated footing', 'S-FNDN', '36', 'NOS'], ['RCC column', 'S-COLS', '84', 'NOS'], ['RCC beam', 'S-BEAM', '1,120', 'M'], ['RCC slab 150 mm', 'S-SLAB', '2,860', 'M²'], ['Floor tile finish', 'A-FLOR', '2,410', 'M²']] }
   ];
   const tabs = document.querySelectorAll('.tabs button');
@@ -315,6 +335,8 @@
     tabs.forEach((b, j) => b.setAttribute('aria-selected', i === j));
     const im = document.getElementById('tradeImg');
     im.src = `assets/product/${d.img}.webp`; im.alt = d.t;
+    const tl = document.getElementById('tradeLink');
+    tl.href = `projects/${d.slug}.html`; tl.innerHTML = `Explore ${d.t} &rarr;`;
     document.getElementById('tradeTitle').textContent = d.t;
     document.getElementById('tradeText').textContent = d.p;
     document.getElementById('tradeSheet').textContent = 'SHEET ' + d.s;
@@ -324,6 +346,7 @@
   tabs.forEach(b => b.addEventListener('click', () => showTrade(+b.dataset.tab)));
   showTrade(0);
 
+  }
   // ---------- counters + reveal ----------
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;

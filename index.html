@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261028202957">
+<link rel="stylesheet" href="styles.css?v=20261028203431">
 </head>
 <body>
 
@@ -40,7 +40,15 @@
     </a>
     <nav class="links" aria-label="Primary">
       <a href="#workflow">Workflow</a>
-      <a href="#trades">Trades</a>
+      <div class="nav-dd">
+        <button type="button" class="dd-btn" aria-expanded="false" aria-controls="ddProjects">Projects</button>
+        <div class="dd-menu" id="ddProjects">
+          <a class="dd-card" href="projects/electrification.html"><img src="assets/product/trade-electrification.webp" width="1200" height="800" alt=""><b>Electrification</b><span>AI-powered electrical takeoffs, from symbols to cable lengths.</span></a>
+          <a class="dd-card" href="projects/sanitary-plumbing.html"><img src="assets/product/trade-plumbing.webp" width="1200" height="800" alt=""><b>Sanitary &amp; plumbing</b><span>Measure civil elements and generate accurate quantities with AI.</span></a>
+          <a class="dd-card" href="projects/electromechanical.html"><img src="assets/product/trade-electromechanical.webp" width="1200" height="800" alt=""><b>Electromechanical</b><span>Detect mechanical components and calculate quantities faster.</span></a>
+          <a class="dd-card" href="projects/structural-finishing.html"><img src="assets/product/trade-structural.webp" width="1200" height="800" alt=""><b>Structural &amp; finishing</b><span>Measure spaces, materials, and building elements with AI.</span></a>
+        </div>
+      </div>
       <a href="#why">Why Quantiify</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -136,7 +144,7 @@
           <div class="trade-photo"><img id="tradeImg" src="assets/product/trade-electrification.webp" width="1200" height="800" alt=""></div>
           <h3 id="tradeTitle"></h3>
           <p id="tradeText"></p>
-          <a class="link" href="#book">See it on your drawings &rarr;</a>
+          <a class="link" id="tradeLink" href="projects/electrification.html">Explore Electrification &rarr;</a>
         </div>
         <div class="sheet">
           <div class="sheet-head mono"><span>QTY SCHEDULE</span><span id="tradeSheet"></span></div>
@@ -418,7 +426,7 @@
   <a class="sb-cta" href="#book">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
 </div>
 
-<script src="shader.js?v=20261028202957"></script>
-<script src="main.js?v=20261028202957"></script>
+<script src="shader.js?v=20261028203431"></script>
+<script src="main.js?v=20261028203431"></script>
 </body>
 </html>
