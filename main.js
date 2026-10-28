@@ -92,7 +92,7 @@
     const dpr = Math.min(devicePixelRatio || 1, 2);
     const fit = () => { cv.width = innerWidth * dpr; cv.height = innerHeight * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
     fit(); addEventListener('resize', fit);
-    const pts = [], LIFE = 650, GAP = 34;   // ms a point lives, px between snap markers
+    const pts = [], LIFE = 420, GAP = 52;   // ms a point lives, px between snap markers
     let raf = 0, lastMark = null;
     addEventListener('mousemove', e => {
       const t = performance.now();
@@ -106,15 +106,15 @@
       ctx.clearRect(0, 0, innerWidth, innerHeight);
       for (let i = 1; i < pts.length; i++) {
         const a = 1 - (now - pts[i].t) / LIFE;
-        ctx.strokeStyle = `rgba(38,100,245,${(a * .35).toFixed(3)})`;
+        ctx.strokeStyle = `rgba(38,100,245,${(a * a * .16).toFixed(3)})`;
         ctx.lineWidth = 1;
         ctx.beginPath(); ctx.moveTo(pts[i - 1].x, pts[i - 1].y); ctx.lineTo(pts[i].x, pts[i].y); ctx.stroke();
       }
       for (const p of pts) {
         if (!p.mark) continue;
         const a = 1 - (now - p.t) / LIFE;
-        ctx.strokeStyle = `rgba(38,100,245,${(a * .6).toFixed(3)})`;
-        ctx.strokeRect(p.x - 3, p.y - 3, 6, 6);
+        ctx.strokeStyle = `rgba(38,100,245,${(a * a * .3).toFixed(3)})`;
+        ctx.strokeRect(p.x - 2, p.y - 2, 4, 4);
       }
       raf = pts.length ? requestAnimationFrame(draw) : 0;
       if (!raf) ctx.clearRect(0, 0, innerWidth, innerHeight);
