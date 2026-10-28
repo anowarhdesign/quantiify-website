@@ -52,6 +52,8 @@ steps = ''.join(f'''        <li class="ab-step reveal"><figure><img src="assets/
 beliefs = ''.join(f'''        <div class="ab-belief reveal"><span class="mono">{i:02d}</span><h3>{t}</h3><p>{d}</p></div>
 ''' for i, (t, d) in enumerate(BELIEFS, 1))
 
+OFFER = (ROOT / 'tools/content/offer.html').read_text(encoding='utf-8')
+
 main = f'''<main id="top">
 
   <!-- HERO -->
@@ -99,10 +101,12 @@ main = f'''<main id="top">
     </div>
   </section>
 
+{OFFER}
+
   <!-- APPROACH -->
   <section class="section">
     <div class="wrap">
-      <p class="eyebrow"><span class="ref">A-04</span> Our approach</p>
+      <p class="eyebrow"><span class="ref">A-05</span> Our approach</p>
       <h2>Five steps, one connected workflow.</h2>
       <ol class="ab-steps">
 {steps}      </ol>
@@ -113,7 +117,7 @@ main = f'''<main id="top">
   <section class="section section-dark">
     <canvas class="shader" data-shader="dark" aria-hidden="true"></canvas>
     <div class="wrap">
-      <p class="eyebrow light"><span class="ref">A-05</span> What we believe</p>
+      <p class="eyebrow light"><span class="ref">A-06</span> What we believe</p>
       <h2>Built for the way estimators actually work.</h2>
       <div class="ab-beliefs">
 {beliefs}      </div>

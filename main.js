@@ -35,9 +35,9 @@
     set(50);
     // a short sweep the first time it is seen, so people know it moves
     if (reduce) return;
-    new IntersectionObserver(([en], ob) => {
-      if (!en.isIntersecting) return;
-      ob.disconnect();
+    // el._sweep lets the How it works viewer replay it whenever the step is shown
+    el._sweep = () => {
+      touched = false;
       const keys = [[0, 50], [700, 78], [1500, 24], [2200, 50]], t0 = performance.now() + 300;
       const ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
       (function f(t) {
@@ -50,6 +50,11 @@
         set(va + (vb - va) * ease(k));
         if (dt < keys[keys.length - 1][0]) requestAnimationFrame(f);
       })(performance.now());
+    };
+    new IntersectionObserver(([en], ob) => {
+      if (!en.isIntersecting) return;
+      ob.disconnect();
+      el._sweep();
     }, { threshold: .5 }).observe(el);
   });
 
@@ -59,27 +64,44 @@
     const panes = [...document.querySelectorAll('.wf-pane')];
     const capR = document.getElementById('wfCapR'), capL = document.getElementById('wfCapL');
     let cur = 0, auto = true, wt;
+    // each step plays its frames (real screens) in order; then the next step, or loop once someone has interacted
+    let inView = false;
+    const playFrames = (i, f = 0) => {
+      clearTimeout(wt);
+      const frames = [...panes[i].querySelectorAll('.fr')], dots = [...panes[i].querySelectorAll('.fr-dots i')];
+      frames.forEach((fr, k) => { fr.hidden = k !== f; });
+      dots.forEach((d, k) => d.classList.toggle('on', k === f));
+      const ba = frames[f].querySelector('[data-ba]');
+      if (ba && ba._sweep) ba._sweep();
+      capL.textContent = ba ? 'Fig. 02 · Drag to compare' : 'Fig. 02 · Product UI';
+      if (reduce || !inView) return;
+      wt = setTimeout(() => {
+        if (f + 1 < frames.length) playFrames(i, f + 1);
+        else if (auto) show((i + 1) % wfSteps.length);
+        else playFrames(i, 0);
+      }, +frames[f].dataset.ms || 5000);
+    };
     const show = i => {
       cur = i;
       wfSteps.forEach((s, k) => { s.classList.toggle('on', k === i); s.setAttribute('aria-selected', k === i); });
       panes.forEach((p, k) => { p.hidden = k !== i; });
       const name = wfSteps[i].querySelector('h3').textContent;
       capR.textContent = String(i + 1).padStart(2, '0') + ' · ' + name;
-      capL.textContent = i === 1 ? 'Fig. 02 · Drag to compare' : 'Fig. 02 · Product UI';
+      playFrames(i);
     };
-    const next = () => { clearTimeout(wt); if (!auto || reduce) return; wt = setTimeout(() => { show((cur + 1) % wfSteps.length); next(); }, cur === 1 ? 6000 : 4200); };
+    const next = () => playFrames(cur);
     const stop = () => { auto = false; clearTimeout(wt); };
     wfSteps.forEach((s, i) => {
       s.addEventListener('click', () => { stop(); show(i); });
-      s.addEventListener('mouseenter', () => { stop(); show(i); });
+      s.addEventListener('mouseenter', () => { auto = false; if (i !== cur) show(i); });
       s.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); stop(); show(i); }
         if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); stop(); const n = (i + (e.key === 'ArrowRight' ? 1 : -1) + wfSteps.length) % wfSteps.length; wfSteps[n].focus(); show(n); }
       });
     });
-    document.querySelector('.wf-viewer').addEventListener('pointerdown', stop);
+    document.querySelector('.wf-viewer').addEventListener('pointerdown', () => { auto = false; });
     show(0);
-    new IntersectionObserver(([e]) => { if (e.isIntersecting) next(); else clearTimeout(wt); }, { threshold: .4 })
+    new IntersectionObserver(([e]) => { inView = e.isIntersecting; if (inView) next(); else clearTimeout(wt); }, { threshold: .4 })
       .observe(document.querySelector('.wf-viewer'));
   }
 
@@ -195,16 +217,18 @@
 
   // ---------- hero product walkthrough ----------
   if (document.getElementById('productFrame')) {
-  // Coordinates are pixels on app-symbol-count.webp (1560 × 1209).
-  const IMG = { w: 1560, h: 1209 }, UI = { x: 85, y: 103, w: 1375, h: 1002 };
+  // Coordinates are pixels on the original 1560 × 1209 export; the page uses the
+  // app window cropped out of it (app-symbol-count-ui.webp), offset by OX/OY.
+  const OX = 89, OY = 109;
+  const IMG = { w: 1371, h: 991 }, UI = { x: 0, y: 0, w: 1371, h: 991 };
   const regions = [
     { x: 1237, y: 200, w: 215, h: 400 },   // AI auto-detect + legend counts
     { x: 352, y: 283, w: 858, h: 615 },    // drawing canvas
     { x: 1240, y: 815, w: 212, h: 230 }    // unsaved edits + commit
-  ];
+  ].map(r => ({ ...r, x: r.x - OX, y: r.y - OY }));
   const symbols = [[550,477],[608,477],[665,477],[884,427],[883,524],[537,535],[646,546],[776,580],[816,580],[873,580],[970,580],
     [560,613],[651,613],[651,641],[762,635],[560,686],[651,686],[762,693],[850,691],[819,720],[840,734],[926,672],[1028,734],
-    [560,757],[651,757],[711,759],[762,767],[934,788],[997,655],[831,580],[651,657]];
+    [560,757],[651,757],[711,759],[762,767],[934,788],[997,655],[831,580],[651,657]].map(([x, y]) => [x - OX, y - OY]);
   const frame = document.getElementById('productFrame');
   const spot = frame.querySelector('.spot'), dets = frame.querySelector('.dets'), scanEl = frame.querySelector('.scanline');
   const steps = [...frame.querySelectorAll('.callout')];
@@ -220,7 +244,7 @@
   function scan() {
     cancelAnimationFrame(scanRaf);
     detEls.forEach(d => d.classList.remove('on'));
-    const x0 = 400, x1 = 1145, t0 = performance.now(), dur = reduce ? 1 : 1800;
+    const x0 = 400 - OX, x1 = 1145 - OX, t0 = performance.now(), dur = reduce ? 1 : 1800;
     frame.classList.add('scanning');
     (function f(t) {
       const p = Math.min(1, (t - t0) / dur), x = x0 + (x1 - x0) * p;
