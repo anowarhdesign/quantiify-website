@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261028220408">
+<link rel="stylesheet" href="styles.css?v=20261028220614">
 </head>
 <body>
 
@@ -118,6 +118,7 @@
       <p class="eyebrow light"><span class="ref">S-02</span> Easy start, flexible work</p>
       <h2>How Quantiify works</h2>
       <p class="lede left light">Every trade works differently. Quantiify is designed to adapt the takeoff workflow to the project, not force every estimator into the same process.</p>
+      <div class="wf-layout">
       <ol class="steps" role="tablist" aria-label="How Quantiify works">
         <li class="reveal" data-wf="0" role="tab" tabindex="0" aria-selected="true"><span class="cmd mono">UPLOAD</span><h3>Upload</h3><p class="sd">Add construction document for your project.</p><p>Bring in your drawings. Add construction documents for your project across approved PDF and CAD formats.</p></li>
         <li class="reveal" data-wf="1" role="tab" tabindex="0" aria-selected="false"><span class="cmd mono">ANALYZE</span><h3>Analyze</h3><p class="sd">Let Quantiify understand the drawing set.</p><p>The system processes and classifies documents, organizes sheets, and prepares relevant takeoff information using AI assistance.</p></li>
@@ -149,6 +150,7 @@
           </figure>
         </div>
         <p class="wf-cap mono"><span id="wfCapL">Fig. 02 &middot; Product UI</span><span id="wfCapR">01 &middot; Upload</span></p>
+      </div>
       </div>
     </div>
   </section>
@@ -348,41 +350,40 @@
     </div>
   </section>
 
-  <!-- ESTIMATE vs AS BUILT -->
-  <section class="rb-band">
+  <!-- CAD DRAWING -> PRICED BOQ -->
+  <section id="offer" class="section offer">
     <div class="wrap">
-      <div class="rb" id="rb" role="slider" tabindex="0" aria-label="Compare the estimate view with the finished building" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-        <img class="rb-base" src="assets/product/building-blueprint.webp" width="1824" height="500" alt="" loading="lazy">
-        <svg class="rb-est" viewBox="0 0 1824 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><pattern id="ansi31" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="12"/></pattern></defs>
-          <g class="m glaze"><rect x="796" y="8" width="206" height="262" fill="url(#ansi31)"/><rect x="796" y="8" width="206" height="262"/></g>
-          <g class="m win"><rect x="1104" y="62" width="26" height="30"/><rect x="1150" y="62" width="26" height="30"/><rect x="1104" y="112" width="26" height="30"/><rect x="1150" y="112" width="26" height="30"/><rect x="1104" y="162" width="26" height="30"/><rect x="1150" y="162" width="26" height="30"/><rect x="1104" y="212" width="26" height="30"/><rect x="1150" y="212" width="26" height="30"/><rect x="1104" y="262" width="26" height="30"/><rect x="1150" y="262" width="26" height="30"/></g>
-          <g class="m store"><rect x="540" y="312" width="672" height="88"/></g>
-          <g class="dimn"><path d="M470 30H780 M470 22V38 M780 22V38"/><path d="M1560 8V300 M1552 8H1568 M1552 300H1568"/></g>
-          <g class="lbl">
-            <g transform="translate(812 150)"><rect width="176" height="42" rx="4"/><text x="12" y="17">GLAZING</text><text x="12" y="34" class="v">412 m²</text></g>
-            <g transform="translate(1200 120)"><rect width="168" height="42" rx="4"/><text x="12" y="17">WINDOWS</text><text x="12" y="34" class="v">96 nos</text></g>
-            <g transform="translate(560 330)"><rect width="200" height="42" rx="4"/><text x="12" y="17">STOREFRONT</text><text x="12" y="34" class="v">68 lm</text></g>
-            <text x="625" y="20" class="d" text-anchor="middle">42.6 m</text>
-            <text x="1580" y="160" class="d">6 floors · 21.0 m</text>
-          </g>
-        </svg>
-        <div class="rb-boq mono" aria-hidden="true">
-          <p class="h"><span>BOQ · Facade</span><span>Sample</span></p>
-          <p><span>Curtain-wall glazing</span><b>412 m²</b></p>
-          <p><span>Windows, double-glazed</span><b>96 nos</b></p>
-          <p><span>Storefront system</span><b>68 lm</b></p>
-          <p><span>Facade cladding</span><b>1,860 m²</b></p>
+      <p class="eyebrow"><span class="ref">S-09</span> What Quantiify does</p>
+      <div class="offer-grid">
+        <div class="offer-copy">
+          <h2>From your CAD drawing to a priced BOQ.</h2>
+          <p class="lede left">You already have the drawings. Quantiify reads them, counts and measures every element, and turns the result into quantities and costs your estimator reviews.</p>
+          <ol class="offer-steps">
+            <li><span class="mono">01</span><div><b>Upload your CAD or PDF set</b><small>Multi-sheet drawings, any trade.</small></div></li>
+            <li><span class="mono">02</span><div><b>AI counts &amp; measures</b><small>Symbols, lengths and areas, picked out by layer.</small></div></li>
+            <li><span class="mono">03</span><div><b>Review &amp; export the BOQ</b><small>Edit, approve, price and export to Excel or PDF.</small></div></li>
+          </ol>
+          <a class="btn btn-primary" href="book.html">See it on your drawings</a>
         </div>
-        <div class="rb-top"><img src="assets/product/building-blueprint.webp" width="1824" height="500" alt="Finished building" loading="lazy"></div>
-        <div class="rb-handle" aria-hidden="true"><span class="mono">&#x2194;</span></div>
-        <span class="rb-tag l mono">Estimate · BOQ</span>
-        <span class="rb-tag r mono">As built</span>
-      </div>
-      <div class="dim rb-dim" aria-hidden="true">
-        <span class="dim-tick"></span><span class="dim-line"></span>
-        <span class="dim-label">EVERY QUANTITY ESTIMATED BEFORE THE BUILDING GOES UP</span>
-        <span class="dim-line"></span><span class="dim-tick"></span>
+        <figure class="p-photo offer-fig reveal">
+          <div class="p-photo-frame">
+            <div class="ba ba-cad offer-ba" data-ba role="slider" tabindex="0" aria-label="Drag to compare your CAD drawing with Quantiify's AI takeoff and BOQ" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+              <img class="ba-after" src="assets/cad/electrification-takeoff.webp" width="1034" height="748" loading="lazy" alt="Electrical layout with AI-detected lights, fans, sockets and AC points highlighted">
+              <img class="ba-before" src="assets/cad/electrification-cad.webp" width="1034" height="748" loading="lazy" alt="">
+              <div class="ba-handle" aria-hidden="true"><span><i>&#x2194;</i></span></div>
+              <span class="ba-tag l mono">01 &middot; Your CAD drawing</span><span class="ba-tag r mono">02 &middot; AI takeoff + BOQ</span>
+              <div class="offer-boq mono" aria-hidden="true">
+                <p class="h"><span>BOQ &middot; E-101</span><span>Sample</span></p>
+                <p><span>Light points</span><b>34 nos</b></p>
+                <p><span>Ceiling fans</span><b>7 nos</b></p>
+                <p><span>Socket outlets</span><b>26 nos</b></p>
+                <p><span>AC points</span><b>6 nos</b></p>
+                <p class="t"><span>Estimated total</span><b>$ 18,420</b></p>
+              </div>
+            </div>
+          </div>
+          <figcaption class="mono"><span>Fig. &middot; Drag to compare</span><span>Drawing &rarr; quantities &rarr; cost</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -414,7 +415,7 @@
   <a class="sb-cta" href="book.html">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
 </div>
 
-<script src="shader.js?v=20261028220408"></script>
-<script src="main.js?v=20261028220408"></script>
+<script src="shader.js?v=20261028220614"></script>
+<script src="main.js?v=20261028220614"></script>
 </body>
 </html>
