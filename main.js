@@ -83,6 +83,44 @@
       .observe(document.querySelector('.wf-viewer'));
   }
 
+  // ---------- CAD mouse trail: a fading polyline with snap-point markers ----------
+  if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    const cv = document.createElement('canvas');
+    cv.className = 'trail'; cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    const ctx = cv.getContext('2d');
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const fit = () => { cv.width = innerWidth * dpr; cv.height = innerHeight * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+    fit(); addEventListener('resize', fit);
+    const pts = [], LIFE = 650, GAP = 34;   // ms a point lives, px between snap markers
+    let raf = 0, lastMark = null;
+    addEventListener('mousemove', e => {
+      const t = performance.now();
+      const mark = !lastMark || Math.hypot(e.clientX - lastMark.x, e.clientY - lastMark.y) > GAP;
+      if (mark) lastMark = { x: e.clientX, y: e.clientY };
+      pts.push({ x: e.clientX, y: e.clientY, t, mark });
+      if (!raf) raf = requestAnimationFrame(draw);
+    }, { passive: true });
+    function draw(now) {
+      while (pts.length && now - pts[0].t > LIFE) pts.shift();
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (let i = 1; i < pts.length; i++) {
+        const a = 1 - (now - pts[i].t) / LIFE;
+        ctx.strokeStyle = `rgba(38,100,245,${(a * .35).toFixed(3)})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(pts[i - 1].x, pts[i - 1].y); ctx.lineTo(pts[i].x, pts[i].y); ctx.stroke();
+      }
+      for (const p of pts) {
+        if (!p.mark) continue;
+        const a = 1 - (now - p.t) / LIFE;
+        ctx.strokeStyle = `rgba(38,100,245,${(a * .6).toFixed(3)})`;
+        ctx.strokeRect(p.x - 3, p.y - 3, 6, 6);
+      }
+      raf = pts.length ? requestAnimationFrame(draw) : 0;
+      if (!raf) ctx.clearRect(0, 0, innerWidth, innerHeight);
+    }
+  }
+
   // ---------- rulers ----------
   function numberRulers() {
     document.querySelectorAll('.ruler-v').forEach(r => {
