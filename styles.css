@@ -932,8 +932,8 @@ a.post-card:hover{border-color:var(--blue);box-shadow:0 0 0 3px var(--sky-2)}
 .an-dashboard .newp{animation:dNew var(--d) infinite}
 @keyframes dNew{0%,40%{opacity:0}48%,100%{opacity:1}}
 .an-dashboard .cur{animation:dCur var(--d) infinite}
-@keyframes dCur{0%{left:60%;top:60%}50%,100%{left:90%;top:26%}}
-.an-dashboard .ring{left:90%;top:26%;animation:dClick var(--d) infinite}
+@keyframes dCur{0%{left:60%;top:60%}50%,100%{left:91.4%;top:26.4%}}
+.an-dashboard .ring{left:91.4%;top:26.4%;animation:dClick var(--d) infinite}
 @keyframes dClick{0%,55%{opacity:0;scale:.4}62%{opacity:1;scale:1}75%,100%{opacity:0;scale:1.8}}
 /* project setup */
 .an-setup .type{position:absolute;left:44.7%;top:29.9%;font-family:var(--sans);color:var(--ink);background:#fff;white-space:nowrap;overflow:hidden;width:0;padding-right:2px;border-right:1.5px solid var(--blue);animation:typeIn var(--d) infinite steps(23)}

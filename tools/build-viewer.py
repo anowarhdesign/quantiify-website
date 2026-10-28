@@ -28,7 +28,7 @@ def tip(t):
 # (image, width, height, alt, ms, overlay)
 FRAMES = {
     'dashboard': ('dashboard', 1800, 1190, 'Quantiify dashboard with projects', 2600,
-                  box('newp', 85.6, 23.8, 9.6, 3.8) + CUR + tip('Start from the dashboard &middot; New project')),
+                  box('newp', 87.0, 24.2, 9.8, 4.0) + CUR + tip('Start from the dashboard &middot; New project')),
     'setup': ('project-setup', 1800, 1190, 'Create New Project form', 3400,
               '<span class="type">Downtown Office Complex</span>' + box('create', 43.9, 80.6, 30, 3.8) + CUR
               + tip('Name it, pick the trade and units')),
