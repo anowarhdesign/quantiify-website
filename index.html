@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610282017">
+<link rel="stylesheet" href="styles.css?v=20261028202146">
 </head>
 <body>
 
@@ -180,21 +180,41 @@
   </section>
 
   <!-- PROOF -->
-  <section class="section">
+  <section class="section" id="stories">
     <div class="wrap">
-      <p class="eyebrow"><span class="ref">S-06</span> What estimators say</p>
-      <div class="quotes">
-        <figure class="quote reveal">
-          <span class="big mono">3 days &rarr; 6 hrs</span>
-          <p>Takeoff time on an electrical package went from three days to under six hours.</p>
-          <figcaption>Reported by an electrical contractor</figcaption>
-        </figure>
-        <figure class="quote reveal">
-          <span class="big mono">95%+</span>
-          <p>Accuracy above 95% on complex civil drawing sets, with every quantity still reviewed by the team.</p>
-          <figcaption>Reported by a civil estimator</figcaption>
-        </figure>
+      <p class="eyebrow"><span class="ref">S-06</span> Customer stories</p>
+      <div class="stories-head">
+        <h2>See Quantiify in the real world.</h2>
+        <div class="sl-nav">
+          <span class="sl-count mono" aria-live="polite"><b id="slNow">01</b> / 04</span>
+          <button type="button" class="sl-btn" id="slPrev" aria-label="Previous story">&larr;</button>
+          <button type="button" class="sl-btn" id="slNext" aria-label="Next story">&rarr;</button>
+        </div>
       </div>
+      <div class="slider" id="stories-track" role="region" aria-roledescription="carousel" aria-label="Customer stories" tabindex="0">
+          <figure class="quote" role="group" aria-roledescription="slide" aria-label="1 of 4">
+            <span class="big mono">3 days &rarr; 6 hrs</span>
+            <blockquote>We cut takeoff time from 3 days to under 6 hours and now bid 3&times; more projects monthly. It has transformed our estimation throughput with reliable accuracy. Their customer support assisted our setup from day one. I wholeheartedly recommend Quantiify!</blockquote>
+            <figcaption>Electrical contractor</figcaption>
+          </figure>
+          <figure class="quote" role="group" aria-roledescription="slide" aria-label="2 of 4">
+            <span class="big mono">95%+</span>
+            <blockquote>The adaptive symbol recognition delivered 95%+ accuracy on complex drawing sets. It has completely transformed our takeoff consistency. Their customer support and trade logic are outstanding. I highly recommend them to any infrastructure firm!</blockquote>
+            <figcaption>Civil estimator</figcaption>
+          </figure>
+          <figure class="quote" role="group" aria-roledescription="slide" aria-label="3 of 4">
+            <span class="big mono">&frac12; prep time</span>
+            <blockquote>Quantiify has truly transformed how we handle commercial drawing sets. We cut preparation hours in half without losing estimator oversight. Their customer support is top notch, always responsive to trade needs. I highly recommend this to estimating teams!</blockquote>
+            <figcaption>Quantiify customer</figcaption>
+          </figure>
+          <figure class="quote" role="group" aria-roledescription="slide" aria-label="4 of 4">
+            <span class="big mono">Estimator control</span>
+            <blockquote>Quantiify has truly transformed our takeoff workflow. The platform prioritizes estimator control and precision, making the entire bid process seamless. Their customer support is top notch, always ready to assist with complex drawings. I highly recommend using this platform!</blockquote>
+            <figcaption>Quantiify customer</figcaption>
+          </figure>
+      </div>
+      <div class="sl-ruler" aria-hidden="true"><span id="slBar"></span></div>
+      <a class="link" href="https://quantiify.ai/case-studies/" target="_blank" rel="noopener">Read case studies &rarr;</a>
     </div>
   </section>
 
@@ -284,7 +304,7 @@
   <a class="sb-cta" href="https://quantiify.ai/book-a-call/" target="_blank" rel="noopener">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
 </div>
 
-<script src="shader.js?v=202610282017"></script>
-<script src="main.js?v=202610282017"></script>
+<script src="shader.js?v=20261028202146"></script>
+<script src="main.js?v=20261028202146"></script>
 </body>
 </html>

@@ -402,3 +402,29 @@ body.snapping .snap{opacity:1}
   .cmp-r .cmp-c.q::before{color:var(--blue);font-weight:600}
   .cmp-r:last-child .cmp-c.q{border-bottom:0}
 }
+
+/* customer stories slider */
+.stories-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.stories-head h2{margin-bottom:0}
+.sl-nav{display:flex;align-items:center;gap:8px}
+.sl-count{font-size:12px;letter-spacing:.12em;color:var(--muted);margin-right:10px}
+.sl-count b{color:var(--ink);font-weight:600}
+.sl-btn{width:44px;height:44px;display:grid;place-items:center;font:500 18px var(--mono);border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:6px;cursor:pointer;transition:background .2s,color .2s,opacity .2s}
+.sl-btn:hover:not(:disabled){background:var(--ink);color:#fff}
+.sl-btn:disabled{opacity:.3;cursor:default}
+.sl-btn:focus-visible,.slider:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.slider{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 24px) / 2);gap:24px;margin-top:36px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:2px;cursor:grab}
+.slider::-webkit-scrollbar{display:none}
+.slider.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;user-select:none}
+.slider .quote{scroll-snap-align:start;display:flex;flex-direction:column}
+.quote blockquote{font-size:17px;color:var(--ink-2);line-height:1.6;flex:1}
+.sl-ruler{position:relative;height:18px;margin:26px 0 22px;border-bottom:1px solid var(--line-2);
+  background:repeating-linear-gradient(to right,var(--muted-2) 0 1px,transparent 1px 40px) bottom left/100% 10px no-repeat,
+             repeating-linear-gradient(to right,var(--line-2) 0 1px,transparent 1px 8px) bottom left/100% 5px no-repeat}
+.sl-ruler span{position:absolute;left:0;bottom:-1px;height:3px;width:50%;background:var(--blue);transition:left .35s cubic-bezier(.2,.8,.2,1),width .35s}
+@media (max-width:720px){
+  .slider{grid-auto-columns:88%;gap:14px}
+  .quote{padding:24px}
+  .quote blockquote{font-size:16px}
+  .quote .big{font-size:24px}
+}

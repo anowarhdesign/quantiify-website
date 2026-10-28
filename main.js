@@ -187,6 +187,51 @@
   const prog = () => { const h = document.documentElement; sbBar.style.transform = `scaleX(${h.scrollTop / Math.max(1, h.scrollHeight - innerHeight)})`; };
   addEventListener('scroll', prog, { passive: true }); prog();
 
+  // ---------- customer stories slider ----------
+  const track = document.getElementById('stories-track');
+  const slides = [...track.children];
+  const slPrev = document.getElementById('slPrev'), slNext = document.getElementById('slNext');
+  const slNowEl = document.getElementById('slNow'), slBar = document.getElementById('slBar');
+  const slStep = () => slides[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0);
+  const perView = () => Math.max(1, Math.round(track.clientWidth / slStep()));
+  const sync = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    const i = Math.round(track.scrollLeft / slStep());
+    slNowEl.textContent = String(i + 1).padStart(2, '0');
+    const pv = Math.min(perView(), slides.length);
+    slBar.style.width = (pv / slides.length * 100) + '%';
+    slBar.style.left = (Math.min(i, slides.length - pv) / slides.length * 100) + '%';
+    slPrev.disabled = track.scrollLeft <= 2;
+    slNext.disabled = track.scrollLeft >= max - 2;
+  };
+  let slTarget = 0;
+  const go = d => {
+    const last = slides.length - Math.min(perView(), slides.length);
+    slTarget = Math.max(0, Math.min(last, Math.round(track.scrollLeft / slStep()) + d));
+    track.scrollTo({ left: slTarget * slStep(), behavior: reduce ? 'auto' : 'smooth' });
+  };
+  slPrev.addEventListener('click', () => go(-1));
+  slNext.addEventListener('click', () => go(1));
+  track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+  track.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); slNext.click(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); slPrev.click(); }
+  });
+  // mouse drag (touch and trackpads scroll natively)
+  let dragX = null, startLeft = 0;
+  track.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse') return;
+    dragX = e.clientX; startLeft = track.scrollLeft; track.classList.add('dragging');
+  });
+  addEventListener('pointermove', e => { if (dragX !== null) track.scrollLeft = startLeft - (e.clientX - dragX); });
+  addEventListener('pointerup', () => {
+    if (dragX === null) return;
+    dragX = null; track.classList.remove('dragging');
+    track.scrollTo({ left: Math.round(track.scrollLeft / slStep()) * slStep(), behavior: 'smooth' });
+  });
+  addEventListener('resize', sync);
+  sync();
+
   // ---------- trades ----------
   const T = [
     { t: 'Electrification', img: 'trade-electrification', p: 'Lighting, switches, sockets, MDB and SDB, circuits, cables, LPS, wiring and conduiting, HT/LT systems and solar installations.', s: 'E-101', c: '#ffd84d',
