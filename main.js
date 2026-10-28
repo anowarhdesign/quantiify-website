@@ -53,6 +53,36 @@
     }, { threshold: .5 }).observe(el);
   });
 
+  // ---------- How it works: step -> product screen ----------
+  const wfSteps = [...document.querySelectorAll('[data-wf]')];
+  if (wfSteps.length) {
+    const panes = [...document.querySelectorAll('.wf-pane')];
+    const capR = document.getElementById('wfCapR'), capL = document.getElementById('wfCapL');
+    let cur = 0, auto = true, wt;
+    const show = i => {
+      cur = i;
+      wfSteps.forEach((s, k) => { s.classList.toggle('on', k === i); s.setAttribute('aria-selected', k === i); });
+      panes.forEach((p, k) => { p.hidden = k !== i; });
+      const name = wfSteps[i].querySelector('h3').textContent;
+      capR.textContent = String(i + 1).padStart(2, '0') + ' · ' + name;
+      capL.textContent = i === 1 ? 'Fig. 02 · Drag to compare' : 'Fig. 02 · Product UI';
+    };
+    const next = () => { clearTimeout(wt); if (!auto || reduce) return; wt = setTimeout(() => { show((cur + 1) % wfSteps.length); next(); }, cur === 1 ? 6000 : 4200); };
+    const stop = () => { auto = false; clearTimeout(wt); };
+    wfSteps.forEach((s, i) => {
+      s.addEventListener('click', () => { stop(); show(i); });
+      s.addEventListener('mouseenter', () => { stop(); show(i); });
+      s.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); stop(); show(i); }
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); stop(); const n = (i + (e.key === 'ArrowRight' ? 1 : -1) + wfSteps.length) % wfSteps.length; wfSteps[n].focus(); show(n); }
+      });
+    });
+    document.querySelector('.wf-viewer').addEventListener('pointerdown', stop);
+    show(0);
+    new IntersectionObserver(([e]) => { if (e.isIntersecting) next(); else clearTimeout(wt); }, { threshold: .4 })
+      .observe(document.querySelector('.wf-viewer'));
+  }
+
   // ---------- rulers ----------
   function numberRulers() {
     document.querySelectorAll('.ruler-v').forEach(r => {

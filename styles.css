@@ -593,7 +593,7 @@ body.snapping .snap{opacity:1}
 .fit li{display:flex;gap:12px;align-items:baseline;color:var(--ink-2)}
 .fit li::before{content:"";flex:none;width:7px;height:7px;border:1.5px solid var(--blue);rotate:45deg;translate:0 -2px}
 .wf-img{margin:0;position:relative}
-.wf-img{max-width:560px;width:100%;justify-self:center}
+.wf-img{max-width:640px;width:100%;justify-self:center}
 .p-photo-frame.fit{background:var(--paper-2)}
 .p-photo-frame.fit img{aspect-ratio:auto;object-fit:contain}
 .feats{margin-bottom:0}
@@ -656,3 +656,18 @@ body.snapping .snap{opacity:1}
 
 /* dedicated booking page */
 .book-page{min-height:calc(100vh - 68px);padding-top:72px}
+
+/* How it works: selectable steps + product UI viewer */
+.steps li[data-wf]{cursor:pointer;outline:none;transition:opacity .25s}
+.steps li[data-wf]:not(.on){opacity:.55}
+.steps li[data-wf]:hover,.steps li[data-wf]:focus-visible{opacity:1}
+.steps li[data-wf].on::before{background:var(--sky);color:var(--ink)}
+.steps li[data-wf].on h3{color:var(--sky)}
+.steps li[data-wf]:focus-visible::before{box-shadow:0 0 0 3px rgba(143,194,250,.45)}
+.wf-viewer{padding:10px}
+.wf-pane{margin:0;aspect-ratio:1800/1280;display:grid;place-items:center;background:#fff;overflow:hidden}
+.wf-pane[hidden]{display:none}
+.wf-pane img{width:100%;height:100%;object-fit:contain;display:block;animation:fadein .35s both}
+.wf-pane .ba-sheet{width:100%;height:100%;aspect-ratio:auto}
+.wf-cap{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between;margin-top:12px;padding-top:8px;border-top:1px solid #2d3650;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+.wf-cap span:last-child{color:var(--sky)}

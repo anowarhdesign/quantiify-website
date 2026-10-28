@@ -175,8 +175,8 @@ def page(p):
           <ul class="fit">{fit(p['fit1'])}</ul>
         </div>
         <figure class="p-photo wf-img reveal">
-          <div class="p-photo-frame fit"><img src="../assets/projects/{p['slug']}-onsite.webp" width="720" height="700" loading="lazy" alt="Estimator verification workflow with on-site review, AI legend detection, and audit trail"></div>
-          <figcaption class="mono"><span>Fig. 03</span><span>Estimator review</span></figcaption>
+          <div class="p-photo-frame fit"><img src="../assets/ui/takeoff-cable.webp" width="1800" height="1280" loading="lazy" alt="Quantiify takeoff workspace: AI auto-detect, measurements, detected items and commit"></div>
+          <figcaption class="mono"><span>Fig. 03</span><span>Takeoff workspace</span></figcaption>
         </figure>
       </div>
       <p class="eyebrow wf-eyebrow"><span class="ref">P-03</span> A workflow your estimator can verify</p>
@@ -187,8 +187,8 @@ def page(p):
           <ul class="fit">{fit(p['fit2'])}</ul>
         </div>
         <figure class="p-photo wf-img reveal">
-          <div class="p-photo-frame fit"><img src="../assets/projects/{p['slug']}-review.webp" width="720" height="700" loading="lazy" alt="Quantiify {plain(p['name']).lower()} takeoff review and quantity pricing interface"></div>
-          <figcaption class="mono"><span>Fig. 04</span><span>Takeoff &amp; pricing review</span></figcaption>
+          <div class="p-photo-frame fit"><img src="../assets/ui/estimate.webp" width="1800" height="1423" loading="lazy" alt="Quantiify estimation table with priced quantities"></div>
+          <figcaption class="mono"><span>Fig. 04</span><span>Estimation</span></figcaption>
         </figure>
       </div>
     </div>

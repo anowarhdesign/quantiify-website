@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261028214323">
+<link rel="stylesheet" href="styles.css?v=20261028220128">
 </head>
 <body>
 
@@ -118,24 +118,38 @@
       <p class="eyebrow light"><span class="ref">S-02</span> Easy start, flexible work</p>
       <h2>How Quantiify works</h2>
       <p class="lede left light">Every trade works differently. Quantiify is designed to adapt the takeoff workflow to the project, not force every estimator into the same process.</p>
-      <ol class="steps">
-        <li class="reveal"><span class="cmd mono">UPLOAD</span><h3>Upload</h3><p class="sd">Add construction document for your project.</p><p>Bring in your drawings. Add construction documents for your project across approved PDF and CAD formats.</p></li>
-        <li class="reveal"><span class="cmd mono">ANALYZE</span><h3>Analyze</h3><p class="sd">Let Quantiify understand the drawing set.</p><p>The system processes and classifies documents, organizes sheets, and prepares relevant takeoff information using AI assistance.</p></li>
-        <li class="reveal"><span class="cmd mono">TAKEOFF</span><h3>Takeoff</h3><p class="sd">Count and measure what matters.</p><p>Use AI-assisted tools to identify components, count symbols, and perform relevant linear and area measurements.</p></li>
-        <li class="reveal"><span class="cmd mono">ESTIMATE</span><h3>Estimate</h3><p class="sd">Turn quantities into estimating information.</p><p>Apply project and trade calculations using estimation datasets to move beyond raw counts and generate the BOQ.</p></li>
-        <li class="reveal"><span class="cmd mono">EXPORT</span><h3>Export</h3><p class="sd">Take reviewed quantities forward.</p><p>Generate structured BOQ and schedule outputs for estimating, pricing, reporting, and downstream workflows.</p></li>
+      <ol class="steps" role="tablist" aria-label="How Quantiify works">
+        <li class="reveal" data-wf="0" role="tab" tabindex="0" aria-selected="true"><span class="cmd mono">UPLOAD</span><h3>Upload</h3><p class="sd">Add construction document for your project.</p><p>Bring in your drawings. Add construction documents for your project across approved PDF and CAD formats.</p></li>
+        <li class="reveal" data-wf="1" role="tab" tabindex="0" aria-selected="false"><span class="cmd mono">ANALYZE</span><h3>Analyze</h3><p class="sd">Let Quantiify understand the drawing set.</p><p>The system processes and classifies documents, organizes sheets, and prepares relevant takeoff information using AI assistance.</p></li>
+        <li class="reveal" data-wf="2" role="tab" tabindex="0" aria-selected="false"><span class="cmd mono">TAKEOFF</span><h3>Takeoff</h3><p class="sd">Count and measure what matters.</p><p>Use AI-assisted tools to identify components, count symbols, and perform relevant linear and area measurements.</p></li>
+        <li class="reveal" data-wf="3" role="tab" tabindex="0" aria-selected="false"><span class="cmd mono">ESTIMATE</span><h3>Estimate</h3><p class="sd">Turn quantities into estimating information.</p><p>Apply project and trade calculations using estimation datasets to move beyond raw counts and generate the BOQ.</p></li>
+        <li class="reveal" data-wf="4" role="tab" tabindex="0" aria-selected="false"><span class="cmd mono">EXPORT</span><h3>Export</h3><p class="sd">Take reviewed quantities forward.</p><p>Generate structured BOQ and schedule outputs for estimating, pricing, reporting, and downstream workflows.</p></li>
       </ol>
-      <figure class="p-photo wf-demo reveal">
-        <div class="p-photo-frame">
-          <div class="ba ba-sheet" data-ba role="slider" tabindex="0" aria-label="Drag to compare the raw drawing sheet with the AI-detected takeoff" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <div class="p-photo wf-demo reveal">
+        <div class="p-photo-frame wf-viewer">
+          <figure class="wf-pane" data-pane="0">
+            <img src="assets/ui/upload.webp" width="1800" height="1189" loading="lazy" alt="Quantiify File Upload screen with drawing files added to a project">
+          </figure>
+          <figure class="wf-pane" data-pane="1" hidden>
+            <div class="ba ba-sheet" data-ba role="slider" tabindex="0" aria-label="Drag to compare the raw drawing sheet with the AI-detected takeoff" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
             <img class="ba-after" src="assets/product/sheet-detected.webp" width="1732" height="1040" loading="lazy" alt="Floor plan with AI-detected electrical symbols boxed by type">
             <img class="ba-before" src="assets/product/sheet-raw.webp" width="1732" height="1040" loading="lazy" alt="">
             <div class="ba-handle" aria-hidden="true"><span><i>&#x2194;</i></span></div>
             <span class="ba-tag l mono">Raw sheet</span><span class="ba-tag r mono">AI-detected</span>
           </div>
+          </figure>
+          <figure class="wf-pane" data-pane="2" hidden>
+            <img src="assets/ui/takeoff-cable.webp" width="1800" height="1280" loading="lazy" alt="Quantiify Cable Length Measurement screen with AI auto-detect, measurements and detected items">
+          </figure>
+          <figure class="wf-pane" data-pane="3" hidden>
+            <img src="assets/ui/estimate.webp" width="1800" height="1423" loading="lazy" alt="Quantiify Estimation table with priced symbol counts and cable lengths">
+          </figure>
+          <figure class="wf-pane" data-pane="4" hidden>
+            <img src="assets/ui/export.webp" width="1800" height="1423" loading="lazy" alt="Quantiify Export Estimation dialog with Excel, CSV and PDF formats">
+          </figure>
         </div>
-        <figcaption class="mono"><span>Fig. 02 &middot; Drag to compare</span><span>Analyze &rarr; Takeoff</span></figcaption>
-      </figure>
+        <p class="wf-cap mono"><span id="wfCapL">Fig. 02 &middot; Product UI</span><span id="wfCapR">01 &middot; Upload</span></p>
+      </div>
     </div>
   </section>
 
@@ -400,7 +414,7 @@
   <a class="sb-cta" href="book.html">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
 </div>
 
-<script src="shader.js?v=20261028214323"></script>
-<script src="main.js?v=20261028214323"></script>
+<script src="shader.js?v=20261028220128"></script>
+<script src="main.js?v=20261028220128"></script>
 </body>
 </html>
