@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simplifying electrical estimating from drawings · Quantiify Case Study</title>
+<meta name="description" content="How Quantiify helps estimators turn electrical drawing pages into structured quantities and cost estimates.">
+<link rel="icon" href="../assets/quantiify-mark.svg">
+<link rel="canonical" href="https://anowarhdesign.github.io/quantiify-website/case-studies/simplifying-electrical-estimating.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quantiify by Conneqted Agents">
+<meta property="og:url" content="https://anowarhdesign.github.io/quantiify-website/case-studies/simplifying-electrical-estimating.html">
+<meta property="og:title" content="Quantiify · AI takeoff &amp; estimation">
+<meta property="og:description" content="Less counting. More estimation. Quantiify turns PDF and CAD drawings into reviewed quantities, BOQs and budgets.">
+<meta property="og:image" content="https://anowarhdesign.github.io/quantiify-website/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quantiify by Conneqted Agents: Less counting. More estimation.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quantiify · AI takeoff &amp; estimation">
+<meta name="twitter:description" content="Less counting. More estimation. AI takeoff and estimating for construction teams.">
+<meta name="twitter:image" content="https://anowarhdesign.github.io/quantiify-website/assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20261028221521">
+</head>
+<body>
+
+<!-- CAD crosshair (desktop pointer only) -->
+<div class="xhair" aria-hidden="true"><span class="xh-h"></span><span class="xh-v"></span><span class="xh-box"></span></div>
+<div class="snap" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="snap-tag mono"></span></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html" aria-label="Quantiify home">
+      <img src="../assets/quantiify-logo.svg" alt="Quantiify" class="q-logo">
+      <span class="by"><span>by</span><img src="../assets/conneqted-logo-dark.svg" alt="Conneqted Agents"></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="../index.html#workflow">Workflow</a>
+      <div class="nav-dd">
+        <button type="button" class="dd-btn" aria-expanded="false" aria-controls="ddProjects">Projects</button>
+        <div class="dd-menu" id="ddProjects">
+          <a class="dd-card" href="../projects/electrification.html"><img src="../assets/product/trade-electrification.webp" width="1200" height="800" alt=""><b>Electrification</b><span>AI-powered electrical takeoffs, from symbols to cable lengths.</span></a>
+          <a class="dd-card" href="../projects/sanitary-plumbing.html"><img src="../assets/product/trade-plumbing.webp" width="1200" height="800" alt=""><b>Sanitary &amp; plumbing</b><span>Measure civil elements and generate accurate quantities with AI.</span></a>
+          <a class="dd-card" href="../projects/electromechanical.html"><img src="../assets/product/trade-electromechanical.webp" width="1200" height="800" alt=""><b>Electromechanical</b><span>Detect mechanical components and calculate quantities faster.</span></a>
+          <a class="dd-card" href="../projects/structural-finishing.html"><img src="../assets/product/trade-structural.webp" width="1200" height="800" alt=""><b>Structural &amp; finishing</b><span>Measure spaces, materials, and building elements with AI.</span></a>
+        </div>
+      </div>
+      <a href="../index.html#pricing">Pricing</a>
+      <div class="nav-dd small">
+        <button type="button" class="dd-btn" aria-expanded="false" aria-controls="ddResources">Resources</button>
+        <div class="dd-menu dd-list" id="ddResources">
+          <a class="dd-item" href="../blog.html"><b>Blog</b><span>Guides on takeoff and estimating</span></a>
+          <a class="dd-item" href="../case-studies.html"><b>Case studies</b><span>How teams estimate with Quantiify</span></a>
+          <a class="dd-item" href="../index.html#faq"><b>FAQ</b><span>Questions estimators ask most</span></a>
+        </div>
+      </div>
+      <a href="../about.html">About</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="../book.html">Book a demo</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero p-hero list-hero">
+    <canvas class="shader" data-shader="light" aria-hidden="true"></canvas>
+    <div class="wrap p-hero-in">
+      <div class="p-hero-copy">
+        <nav class="crumbs mono" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../case-studies.html">Case studies</a><span>/</span><span aria-current="page">Electrification</span></nav>
+        <div class="post-meta mono"><span>Electrification</span><span>Commercial building</span><span>Construction estimating</span></div>
+        <h1>Simplifying electrical estimating from drawings</h1>
+        <p class="lede left">How Quantiify helps estimators turn electrical drawing pages into structured quantities and cost estimates.</p>
+      </div>
+      <figure class="p-photo"><div class="p-photo-frame"><img src="../assets/cad/electrification-takeoff.webp" alt="Electrical layout with AI-detected elements"></div>
+        <figcaption class="mono"><span>Fig. 01</span><span>Electrical layout plan</span></figcaption></figure>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap post-wrap">
+      <div class="post-main">
+        <section class="cs-sec" id="s1">
+          <p class="eyebrow"><span class="ref">01</span> Context</p>
+          <h2>Electrical estimating starts with understanding every detail in the drawing.</h2>
+          <div class="prose"><p>Estimators need to identify and quantify a wide range of electrical components, including lights, switches, sockets, fans, cables, and other symbols across multiple drawing pages. These quantities then need to be connected with relevant pricing sources to build the final estimate.</p></div>
+        </section>
+        <section class="cs-sec" id="s2">
+          <p class="eyebrow"><span class="ref">02</span> Problem</p>
+          <h2>Too much manual work between drawings and the final estimate.</h2>
+          <div class="prose"><p>Reviewing drawings page by page, identifying symbols, counting components, measuring cables, and matching each item with pricing sources can make electrical estimating repetitive and time-consuming.</p>
+<p>The process can also introduce inconsistencies when quantities or pricing need to be manually transferred and reviewed across different stages.</p></div>
+        </section>
+        <section class="cs-sec" id="s3">
+          <p class="eyebrow"><span class="ref">03</span> Approach</p>
+          <h2>Connecting drawing analysis with estimating.</h2>
+          <div class="prose"><p>Quantiify brings drawing analysis, quantity takeoff, pricing, and estimation into one connected workflow.</p><ol class="cs-chain"><li><span class="mono">01</span>Upload</li><li><span class="mono">02</span>Analyze</li><li><span class="mono">03</span>Takeoff</li><li><span class="mono">04</span>Estimate</li><li><span class="mono">05</span>Export</li></ol><p>AI assists with identifying and quantifying electrical elements, while estimators remain in control of reviewing, adjusting, and validating the results.</p></div>
+        </section>
+        <section class="cs-sec" id="s4">
+          <p class="eyebrow"><span class="ref">04</span> Solution</p>
+          <h2>From electrical drawings to estimate-ready data.</h2>
+          <div class="prose"><ul><li>Upload electrical drawing pages directly into the workspace.</li><li>Identify lights, switches, sockets, fans, cables, and other electrical components.</li><li>Generate quantities and cable measurements from the detected elements.</li><li>Match items with relevant pricing sources, brands, and unit prices.</li><li>Combine quantities and pricing to generate the overall estimated electrical cost.</li><li>Review AI-generated results, make adjustments when needed, and finalize the estimate.</li></ul></div>
+        </section>
+        <section class="cs-sec" id="s5">
+          <p class="eyebrow"><span class="ref">05</span> Outcome</p>
+          <h2>A more connected and consistent electrical estimating workflow.</h2>
+          <div class="prose"><div class="cs-out"><div><h3>Less Manual Work</h3><p>Quantiify reduces the effort required to review drawing pages, identify electrical symbols, count components, and measure cables helping estimators takeoff with less repetitive work.</p></div><div><h3>Connected Estimation</h3><p>Detected quantities can be connected with pricing sources and unit rates to build a more structured electrical estimate, while keeping the estimator in control of the final result.</p></div></div></div>
+        </section>
+        <section class="cs-sec" id="s6">
+          <p class="eyebrow"><span class="ref">06</span> Final takeaway</p>
+          <h2>Turning drawing data into a clearer path to cost.</h2>
+          <div class="prose"><p>By connecting symbol detection, quantity takeoff, pricing, and estimation in one workflow, Quantiify helps estimators spend less time on repetitive tasks and more time reviewing the estimate that matters.</p></div>
+        </section>
+      </div>
+      <aside class="post-aside">
+        <nav class="aside-toc" aria-label="On this page"><p class="mono">On this page</p><a href="#s1"><span class="mono">01</span>Context</a><a href="#s2"><span class="mono">02</span>Problem</a><a href="#s3"><span class="mono">03</span>Approach</a><a href="#s4"><span class="mono">04</span>Solution</a><a href="#s5"><span class="mono">05</span>Outcome</a><a href="#s6"><span class="mono">06</span>Final takeaway</a></nav>
+        <div class="aside-card">
+          <p>Want the same workflow on your drawings?</p>
+          <a class="btn btn-primary" href="../book.html">Book a demo</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <section id="cta" class="section cta cta-band">
+    <canvas class="shader" data-shader="light" aria-hidden="true"></canvas>
+    <div class="ruler-v left" aria-hidden="true"></div>
+    <div class="ruler-v right" aria-hidden="true"></div>
+    <div class="wrap center">
+      <div class="dim" aria-hidden="true">
+        <span class="dim-tick"></span><span class="dim-line"></span>
+        <span class="dim-label">YOUR NEXT TAKEOFF</span>
+        <span class="dim-line"></span><span class="dim-tick"></span>
+      </div>
+      <h2>Spend less time on the takeoff.<br>Spend more time estimating.</h2>
+      <p class="lede center">Bring a drawing set and see Quantiify count it, or tell us about your estimating workflow.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="../book.html">Book a demo</a>
+        <a class="btn btn-ghost" href="../book.html#request">Request a call</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="titleblock">
+  <div class="wrap">
+    <div class="tb">
+      <div class="tb-cell tb-brand">
+        <span class="tb-k">Drawn by</span>
+        <img src="../assets/conneqted-logo.svg" alt="Conneqted Agents">
+        <p>Agentic SaaS and AI products, from idea to production.</p>
+      </div>
+      <div class="tb-cell"><span class="tb-k">Pages</span><span class="tb-v tb-links"><a href="../about.html">About</a><a href="../blog.html">Blog</a><a href="../case-studies.html">Case studies</a><a href="../book.html">Book a demo</a></span></div>
+      <div class="tb-cell"><span class="tb-k">Contact</span><span class="tb-v"><a href="mailto:info@quantiify.ai">info@quantiify.ai</a><br><a href="mailto:support@conneqtedagents.ai">support@conneqtedagents.ai</a><br><a href="tel:+14085005613">+1 (408) 500-5613</a></span></div>
+      <div class="tb-cell"><span class="tb-k">Address</span><span class="tb-v">6412 Spring Meadow Ct<br>San Jose, CA, USA</span></div>
+      <div class="tb-cell tb-sheet"><span class="tb-k">Sheet</span><span class="tb-v big mono">Q-001</span><span class="tb-k">Rev 01 · NTS</span></div>
+    </div>
+    <p class="fine mono">© <span id="yr"></span> Conneqted Agents · <a href="https://conneqtedagents.ai/" target="_blank" rel="noopener">conneqtedagents.ai</a></p>
+  </div>
+</footer>
+
+<!-- Status bar: where you are on the page + book a demo -->
+<div class="statusbar mono">
+  <span class="sb-progress" aria-hidden="true"></span>
+  <span class="sb-sheet"><b id="sbRef">Q-001</b><span id="sbName">Overview</span></span>
+  <span class="grow"></span>
+  <a class="sb-mail" href="mailto:info@quantiify.ai">info@quantiify.ai</a>
+  <a class="sb-cta" href="../book.html">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
+</div>
+
+<script src="../shader.js?v=20261028221521"></script>
+<script src="../main.js?v=20261028221521"></script>
+</body>
+</html>

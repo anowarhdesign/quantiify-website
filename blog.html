@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Construction Estimating &amp; AI Takeoff Blog · Quantiify</title>
+<meta name="description" content="Practical guides on construction takeoff, quantity estimation, AI-assisted workflows, drawing review, and trade-specific estimating.">
+<link rel="icon" href="assets/quantiify-mark.svg">
+<link rel="canonical" href="https://anowarhdesign.github.io/quantiify-website/blog.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quantiify by Conneqted Agents">
+<meta property="og:url" content="https://anowarhdesign.github.io/quantiify-website/blog.html">
+<meta property="og:title" content="Quantiify · AI takeoff &amp; estimation">
+<meta property="og:description" content="Less counting. More estimation. Quantiify turns PDF and CAD drawings into reviewed quantities, BOQs and budgets.">
+<meta property="og:image" content="https://anowarhdesign.github.io/quantiify-website/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quantiify by Conneqted Agents: Less counting. More estimation.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quantiify · AI takeoff &amp; estimation">
+<meta name="twitter:description" content="Less counting. More estimation. AI takeoff and estimating for construction teams.">
+<meta name="twitter:image" content="https://anowarhdesign.github.io/quantiify-website/assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261028221521">
+</head>
+<body>
+
+<!-- CAD crosshair (desktop pointer only) -->
+<div class="xhair" aria-hidden="true"><span class="xh-h"></span><span class="xh-v"></span><span class="xh-box"></span></div>
+<div class="snap" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="snap-tag mono"></span></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Quantiify home">
+      <img src="assets/quantiify-logo.svg" alt="Quantiify" class="q-logo">
+      <span class="by"><span>by</span><img src="assets/conneqted-logo-dark.svg" alt="Conneqted Agents"></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="index.html#workflow">Workflow</a>
+      <div class="nav-dd">
+        <button type="button" class="dd-btn" aria-expanded="false" aria-controls="ddProjects">Projects</button>
+        <div class="dd-menu" id="ddProjects">
+          <a class="dd-card" href="projects/electrification.html"><img src="assets/product/trade-electrification.webp" width="1200" height="800" alt=""><b>Electrification</b><span>AI-powered electrical takeoffs, from symbols to cable lengths.</span></a>
+          <a class="dd-card" href="projects/sanitary-plumbing.html"><img src="assets/product/trade-plumbing.webp" width="1200" height="800" alt=""><b>Sanitary &amp; plumbing</b><span>Measure civil elements and generate accurate quantities with AI.</span></a>
+          <a class="dd-card" href="projects/electromechanical.html"><img src="assets/product/trade-electromechanical.webp" width="1200" height="800" alt=""><b>Electromechanical</b><span>Detect mechanical components and calculate quantities faster.</span></a>
+          <a class="dd-card" href="projects/structural-finishing.html"><img src="assets/product/trade-structural.webp" width="1200" height="800" alt=""><b>Structural &amp; finishing</b><span>Measure spaces, materials, and building elements with AI.</span></a>
+        </div>
+      </div>
+      <a href="index.html#pricing">Pricing</a>
+      <div class="nav-dd small">
+        <button type="button" class="dd-btn" aria-expanded="false" aria-controls="ddResources">Resources</button>
+        <div class="dd-menu dd-list" id="ddResources">
+          <a class="dd-item" href="blog.html"><b>Blog</b><span>Guides on takeoff and estimating</span></a>
+          <a class="dd-item" href="case-studies.html"><b>Case studies</b><span>How teams estimate with Quantiify</span></a>
+          <a class="dd-item" href="index.html#faq"><b>FAQ</b><span>Questions estimators ask most</span></a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="book.html">Book a demo</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero p-hero list-hero">
+    <canvas class="shader" data-shader="light" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span aria-current="page">Blog</span></nav>
+      <p class="eyebrow"><span class="ref">B-01</span> Blog</p>
+      <h1>Construction estimating &amp; <em>AI takeoff</em> blog</h1>
+      <p class="lede left">Practical guides on construction takeoff, quantity estimation, AI-assisted workflows, drawing review, and trade-specific estimating.</p>
+    </div>
+  </section>
+  <section class="section list-body">
+    <div class="wrap">
+      <div class="filters mono" role="group" aria-label="Filter by trade"><button type="button" data-filter="all" class="on">All</button><button type="button" data-filter="Electrification">Electrification</button><button type="button" data-filter="Sanitary &amp; plumbing">Sanitary &amp; plumbing</button><button type="button" data-filter="Electromechanical">Electromechanical</button><button type="button" data-filter="Structural &amp; finishing">Structural &amp; finishing</button></div>
+      <div class="post-grid" data-filter-grid>
+        <a class="post-card reveal" href="blog/takeoff-vs-cost-estimate.html" data-trade="Electrification">
+          <figure><img src="assets/ui/estimate.webp" loading="lazy" alt=""></figure>
+          <div class="post-meta mono"><span>Electrification</span><span>2 min read</span></div>
+          <h3>Quantity Takeoff Vs Cost Estimate: What Changes Between Them?</h3>
+          <p>In construction estimating, the terms quantity takeoff and cost estimate are often used together. While they are closely connected, they are not the…</p>
+          <span class="link">Read article &rarr;</span>
+        </a>
+        <a class="post-card reveal" href="blog/lighting-power-takeoffs.html" data-trade="Electrification">
+          <figure><img src="assets/product/trade-electrification.webp" loading="lazy" alt=""></figure>
+          <div class="post-meta mono"><span>Electrification</span><span>2 min read</span></div>
+          <h3>Eliminating Repetitive Lighting and Power Symbol Counting</h3>
+          <p>Electrical estimators often spend up to 70% of their takeoff time manually clicking fixture symbols and counting receptacles across multi-sheet…</p>
+          <span class="link">Read article &rarr;</span>
+        </a>
+        <a class="post-card reveal" href="blog/mechanical-ductwork-piping.html" data-trade="Electromechanical">
+          <figure><img src="assets/product/trade-electromechanical.webp" loading="lazy" alt=""></figure>
+          <div class="post-meta mono"><span>Electromechanical</span><span>2 min read</span></div>
+          <h3>Accelerating Mechanical HVAC and Piping Estimation</h3>
+          <p>Commercial HVAC packages involve thousands of linear feet of ductwork, fittings, diffusers, and mechanical equipment schedules. Manually tracing each…</p>
+          <span class="link">Read article &rarr;</span>
+        </a>
+        <a class="post-card reveal" href="blog/finishes-and-openings.html" data-trade="Structural &amp; finishing">
+          <figure><img src="assets/product/trade-structural.webp" loading="lazy" alt=""></figure>
+          <div class="post-meta mono"><span>Structural &amp; finishing</span><span>2 min read</span></div>
+          <h3>Bridging Architectural Schedules and Drawing Geometry</h3>
+          <p>Architectural takeoffs require reconciling room finish schedules, door and window schedules, partition types, and detail sections across dozens of…</p>
+          <span class="link">Read article &rarr;</span>
+        </a>
+        <a class="post-card reveal" href="blog/sitework-earthwork.html" data-trade="Sanitary &amp; plumbing">
+          <figure><img src="assets/product/trade-plumbing.webp" loading="lazy" alt=""></figure>
+          <div class="post-meta mono"><span>Sanitary &amp; plumbing</span><span>2 min read</span></div>
+          <h3>Precision Earthwork and Infrastructure Estimation</h3>
+          <p>Civil estimating requires calculating cut-and-fill balances, underground utilities, storm drainage networks, and paving quantities from civil grading…</p>
+          <span class="link">Read article &rarr;</span>
+        </a>
+        <a class="post-card reveal" href="blog/piping-valve-omissions.html" data-trade="Electromechanical">
+          <figure><img src="assets/cad/electromechanical-takeoff.webp" loading="lazy" alt=""></figure>
+          <div class="post-meta mono"><span>Electromechanical</span><span>2 min read</span></div>
+          <h3>Preventing Costly Omissions in Mechanical Piping Bids</h3>
+          <p>Missing a single specialized balancing valve, backflow preventer, or high-pressure expansion joint can drastically reduce contractor margins on…</p>
+          <span class="link">Read article &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="cta" class="section cta cta-band">
+    <canvas class="shader" data-shader="light" aria-hidden="true"></canvas>
+    <div class="ruler-v left" aria-hidden="true"></div>
+    <div class="ruler-v right" aria-hidden="true"></div>
+    <div class="wrap center">
+      <div class="dim" aria-hidden="true">
+        <span class="dim-tick"></span><span class="dim-line"></span>
+        <span class="dim-label">YOUR NEXT TAKEOFF</span>
+        <span class="dim-line"></span><span class="dim-tick"></span>
+      </div>
+      <h2>Spend less time on the takeoff.<br>Spend more time estimating.</h2>
+      <p class="lede center">Bring a drawing set and see Quantiify count it, or tell us about your estimating workflow.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="book.html">Book a demo</a>
+        <a class="btn btn-ghost" href="book.html#request">Request a call</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="titleblock">
+  <div class="wrap">
+    <div class="tb">
+      <div class="tb-cell tb-brand">
+        <span class="tb-k">Drawn by</span>
+        <img src="assets/conneqted-logo.svg" alt="Conneqted Agents">
+        <p>Agentic SaaS and AI products, from idea to production.</p>
+      </div>
+      <div class="tb-cell"><span class="tb-k">Pages</span><span class="tb-v tb-links"><a href="about.html">About</a><a href="blog.html">Blog</a><a href="case-studies.html">Case studies</a><a href="book.html">Book a demo</a></span></div>
+      <div class="tb-cell"><span class="tb-k">Contact</span><span class="tb-v"><a href="mailto:info@quantiify.ai">info@quantiify.ai</a><br><a href="mailto:support@conneqtedagents.ai">support@conneqtedagents.ai</a><br><a href="tel:+14085005613">+1 (408) 500-5613</a></span></div>
+      <div class="tb-cell"><span class="tb-k">Address</span><span class="tb-v">6412 Spring Meadow Ct<br>San Jose, CA, USA</span></div>
+      <div class="tb-cell tb-sheet"><span class="tb-k">Sheet</span><span class="tb-v big mono">Q-001</span><span class="tb-k">Rev 01 · NTS</span></div>
+    </div>
+    <p class="fine mono">© <span id="yr"></span> Conneqted Agents · <a href="https://conneqtedagents.ai/" target="_blank" rel="noopener">conneqtedagents.ai</a></p>
+  </div>
+</footer>
+
+<!-- Status bar: where you are on the page + book a demo -->
+<div class="statusbar mono">
+  <span class="sb-progress" aria-hidden="true"></span>
+  <span class="sb-sheet"><b id="sbRef">Q-001</b><span id="sbName">Overview</span></span>
+  <span class="grow"></span>
+  <a class="sb-mail" href="mailto:info@quantiify.ai">info@quantiify.ai</a>
+  <a class="sb-cta" href="book.html">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
+</div>
+
+<script src="shader.js?v=20261028221521"></script>
+<script src="main.js?v=20261028221521"></script>
+</body>
+</html>

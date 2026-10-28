@@ -1,0 +1,896 @@
+{
+ "blogs": [
+  {
+   "slug": "quantity-takeoff-vs-cost-estimate-what-changes-between-them",
+   "blocks": [
+    [
+     "h1",
+     "Quantity Takeoff Vs Cost Estimate: What Changes Between Them?"
+    ],
+    [
+     "h2",
+     "Understanding the difference between quantity takeoff and cost estimation—and why both matter for a reliable construction estimate."
+    ],
+    [
+     "p",
+     "In construction estimating, the terms quantity takeoff and cost estimate are often used together. While they are closely connected, they are not the same process. A quantity takeoff determines what is needed and how much of it is needed. A cost estimate takes those quantities and determines what the project is expected to cost. Understanding the difference helps estimators build a more structured workflow, reduce errors, and make better-informed decisions throughout the estimating process."
+    ],
+    [
+     "h3",
+     "What Is a Quantity Takeoff?"
+    ],
+    [
+     "p",
+     "A quantity takeoff is the process of reviewing construction drawings, specifications, and other project documents to identify the materials, components, and quantities required project."
+    ],
+    [
+     "li",
+     "Number of light fixtures"
+    ],
+    [
+     "li",
+     "Number of switches and outlets"
+    ],
+    [
+     "li",
+     "Cable lengths"
+    ],
+    [
+     "li",
+     "Conduit quantities"
+    ],
+    [
+     "li",
+     "Other electrical components"
+    ],
+    [
+     "h3",
+     "What Is a Cost Estimate?"
+    ],
+    [
+     "p",
+     "A cost estimate takes the quantities identified during takeoff and assigns costs to them."
+    ],
+    [
+     "li",
+     "Material costs"
+    ],
+    [
+     "li",
+     "Labor Cost"
+    ],
+    [
+     "li",
+     "Overhead"
+    ],
+    [
+     "li",
+     "Markup"
+    ],
+    [
+     "li",
+     "Waste or allowances"
+    ],
+    [
+     "h3",
+     "What Actually Changes Between the Two?"
+    ],
+    [
+     "p",
+     "The biggest change is the type of information being added."
+    ],
+    [
+     "p",
+     "During quantity takeoff, an estimator might determine that a project requires:"
+    ],
+    [
+     "p",
+     "450 m of cable"
+    ],
+    [
+     "p",
+     "During cost estimation, that quantity is combined with pricing information:"
+    ],
+    [
+     "p",
+     "450 m × $3.20/m = $1,440"
+    ],
+    [
+     "p",
+     "The quantity itself has not changed. What changes is the cost information attached to it."
+    ],
+    [
+     "p",
+     "This distinction becomes especially important when prices vary by supplier, location, specification, labor rate, or project conditions."
+    ],
+    [
+     "h3",
+     "Ready to make estimating more connected? :"
+    ],
+    [
+     "p",
+     "Quantiify helps bring drawing analysis, takeoff, pricing, review, and estimation into a single AI-assisted workflow—so estimators can spend less time on repetitive work and more time making informed decisions."
+    ]
+   ],
+   "cat_guess": "ELECTRICAL"
+  },
+  {
+   "slug": "lighting-and-power-takeoffs-eliminating-symbol-counting",
+   "blocks": [
+    [
+     "h1",
+     "The Future of Construction Estimating: From Manual Takeoff"
+    ],
+    [
+     "h2",
+     "Eliminating Repetitive Lighting and Power Symbol Counting"
+    ],
+    [
+     "p",
+     "Electrical estimators often spend up to 70% of their takeoff time manually clicking fixture symbols and counting receptacles across multi-sheet commercial drawing sets."
+    ],
+    [
+     "h3",
+     "Pattern Recognition Across Drawing Sets"
+    ],
+    [
+     "p",
+     "With symbol-aware AI detection, light fixtures, emergency ballasts, occupancy sensors, and receptacle types are counted across entire sheet sets in seconds."
+    ],
+    [
+     "h3",
+     "Complete Reviewer Control"
+    ],
+    [
+     "p",
+     "Estimators can inspect every counted element on the drawing, adjust bounding boxes, add custom tags, or reclassify items before generating final pricing schedules."
+    ]
+   ],
+   "cat_guess": "ELECTRICAL"
+  },
+  {
+   "slug": "streamlining-mechanical-takeoff-ductwork-piping",
+   "blocks": [
+    [
+     "h1",
+     "The Future of Construction Estimating: From Manual Takeoff"
+    ],
+    [
+     "h2",
+     "Accelerating Mechanical HVAC and Piping Estimation"
+    ],
+    [
+     "p",
+     "Commercial HVAC packages involve thousands of linear feet of ductwork, fittings, diffusers, and mechanical equipment schedules. Manually tracing each run on complex MEP sheets creates significant estimating bottlenecks."
+    ],
+    [
+     "h3",
+     "Automated Ductwork Sizing & Linear Measurements"
+    ],
+    [
+     "p",
+     "Advanced preconstruction vision models detect duct geometry, cross-sectional dimensions, insulation requirements, and pressure classes directly from floor plans and riser diagrams."
+    ],
+    [
+     "h3",
+     "Piping Schedule Verification"
+    ],
+    [
+     "p",
+     "Chilled water, condenser water, and refrigerant piping takeoffs require trade-aware intelligence to properly account for pipe materials, valve packages, and hanger spacing."
+    ]
+   ],
+   "cat_guess": "MECHANICAL"
+  },
+  {
+   "slug": "architectural-quantity-review-finishes-openings",
+   "blocks": [
+    [
+     "h1",
+     "The Future of Construction Estimating: From Manual Takeoff"
+    ],
+    [
+     "h2",
+     "Bridging Architectural Schedules and Drawing Geometry"
+    ],
+    [
+     "p",
+     "Architectural takeoffs require reconciling room finish schedules, door and window schedules, partition types, and detail sections across dozens of drawings."
+    ],
+    [
+     "h3",
+     "Room Boundary and Area Detection"
+    ],
+    [
+     "p",
+     "Modern preconstruction systems instantly measure net floor areas, perimeter lengths, and wall surface areas while respecting deductions for openings and curtain walls."
+    ],
+    [
+     "h3",
+     "Accurate Partition Assembly Schedules"
+    ],
+    [
+     "p",
+     "Automated partition type classification assigns dry-wall layers, stud gauges, and acoustic insulation specifications based directly on architectural legends."
+    ]
+   ],
+   "cat_guess": "ARCHITECTURAL"
+  },
+  {
+   "slug": "sitework-and-earthwork-calculations-civil-estimating",
+   "blocks": [
+    [
+     "h1",
+     "The Future of Construction Estimating: From Manual Takeoff"
+    ],
+    [
+     "h2",
+     "Precision Earthwork and Infrastructure Estimation"
+    ],
+    [
+     "p",
+     "Civil estimating requires calculating cut-and-fill balances, underground utilities, storm drainage networks, and paving quantities from civil grading and utility plans."
+    ],
+    [
+     "h3",
+     "Trenching and Pipe Bedding Calculations"
+    ],
+    [
+     "p",
+     "By extracting invert elevations, rim heights, and pipe slopes from plan and profile sheets, estimators calculate exact trench excavations, pipe bedding volumes, and backfill quantities."
+    ],
+    [
+     "h3",
+     "Surface Paving and Curbing Schedules"
+    ],
+    [
+     "p",
+     "Distinguish asphalt types, concrete paving, curbs, and aggregate base courses with verifiable square footage and tonnage estimates."
+    ]
+   ],
+   "cat_guess": "CIVIL"
+  },
+  {
+   "slug": "piping-schedules-valve-detection-avoiding-omissions",
+   "blocks": [
+    [
+     "h1",
+     "The Future of Construction Estimating: From Manual Takeoff"
+    ],
+    [
+     "h2",
+     "Preventing Costly Omissions in Mechanical Piping Bids"
+    ],
+    [
+     "p",
+     "Missing a single specialized balancing valve, backflow preventer, or high-pressure expansion joint can drastically reduce contractor margins on commercial mechanical bids."
+    ],
+    [
+     "h3",
+     "Automated Verification of Piping Diagrams"
+    ],
+    [
+     "p",
+     "Correlating isometric schematics, riser diagrams, and plan drawings ensures every fitting and accessory specified in the engineering documents is accounted for."
+    ],
+    [
+     "h3",
+     "Export Ready to Pricing Software"
+    ],
+    [
+     "p",
+     "Organized bills of materials integrate smoothly into estimating spreadsheets and downstream pricing software without manual rekeying."
+    ]
+   ],
+   "cat_guess": "MECHANICAL"
+  }
+ ],
+ "cases": [
+  {
+   "slug": "simplifying-electrical-estimating-from-drawings-1",
+   "blocks": [
+    [
+     "h1",
+     "Simplifying Electrical Estimating From Drawings ."
+    ],
+    [
+     "p",
+     "How Quantiify helps estimators turn electrical drawing pages into structured quantities and cost estimates."
+    ],
+    [
+     "h2",
+     "Electrical estimating starts with understanding every detail in the drawing."
+    ],
+    [
+     "p",
+     "Estimators need to identify and quantify a wide range of electrical components, including lights, switches, sockets, fans, cables, and other symbols across multiple drawing pages. These quantities then need to be connected with relevant pricing sources to build the final estimate."
+    ],
+    [
+     "h2",
+     "Too much manual work between drawings and the final estimate."
+    ],
+    [
+     "p",
+     "Reviewing drawings page by page, identifying symbols, counting components, measuring cables, and matching each item with pricing sources can make electrical estimating repetitive and time-consuming."
+    ],
+    [
+     "p",
+     "The process can also introduce inconsistencies when quantities or pricing need to be manually transferred and reviewed across different stages."
+    ],
+    [
+     "h2",
+     "Connecting drawing analysis with estimating."
+    ],
+    [
+     "p",
+     "Quantiify brings drawing analysis, quantity takeoff, pricing, and estimation into one connected workflow."
+    ],
+    [
+     "p",
+     "AI assists with identifying and quantifying electrical elements, while estimators remain in control of reviewing, adjusting, and validating the results."
+    ],
+    [
+     "h2",
+     "From electrical drawings to estimate-ready data."
+    ],
+    [
+     "li",
+     "Upload electrical drawing pages directly into the workspace."
+    ],
+    [
+     "li",
+     "Identify lights, switches, sockets, fans, cables, and other electrical components."
+    ],
+    [
+     "li",
+     "Generate quantities and cable measurements from the detected elements."
+    ],
+    [
+     "li",
+     "Match items with relevant pricing sources, brands, and unit prices."
+    ],
+    [
+     "li",
+     "Combine quantities and pricing to generate the overall estimated electrical cost."
+    ],
+    [
+     "li",
+     "Review AI-generated results, make adjustments when needed, and finalize the estimate."
+    ],
+    [
+     "h2",
+     "A more connected and consistent electrical estimating workflow."
+    ],
+    [
+     "h3",
+     "Less Manual Work"
+    ],
+    [
+     "p",
+     "Quantiify reduces the effort required to review drawing pages, identify electrical symbols, count components, and measure cables helping estimators takeoff with less repetitive work."
+    ],
+    [
+     "h3",
+     "Connected Estimation"
+    ],
+    [
+     "p",
+     "Detected quantities can be connected with pricing sources and unit rates to build a more structured electrical estimate, while keeping the estimator in control of the final result."
+    ],
+    [
+     "h2",
+     "Turning drawing data into a clearer path to cost."
+    ],
+    [
+     "p",
+     "By connecting symbol detection, quantity takeoff, pricing, and estimation in one workflow, Quantiify helps estimators spend less time on repetitive tasks and more time reviewing the estimate that matters."
+    ]
+   ]
+  },
+  {
+   "slug": "commercial-electrical-panel-and-circuit-takeoff",
+   "blocks": [
+    [
+     "h1",
+     "Simplifying Electrical Estimating From Drawings ."
+    ],
+    [
+     "p",
+     "How Quantiify helps estimators turn electrical drawing pages into structured quantities and cost estimates."
+    ],
+    [
+     "h2",
+     "Electrical estimating starts with understanding every detail in the drawing."
+    ],
+    [
+     "p",
+     "Estimators need to identify and quantify a wide range of electrical components, including lights, switches, sockets, fans, cables, and other symbols across multiple drawing pages. These quantities then need to be connected with relevant pricing sources to build the final estimate."
+    ],
+    [
+     "h2",
+     "Too much manual work between drawings and the final estimate."
+    ],
+    [
+     "p",
+     "Reviewing drawings page by page, identifying symbols, counting components, measuring cables, and matching each item with pricing sources can make electrical estimating repetitive and time-consuming."
+    ],
+    [
+     "p",
+     "The process can also introduce inconsistencies when quantities or pricing need to be manually transferred and reviewed across different stages."
+    ],
+    [
+     "h2",
+     "Connecting drawing analysis with estimating."
+    ],
+    [
+     "p",
+     "Quantiify brings drawing analysis, quantity takeoff, pricing, and estimation into one connected workflow."
+    ],
+    [
+     "p",
+     "AI assists with identifying and quantifying electrical elements, while estimators remain in control of reviewing, adjusting, and validating the results."
+    ],
+    [
+     "h2",
+     "From electrical drawings to estimate-ready data."
+    ],
+    [
+     "li",
+     "Upload electrical drawing pages directly into the workspace."
+    ],
+    [
+     "li",
+     "Identify lights, switches, sockets, fans, cables, and other electrical components."
+    ],
+    [
+     "li",
+     "Generate quantities and cable measurements from the detected elements."
+    ],
+    [
+     "li",
+     "Match items with relevant pricing sources, brands, and unit prices."
+    ],
+    [
+     "li",
+     "Combine quantities and pricing to generate the overall estimated electrical cost."
+    ],
+    [
+     "li",
+     "Review AI-generated results, make adjustments when needed, and finalize the estimate."
+    ],
+    [
+     "h2",
+     "A more connected and consistent electrical estimating workflow."
+    ],
+    [
+     "h3",
+     "Less Manual Work"
+    ],
+    [
+     "p",
+     "Quantiify reduces the effort required to review drawing pages, identify electrical symbols, count components, and measure cables helping estimators takeoff with less repetitive work."
+    ],
+    [
+     "h3",
+     "Connected Estimation"
+    ],
+    [
+     "p",
+     "Detected quantities can be connected with pricing sources and unit rates to build a more structured electrical estimate, while keeping the estimator in control of the final result."
+    ],
+    [
+     "h2",
+     "Turning drawing data into a clearer path to cost."
+    ],
+    [
+     "p",
+     "By connecting symbol detection, quantity takeoff, pricing, and estimation in one workflow, Quantiify helps estimators spend less time on repetitive tasks and more time reviewing the estimate that matters."
+    ]
+   ]
+  },
+  {
+   "slug": "streamlining-mechanical-hvac-estimating",
+   "blocks": [
+    [
+     "h1",
+     "Simplifying Electrical Estimating From Drawings ."
+    ],
+    [
+     "p",
+     "How Quantiify helps estimators turn electrical drawing pages into structured quantities and cost estimates."
+    ],
+    [
+     "h2",
+     "Electrical estimating starts with understanding every detail in the drawing."
+    ],
+    [
+     "p",
+     "Estimators need to identify and quantify a wide range of electrical components, including lights, switches, sockets, fans, cables, and other symbols across multiple drawing pages. These quantities then need to be connected with relevant pricing sources to build the final estimate."
+    ],
+    [
+     "h2",
+     "Too much manual work between drawings and the final estimate."
+    ],
+    [
+     "p",
+     "Reviewing drawings page by page, identifying symbols, counting components, measuring cables, and matching each item with pricing sources can make electrical estimating repetitive and time-consuming."
+    ],
+    [
+     "p",
+     "The process can also introduce inconsistencies when quantities or pricing need to be manually transferred and reviewed across different stages."
+    ],
+    [
+     "h2",
+     "Connecting drawing analysis with estimating."
+    ],
+    [
+     "p",
+     "Quantiify brings drawing analysis, quantity takeoff, pricing, and estimation into one connected workflow."
+    ],
+    [
+     "p",
+     "AI assists with identifying and quantifying electrical elements, while estimators remain in control of reviewing, adjusting, and validating the results."
+    ],
+    [
+     "h2",
+     "From electrical drawings to estimate-ready data."
+    ],
+    [
+     "li",
+     "Upload electrical drawing pages directly into the workspace."
+    ],
+    [
+     "li",
+     "Identify lights, switches, sockets, fans, cables, and other electrical components."
+    ],
+    [
+     "li",
+     "Generate quantities and cable measurements from the detected elements."
+    ],
+    [
+     "li",
+     "Match items with relevant pricing sources, brands, and unit prices."
+    ],
+    [
+     "li",
+     "Combine quantities and pricing to generate the overall estimated electrical cost."
+    ],
+    [
+     "li",
+     "Review AI-generated results, make adjustments when needed, and finalize the estimate."
+    ],
+    [
+     "h2",
+     "A more connected and consistent electrical estimating workflow."
+    ],
+    [
+     "h3",
+     "Less Manual Work"
+    ],
+    [
+     "p",
+     "Quantiify reduces the effort required to review drawing pages, identify electrical symbols, count components, and measure cables helping estimators takeoff with less repetitive work."
+    ],
+    [
+     "h3",
+     "Connected Estimation"
+    ],
+    [
+     "p",
+     "Detected quantities can be connected with pricing sources and unit rates to build a more structured electrical estimate, while keeping the estimator in control of the final result."
+    ],
+    [
+     "h2",
+     "Turning drawing data into a clearer path to cost."
+    ],
+    [
+     "p",
+     "By connecting symbol detection, quantity takeoff, pricing, and estimation in one workflow, Quantiify helps estimators spend less time on repetitive tasks and more time reviewing the estimate that matters."
+    ]
+   ]
+  },
+  {
+   "slug": "accelerating-architectural-finish-quantities",
+   "blocks": [
+    [
+     "h1",
+     "Simplifying Electrical Estimating From Drawings ."
+    ],
+    [
+     "p",
+     "How Quantiify helps estimators turn electrical drawing pages into structured quantities and cost estimates."
+    ],
+    [
+     "h2",
+     "Electrical estimating starts with understanding every detail in the drawing."
+    ],
+    [
+     "p",
+     "Estimators need to identify and quantify a wide range of electrical components, including lights, switches, sockets, fans, cables, and other symbols across multiple drawing pages. These quantities then need to be connected with relevant pricing sources to build the final estimate."
+    ],
+    [
+     "h2",
+     "Too much manual work between drawings and the final estimate."
+    ],
+    [
+     "p",
+     "Reviewing drawings page by page, identifying symbols, counting components, measuring cables, and matching each item with pricing sources can make electrical estimating repetitive and time-consuming."
+    ],
+    [
+     "p",
+     "The process can also introduce inconsistencies when quantities or pricing need to be manually transferred and reviewed across different stages."
+    ],
+    [
+     "h2",
+     "Connecting drawing analysis with estimating."
+    ],
+    [
+     "p",
+     "Quantiify brings drawing analysis, quantity takeoff, pricing, and estimation into one connected workflow."
+    ],
+    [
+     "p",
+     "AI assists with identifying and quantifying electrical elements, while estimators remain in control of reviewing, adjusting, and validating the results."
+    ],
+    [
+     "h2",
+     "From electrical drawings to estimate-ready data."
+    ],
+    [
+     "li",
+     "Upload electrical drawing pages directly into the workspace."
+    ],
+    [
+     "li",
+     "Identify lights, switches, sockets, fans, cables, and other electrical components."
+    ],
+    [
+     "li",
+     "Generate quantities and cable measurements from the detected elements."
+    ],
+    [
+     "li",
+     "Match items with relevant pricing sources, brands, and unit prices."
+    ],
+    [
+     "li",
+     "Combine quantities and pricing to generate the overall estimated electrical cost."
+    ],
+    [
+     "li",
+     "Review AI-generated results, make adjustments when needed, and finalize the estimate."
+    ],
+    [
+     "h2",
+     "A more connected and consistent electrical estimating workflow."
+    ],
+    [
+     "h3",
+     "Less Manual Work"
+    ],
+    [
+     "p",
+     "Quantiify reduces the effort required to review drawing pages, identify electrical symbols, count components, and measure cables helping estimators takeoff with less repetitive work."
+    ],
+    [
+     "h3",
+     "Connected Estimation"
+    ],
+    [
+     "p",
+     "Detected quantities can be connected with pricing sources and unit rates to build a more structured electrical estimate, while keeping the estimator in control of the final result."
+    ],
+    [
+     "h2",
+     "Turning drawing data into a clearer path to cost."
+    ],
+    [
+     "p",
+     "By connecting symbol detection, quantity takeoff, pricing, and estimation in one workflow, Quantiify helps estimators spend less time on repetitive tasks and more time reviewing the estimate that matters."
+    ]
+   ]
+  },
+  {
+   "slug": "precision-civil-sitework-takeoff",
+   "blocks": [
+    [
+     "h1",
+     "Simplifying Electrical Estimating From Drawings ."
+    ],
+    [
+     "p",
+     "How Quantiify helps estimators turn electrical drawing pages into structured quantities and cost estimates."
+    ],
+    [
+     "h2",
+     "Electrical estimating starts with understanding every detail in the drawing."
+    ],
+    [
+     "p",
+     "Estimators need to identify and quantify a wide range of electrical components, including lights, switches, sockets, fans, cables, and other symbols across multiple drawing pages. These quantities then need to be connected with relevant pricing sources to build the final estimate."
+    ],
+    [
+     "h2",
+     "Too much manual work between drawings and the final estimate."
+    ],
+    [
+     "p",
+     "Reviewing drawings page by page, identifying symbols, counting components, measuring cables, and matching each item with pricing sources can make electrical estimating repetitive and time-consuming."
+    ],
+    [
+     "p",
+     "The process can also introduce inconsistencies when quantities or pricing need to be manually transferred and reviewed across different stages."
+    ],
+    [
+     "h2",
+     "Connecting drawing analysis with estimating."
+    ],
+    [
+     "p",
+     "Quantiify brings drawing analysis, quantity takeoff, pricing, and estimation into one connected workflow."
+    ],
+    [
+     "p",
+     "AI assists with identifying and quantifying electrical elements, while estimators remain in control of reviewing, adjusting, and validating the results."
+    ],
+    [
+     "h2",
+     "From electrical drawings to estimate-ready data."
+    ],
+    [
+     "li",
+     "Upload electrical drawing pages directly into the workspace."
+    ],
+    [
+     "li",
+     "Identify lights, switches, sockets, fans, cables, and other electrical components."
+    ],
+    [
+     "li",
+     "Generate quantities and cable measurements from the detected elements."
+    ],
+    [
+     "li",
+     "Match items with relevant pricing sources, brands, and unit prices."
+    ],
+    [
+     "li",
+     "Combine quantities and pricing to generate the overall estimated electrical cost."
+    ],
+    [
+     "li",
+     "Review AI-generated results, make adjustments when needed, and finalize the estimate."
+    ],
+    [
+     "h2",
+     "A more connected and consistent electrical estimating workflow."
+    ],
+    [
+     "h3",
+     "Less Manual Work"
+    ],
+    [
+     "p",
+     "Quantiify reduces the effort required to review drawing pages, identify electrical symbols, count components, and measure cables helping estimators takeoff with less repetitive work."
+    ],
+    [
+     "h3",
+     "Connected Estimation"
+    ],
+    [
+     "p",
+     "Detected quantities can be connected with pricing sources and unit rates to build a more structured electrical estimate, while keeping the estimator in control of the final result."
+    ],
+    [
+     "h2",
+     "Turning drawing data into a clearer path to cost."
+    ],
+    [
+     "p",
+     "By connecting symbol detection, quantity takeoff, pricing, and estimation in one workflow, Quantiify helps estimators spend less time on repetitive tasks and more time reviewing the estimate that matters."
+    ]
+   ]
+  },
+  {
+   "slug": "simplifying-electrical-estimating-from-drawings-2",
+   "blocks": [
+    [
+     "h1",
+     "Simplifying Electrical Estimating From Drawings ."
+    ],
+    [
+     "p",
+     "How Quantiify helps estimators turn electrical drawing pages into structured quantities and cost estimates."
+    ],
+    [
+     "h2",
+     "Electrical estimating starts with understanding every detail in the drawing."
+    ],
+    [
+     "p",
+     "Estimators need to identify and quantify a wide range of electrical components, including lights, switches, sockets, fans, cables, and other symbols across multiple drawing pages. These quantities then need to be connected with relevant pricing sources to build the final estimate."
+    ],
+    [
+     "h2",
+     "Too much manual work between drawings and the final estimate."
+    ],
+    [
+     "p",
+     "Reviewing drawings page by page, identifying symbols, counting components, measuring cables, and matching each item with pricing sources can make electrical estimating repetitive and time-consuming."
+    ],
+    [
+     "p",
+     "The process can also introduce inconsistencies when quantities or pricing need to be manually transferred and reviewed across different stages."
+    ],
+    [
+     "h2",
+     "Connecting drawing analysis with estimating."
+    ],
+    [
+     "p",
+     "Quantiify brings drawing analysis, quantity takeoff, pricing, and estimation into one connected workflow."
+    ],
+    [
+     "p",
+     "AI assists with identifying and quantifying electrical elements, while estimators remain in control of reviewing, adjusting, and validating the results."
+    ],
+    [
+     "h2",
+     "From electrical drawings to estimate-ready data."
+    ],
+    [
+     "li",
+     "Upload electrical drawing pages directly into the workspace."
+    ],
+    [
+     "li",
+     "Identify lights, switches, sockets, fans, cables, and other electrical components."
+    ],
+    [
+     "li",
+     "Generate quantities and cable measurements from the detected elements."
+    ],
+    [
+     "li",
+     "Match items with relevant pricing sources, brands, and unit prices."
+    ],
+    [
+     "li",
+     "Combine quantities and pricing to generate the overall estimated electrical cost."
+    ],
+    [
+     "li",
+     "Review AI-generated results, make adjustments when needed, and finalize the estimate."
+    ],
+    [
+     "h2",
+     "A more connected and consistent electrical estimating workflow."
+    ],
+    [
+     "h3",
+     "Less Manual Work"
+    ],
+    [
+     "p",
+     "Quantiify reduces the effort required to review drawing pages, identify electrical symbols, count components, and measure cables helping estimators takeoff with less repetitive work."
+    ],
+    [
+     "h3",
+     "Connected Estimation"
+    ],
+    [
+     "p",
+     "Detected quantities can be connected with pricing sources and unit rates to build a more structured electrical estimate, while keeping the estimator in control of the final result."
+    ],
+    [
+     "h2",
+     "Turning drawing data into a clearer path to cost."
+    ],
+    [
+     "p",
+     "By connecting symbol detection, quantity takeoff, pricing, and estimation in one workflow, Quantiify helps estimators spend less time on repetitive tasks and more time reviewing the estimate that matters."
+    ]
+   ]
+  }
+ ]
+}

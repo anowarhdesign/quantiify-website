@@ -121,6 +121,23 @@
     }
   }
 
+  // ---------- listing filters (blog, case studies) ----------
+  document.querySelectorAll('.filters').forEach(f => {
+    const grid = f.parentElement.querySelector('[data-filter-grid]');
+    f.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+      f.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+      grid.querySelectorAll('[data-trade]').forEach(c => { c.hidden = b.dataset.filter !== 'all' && c.dataset.trade !== b.dataset.filter; });
+    }));
+  });
+  // case study: highlight the section in view
+  const toc = [...document.querySelectorAll('.aside-toc a')];
+  if (toc.length) {
+    const tocIO = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) toc.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+    }), { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('.cs-sec').forEach(s => tocIO.observe(s));
+  }
+
   // ---------- rulers ----------
   function numberRulers() {
     document.querySelectorAll('.ruler-v').forEach(r => {

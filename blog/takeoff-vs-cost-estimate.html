@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantity Takeoff Vs Cost Estimate: What Changes Between Them? · Quantiify Blog</title>
+<meta name="description" content="In construction estimating, the terms quantity takeoff and cost estimate are often used together. While they are closely connected, they are not the…">
+<link rel="icon" href="../assets/quantiify-mark.svg">
+<link rel="canonical" href="https://anowarhdesign.github.io/quantiify-website/blog/takeoff-vs-cost-estimate.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quantiify by Conneqted Agents">
+<meta property="og:url" content="https://anowarhdesign.github.io/quantiify-website/blog/takeoff-vs-cost-estimate.html">
+<meta property="og:title" content="Quantiify · AI takeoff &amp; estimation">
+<meta property="og:description" content="Less counting. More estimation. Quantiify turns PDF and CAD drawings into reviewed quantities, BOQs and budgets.">
+<meta property="og:image" content="https://anowarhdesign.github.io/quantiify-website/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quantiify by Conneqted Agents: Less counting. More estimation.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quantiify · AI takeoff &amp; estimation">
+<meta name="twitter:description" content="Less counting. More estimation. AI takeoff and estimating for construction teams.">
+<meta name="twitter:image" content="https://anowarhdesign.github.io/quantiify-website/assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20261028221521">
+</head>
+<body>
+
+<!-- CAD crosshair (desktop pointer only) -->
+<div class="xhair" aria-hidden="true"><span class="xh-h"></span><span class="xh-v"></span><span class="xh-box"></span></div>
+<div class="snap" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="snap-tag mono"></span></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html" aria-label="Quantiify home">
+      <img src="../assets/quantiify-logo.svg" alt="Quantiify" class="q-logo">
+      <span class="by"><span>by</span><img src="../assets/conneqted-logo-dark.svg" alt="Conneqted Agents"></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="../index.html#workflow">Workflow</a>
+      <div class="nav-dd">
+        <button type="button" class="dd-btn" aria-expanded="false" aria-controls="ddProjects">Projects</button>
+        <div class="dd-menu" id="ddProjects">
+          <a class="dd-card" href="../projects/electrification.html"><img src="../assets/product/trade-electrification.webp" width="1200" height="800" alt=""><b>Electrification</b><span>AI-powered electrical takeoffs, from symbols to cable lengths.</span></a>
+          <a class="dd-card" href="../projects/sanitary-plumbing.html"><img src="../assets/product/trade-plumbing.webp" width="1200" height="800" alt=""><b>Sanitary &amp; plumbing</b><span>Measure civil elements and generate accurate quantities with AI.</span></a>
+          <a class="dd-card" href="../projects/electromechanical.html"><img src="../assets/product/trade-electromechanical.webp" width="1200" height="800" alt=""><b>Electromechanical</b><span>Detect mechanical components and calculate quantities faster.</span></a>
+          <a class="dd-card" href="../projects/structural-finishing.html"><img src="../assets/product/trade-structural.webp" width="1200" height="800" alt=""><b>Structural &amp; finishing</b><span>Measure spaces, materials, and building elements with AI.</span></a>
+        </div>
+      </div>
+      <a href="../index.html#pricing">Pricing</a>
+      <div class="nav-dd small">
+        <button type="button" class="dd-btn" aria-expanded="false" aria-controls="ddResources">Resources</button>
+        <div class="dd-menu dd-list" id="ddResources">
+          <a class="dd-item" href="../blog.html"><b>Blog</b><span>Guides on takeoff and estimating</span></a>
+          <a class="dd-item" href="../case-studies.html"><b>Case studies</b><span>How teams estimate with Quantiify</span></a>
+          <a class="dd-item" href="../index.html#faq"><b>FAQ</b><span>Questions estimators ask most</span></a>
+        </div>
+      </div>
+      <a href="../about.html">About</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="../book.html">Book a demo</a>
+  </div>
+</header>
+
+<main id="top">
+  <article class="section post">
+    <div class="wrap post-wrap">
+      <div class="post-main">
+        <nav class="crumbs mono" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../blog.html">Blog</a><span>/</span><span aria-current="page">Electrification</span></nav>
+        <div class="post-meta mono"><span>Electrification</span><span>2 min read</span><span>Quantiify team</span></div>
+        <h1>Quantity Takeoff Vs Cost Estimate: What Changes Between Them?</h1>
+        <p class="post-deck">Understanding the difference between quantity takeoff and cost estimation—and why both matter for a reliable construction estimate.</p>
+        <figure class="p-photo post-cover"><div class="p-photo-frame"><img src="../assets/ui/estimate.webp" alt=""></div></figure>
+        <div class="prose">
+<p>In construction estimating, the terms quantity takeoff and cost estimate are often used together. While they are closely connected, they are not the same process. A quantity takeoff determines what is needed and how much of it is needed. A cost estimate takes those quantities and determines what the project is expected to cost. Understanding the difference helps estimators build a more structured workflow, reduce errors, and make better-informed decisions throughout the estimating process.</p>
+<h2>What Is a Quantity Takeoff?</h2>
+<p>A quantity takeoff is the process of reviewing construction drawings, specifications, and other project documents to identify the materials, components, and quantities required project.</p>
+<ul><li>Number of light fixtures</li><li>Number of switches and outlets</li><li>Cable lengths</li><li>Conduit quantities</li><li>Other electrical components</li></ul>
+<h2>What Is a Cost Estimate?</h2>
+<p>A cost estimate takes the quantities identified during takeoff and assigns costs to them.</p>
+<ul><li>Material costs</li><li>Labor Cost</li><li>Overhead</li><li>Markup</li><li>Waste or allowances</li></ul>
+<h2>What Actually Changes Between the Two?</h2>
+<p>The biggest change is the type of information being added.</p>
+<p>During quantity takeoff, an estimator might determine that a project requires:</p>
+<p class="calc mono">450 m of cable</p>
+<p>During cost estimation, that quantity is combined with pricing information:</p>
+<p class="calc mono">450 m × $3.20/m = $1,440</p>
+<p>The quantity itself has not changed. What changes is the cost information attached to it.</p>
+<p>This distinction becomes especially important when prices vary by supplier, location, specification, labor rate, or project conditions.</p>
+<h2>Ready to make estimating more connected?</h2>
+<p>Quantiify helps bring drawing analysis, takeoff, pricing, review, and estimation into a single AI-assisted workflow—so estimators can spend less time on repetitive work and more time making informed decisions.</p>
+        </div>
+      </div>
+      <aside class="post-aside">
+        <div class="aside-card">
+          <p class="eyebrow"><span class="ref">Q</span> See it on your drawings</p>
+          <p>Bring a drawing set and watch Quantiify count and measure it.</p>
+          <a class="btn btn-primary" href="../book.html">Book a demo</a>
+        </div>
+        <div class="aside-rel">
+          <p class="mono">More articles</p>
+          <a href="lighting-power-takeoffs.html"><span class="mono">Electrification</span>Eliminating Repetitive Lighting and Power Symbol Counting</a><a href="mechanical-ductwork-piping.html"><span class="mono">Electromechanical</span>Accelerating Mechanical HVAC and Piping Estimation</a><a href="finishes-and-openings.html"><span class="mono">Structural &amp; finishing</span>Bridging Architectural Schedules and Drawing Geometry</a>
+          <a class="link" href="../blog.html">All articles &rarr;</a>
+        </div>
+      </aside>
+    </div>
+  </article>
+  <section id="cta" class="section cta cta-band">
+    <canvas class="shader" data-shader="light" aria-hidden="true"></canvas>
+    <div class="ruler-v left" aria-hidden="true"></div>
+    <div class="ruler-v right" aria-hidden="true"></div>
+    <div class="wrap center">
+      <div class="dim" aria-hidden="true">
+        <span class="dim-tick"></span><span class="dim-line"></span>
+        <span class="dim-label">YOUR NEXT TAKEOFF</span>
+        <span class="dim-line"></span><span class="dim-tick"></span>
+      </div>
+      <h2>Spend less time on the takeoff.<br>Spend more time estimating.</h2>
+      <p class="lede center">Bring a drawing set and see Quantiify count it, or tell us about your estimating workflow.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="../book.html">Book a demo</a>
+        <a class="btn btn-ghost" href="../book.html#request">Request a call</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="titleblock">
+  <div class="wrap">
+    <div class="tb">
+      <div class="tb-cell tb-brand">
+        <span class="tb-k">Drawn by</span>
+        <img src="../assets/conneqted-logo.svg" alt="Conneqted Agents">
+        <p>Agentic SaaS and AI products, from idea to production.</p>
+      </div>
+      <div class="tb-cell"><span class="tb-k">Pages</span><span class="tb-v tb-links"><a href="../about.html">About</a><a href="../blog.html">Blog</a><a href="../case-studies.html">Case studies</a><a href="../book.html">Book a demo</a></span></div>
+      <div class="tb-cell"><span class="tb-k">Contact</span><span class="tb-v"><a href="mailto:info@quantiify.ai">info@quantiify.ai</a><br><a href="mailto:support@conneqtedagents.ai">support@conneqtedagents.ai</a><br><a href="tel:+14085005613">+1 (408) 500-5613</a></span></div>
+      <div class="tb-cell"><span class="tb-k">Address</span><span class="tb-v">6412 Spring Meadow Ct<br>San Jose, CA, USA</span></div>
+      <div class="tb-cell tb-sheet"><span class="tb-k">Sheet</span><span class="tb-v big mono">Q-001</span><span class="tb-k">Rev 01 · NTS</span></div>
+    </div>
+    <p class="fine mono">© <span id="yr"></span> Conneqted Agents · <a href="https://conneqtedagents.ai/" target="_blank" rel="noopener">conneqtedagents.ai</a></p>
+  </div>
+</footer>
+
+<!-- Status bar: where you are on the page + book a demo -->
+<div class="statusbar mono">
+  <span class="sb-progress" aria-hidden="true"></span>
+  <span class="sb-sheet"><b id="sbRef">Q-001</b><span id="sbName">Overview</span></span>
+  <span class="grow"></span>
+  <a class="sb-mail" href="mailto:info@quantiify.ai">info@quantiify.ai</a>
+  <a class="sb-cta" href="../book.html">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
+</div>
+
+<script src="../shader.js?v=20261028221521"></script>
+<script src="../main.js?v=20261028221521"></script>
+</body>
+</html>
