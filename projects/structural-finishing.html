@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20261028213450">
+<link rel="stylesheet" href="../styles.css?v=20261028214323">
 </head>
 <body class="subpage">
 
@@ -53,7 +53,7 @@
       <a href="../index.html#pricing">Pricing</a>
       <a href="../index.html#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="#book">Book a demo</a>
+    <a class="btn btn-primary btn-sm" href="../book.html">Book a demo</a>
   </div>
 </header>
 
@@ -71,7 +71,7 @@
         <p class="lede left">Quantiify helps architectural estimators extract room dimensions, wall lengths, finish areas, and door/window counts from coordinated drawing sets.</p>
         <div class="cta-row left">
           <a class="btn btn-ghost" href="#workflow">See the workflow</a>
-          <a class="btn btn-primary" href="#book">Book a call</a>
+          <a class="btn btn-primary" href="../book.html">Book a call</a>
         </div>
       </div>
       <figure class="p-photo reveal">
@@ -154,61 +154,22 @@
     </div>
   </section>
 
-  <section id="book" class="section cta">
+  <section id="cta" class="section cta cta-band">
     <canvas class="shader" data-shader="light" aria-hidden="true"></canvas>
     <div class="ruler-v left" aria-hidden="true"></div>
     <div class="ruler-v right" aria-hidden="true"></div>
-    <div class="wrap">
+    <div class="wrap center">
       <div class="dim" aria-hidden="true">
         <span class="dim-tick"></span><span class="dim-line"></span>
-        <span class="dim-label">BOOK A QUANTIIFY DEMO</span>
+        <span class="dim-label">YOUR NEXT TAKEOFF</span>
         <span class="dim-line"></span><span class="dim-tick"></span>
       </div>
-      <h2 class="center">Let&rsquo;s talk about your<br>estimating workflow.</h2>
-      <p class="lede center">Discuss your construction takeoff, project volume, and trade requirements with the Quantiify team.</p>
-
-      <div class="book-switch" role="tablist" aria-label="How would you like to book?">
-        <button type="button" role="tab" id="tab-cal" aria-controls="panel-cal" aria-selected="true">Book from Calendar</button>
-        <button type="button" role="tab" id="tab-form" aria-controls="panel-form" aria-selected="false">Request a Call</button>
+      <h2>Spend less time on the takeoff.<br>Spend more time estimating.</h2>
+      <p class="lede center">Bring a drawing set and see Quantiify count it, or tell us about your estimating workflow.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="../book.html">Book a demo</a>
+        <a class="btn btn-ghost" href="../book.html#request">Request a call</a>
       </div>
-
-      <div class="book-panel" id="panel-cal" role="tabpanel" aria-labelledby="tab-cal">
-        <div class="cal-frame">
-          <div id="cal-inline" class="cal-inline"><p class="cal-loading mono">Loading calendar&hellip;</p></div>
-        </div>
-      </div>
-
-      <div class="book-panel" id="panel-form" role="tabpanel" aria-labelledby="tab-form" hidden>
-        <form class="lead-form" id="leadForm" novalidate data-endpoint="">
-          <div class="f-row">
-            <label class="f"><span>Full Name</span><input name="name" type="text" autocomplete="name" placeholder="Jane Smith" required></label>
-            <label class="f"><span>Work Email</span><input name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
-          </div>
-          <div class="f-row">
-            <label class="f"><span>Company</span><input name="company" type="text" autocomplete="organization" placeholder="Company name"></label>
-            <label class="f"><span>Phone <em>(optional)</em></span><input name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000"></label>
-          </div>
-          <fieldset class="f chips">
-            <legend>Trades you estimate <em>(optional)</em></legend>
-            <label><input type="checkbox" name="trades" value="Electrification"><span>Electrification</span></label>
-            <label><input type="checkbox" name="trades" value="Sanitary &amp; plumbing"><span>Sanitary &amp; plumbing</span></label>
-            <label><input type="checkbox" name="trades" value="Electromechanical"><span>Electromechanical</span></label>
-            <label><input type="checkbox" name="trades" value="Structural &amp; finishing"><span>Structural &amp; finishing</span></label>
-          </fieldset>
-          <label class="f"><span>What would you like to discuss?</span><textarea name="message" rows="4" placeholder="Tell us about your current estimating workflow..."></textarea></label>
-          <p class="f-legal">By submitting this form, you agree that Quantiify may contact you about your request. See our <a href="https://quantiify.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> for details.</p>
-          <div class="f-actions">
-            <p class="f-status" id="formStatus" role="status" aria-live="polite"></p>
-            <button type="submit" class="btn btn-primary">Request a Call</button>
-          </div>
-        </form>
-        <div class="form-done" id="formDone" hidden tabindex="-1">
-          <h3>Thanks, we&rsquo;ve got your request.</h3>
-          <p>Expect a response from us within 24 hours.</p>
-        </div>
-      </div>
-
-      <div class="qr" hidden><img src="../assets/qr-book-a-call.svg" alt="QR code to book a Quantiify demo"><span class="mono">SCAN &middot; BOOK A DEMO</span></div>
     </div>
   </section>
 </main>
@@ -235,10 +196,10 @@
   <span class="sb-sheet"><b id="sbRef">Q-001</b><span id="sbName">Overview</span></span>
   <span class="grow"></span>
   <a class="sb-mail" href="mailto:info@quantiify.ai">info@quantiify.ai</a>
-  <a class="sb-cta" href="#book">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
+  <a class="sb-cta" href="../book.html">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
 </div>
 
-<script src="../shader.js?v=20261028213450"></script>
-<script src="../main.js?v=20261028213450"></script>
+<script src="../shader.js?v=20261028214323"></script>
+<script src="../main.js?v=20261028214323"></script>
 </body>
 </html>

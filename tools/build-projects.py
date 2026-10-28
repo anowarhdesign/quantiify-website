@@ -20,7 +20,7 @@ def cut(start, end, src=home, include_end=True):
 head = cut('<!doctype html>', '</head>')
 cursor = cut('<!-- CAD crosshair', '<span class="snap-tag mono"></span></div>')
 nav = cut('<header class="nav">', '</header>')
-book = cut('  <section id="book"', '</section>')
+book = cut('  <section id="cta"', '</section>')
 footer = cut('<footer class="titleblock">', '</footer>')
 status = cut('<!-- Status bar', 'Book a demo <span aria-hidden="true">&#x21B5;</span></a>\n</div>')
 version = re.search(r'\?v=(\d+)', home).group(1)
@@ -29,7 +29,8 @@ version = re.search(r'\?v=(\d+)', home).group(1)
 def to_sub(html):
     """Rewrite homepage-relative links for a page one folder down."""
     html = html.replace('src="assets/', 'src="../assets/').replace('href="assets/', 'href="../assets/')
-    html = re.sub(r'href="#(?!book\b)([\w-]+)"', r'href="../index.html#\1"', html)
+    html = re.sub(r'href="#([\w-]+)"', r'href="../index.html#\1"', html)
+    html = html.replace('href="book.html', 'href="../book.html')
     html = html.replace('href="#top"', 'href="../index.html"')
     html = html.replace('href="../index.html#top"', 'href="../index.html"')
     html = html.replace('href="projects/', 'href="../projects/')
@@ -129,7 +130,7 @@ def page(p):
         <p class="lede left">{p['lede']}</p>
         <div class="cta-row left">
           <a class="btn btn-ghost" href="#workflow">See the workflow</a>
-          <a class="btn btn-primary" href="#book">Book a call</a>
+          <a class="btn btn-primary" href="../book.html">Book a call</a>
         </div>
       </div>
       <figure class="p-photo reveal">

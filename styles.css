@@ -653,3 +653,6 @@ body.snapping .snap{opacity:1}
 .qty-fig{margin:0}
 @media (max-width:1000px){.qty-wrap{grid-template-columns:1fr}}
 @media (max-width:720px){.qty-wrap .qty-grid{grid-template-columns:1fr}}
+
+/* dedicated booking page */
+.book-page{min-height:calc(100vh - 68px);padding-top:72px}

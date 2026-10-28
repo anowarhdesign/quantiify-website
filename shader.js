@@ -46,7 +46,8 @@
 
   void main(){
     vec2 uv = gl_FragCoord.xy / res;
-    vec2 pan = vec2(t * .055, t * .022);
+    vec2 m0 = mouse.x > -9000. ? (mouse - .5 * res) / S : vec2(0.);
+    vec2 pan = vec2(t * .055, t * .022) - m0 * .35;      // drift + parallax toward the cursor
     vec2 w = (gl_FragCoord.xy - .5 * res) / S + pan;
     vec2 wm = (mouse - .5 * res) / S + pan;
 
@@ -79,13 +80,13 @@
       col = vec3(.043, .071, .125);                          // section navy
       col = mix(col, vec3(.56, .76, .98), hv * .05 * a);
       col = mix(col, vec3(.56, .76, .98), max(wall * .04, ext * .07) * a);
-      if (hover){ col = mix(col, vec3(.56, .76, .98), (hp * .1 + wall * .1) * a); }
+      if (hover){ col = mix(col, vec3(.15, .39, .96), .08); col = mix(col, vec3(.56, .76, .98), hp * .14 + wall * .22); }
     } else {
       col = vec3(.984, .992, 1.);
       col = mix(col, vec3(.886, .925, 1.), .5 * smoothstep(.85, 0., length(uv - vec2(.15 + .05 * sin(t * .07), .85))));
       col = mix(col, vec3(.56, .76, .98), hv * .11 * a);
       col = mix(col, vec3(.2, .25, .37), max(wall * .05, ext * .09) * a);
-      if (hover){ col = mix(col, vec3(.89, .93, 1.), .3 * a); col = mix(col, vec3(.15, .39, .96), (hp * .14 + wall * .2) * a); }
+      if (hover){ col = mix(col, vec3(.89, .93, 1.), .45); col = mix(col, vec3(.15, .39, .96), hp * .16 + wall * .3); }
     }
     o = vec4(col, 1.);
   }`;

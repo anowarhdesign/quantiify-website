@@ -4,7 +4,7 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
   // Booth-screen mode (?booth): show the QR code so visitors can book from their phones
   if (new URLSearchParams(location.search).has('booth')) {
-    document.querySelector('.qr').hidden = false;
+    const qr = document.querySelector('.qr'); if (qr) qr.hidden = false;
   }
 
   // ---------- nav: Projects menu ----------
@@ -223,6 +223,7 @@
     const eb = sec.querySelector('.eyebrow');
     if (sec.classList.contains('hero')) return { sec, ref: 'Q-001', name: 'Overview' };
     if (sec.id === 'book') return { sec, ref: 'Q-002', name: 'Book a demo' };
+    if (sec.id === 'cta') return { sec, ref: 'Q-002', name: 'Book a demo' };
     if (!eb) return null;
     const ref = eb.querySelector('.ref').textContent;
     return { sec, ref, name: eb.textContent.replace(ref, '').trim() };
@@ -290,6 +291,7 @@
   }));
 
   // ---------- booking: calendar / request-a-call ----------
+  if (document.getElementById('book')) {
   const tabCal = document.getElementById('tab-cal'), tabForm = document.getElementById('tab-form');
   const panelCal = document.getElementById('panel-cal'), panelForm = document.getElementById('panel-form');
   let calLoaded = false;
@@ -307,6 +309,7 @@
     panelCal.hidden = !cal; panelForm.hidden = cal;
     if (cal) loadCal();
   }
+  if (location.hash === '#request') showBook('form');
   tabCal.addEventListener('click', () => showBook('cal'));
   tabForm.addEventListener('click', () => showBook('form'));
   [tabCal, tabForm].forEach(t => t.addEventListener('keydown', e => {
@@ -349,6 +352,7 @@
     location.href = `mailto:info@quantiify.ai?subject=${encodeURIComponent('Quantiify demo request: ' + name)}&body=${encodeURIComponent(body)}`;
     status.textContent = 'Opening your email app to send the request…';
   });
+  }
 
   // ---------- trades ----------
   if (document.getElementById('tradeRows')) {
