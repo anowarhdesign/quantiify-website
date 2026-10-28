@@ -468,7 +468,7 @@
   new IntersectionObserver((es, ob) => { if (es[0].isIntersecting && !panelCal.hidden) { loadCal(); ob.disconnect(); } }, { rootMargin: '600px 0px' })
     .observe(document.getElementById('book'));
 
-  // Request-a-call form. Without an endpoint it falls back to a pre-filled email.
+  // Request-a-call form. Posts to data-endpoint; without one it falls back to a pre-filled email.
   const form = document.getElementById('leadForm'), status = document.getElementById('formStatus'), done = document.getElementById('formDone');
   form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -488,10 +488,19 @@
     if (endpoint) {
       status.textContent = 'Sending…';
       try {
-        const r = await fetch(endpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
-        if (!r.ok) throw new Error(r.status);
+        // FormSubmit relays the request to info@quantiify.ai
+        const r = await fetch(endpoint, {
+          method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            _subject: 'Quantiify demo request: ' + name, _template: 'table', _replyto: email, _honey: fd.get('_honey') || '',
+            name, email, company: fd.get('company') || '-', phone: fd.get('phone') || '-', trades: trades || '-',
+            message: fd.get('message') || '-', page: location.href
+          })
+        });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || String(j.success) === 'false') throw new Error(j.message || r.status);
         form.hidden = true; done.hidden = false; done.focus();
-      } catch { status.textContent = 'Something went wrong. Please email info@quantiify.ai.'; }
+      } catch { status.textContent = 'Something went wrong. Please try again or email info@quantiify.ai.'; }
       return;
     }
     const body = [
