@@ -31,7 +31,7 @@ def to_sub(html):
     html = html.replace('src="assets/', 'src="../assets/').replace('href="assets/', 'href="../assets/')
     html = re.sub(r'href="#([\w-]+)"', r'href="../index.html#\1"', html)
     html = html.replace('href="book.html', 'href="../book.html')
-    for x in ('about.html', 'blog.html', 'case-studies.html'):
+    for x in ('about.html', 'blog.html', 'case-studies.html', 'privacy.html', 'terms.html'):
         html = html.replace(f'href="{x}', f'href="../{x}')
     html = html.replace('href="#top"', 'href="../index.html"')
     html = html.replace('href="../index.html#top"', 'href="../index.html"')

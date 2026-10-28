@@ -22,7 +22,7 @@ def cut(start, end, s=home):
 HEAD = home[:home.index('<main id="top">')]
 CTA = cut('  <section id="cta"', '</section>')
 TAIL = home[home.index('<footer'):]
-PAGES = ('about.html', 'blog.html', 'case-studies.html', 'book.html', 'index.html')
+PAGES = ('about.html', 'blog.html', 'case-studies.html', 'book.html', 'index.html', 'privacy.html', 'terms.html')
 
 
 def fix(html, depth):

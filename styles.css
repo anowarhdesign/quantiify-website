@@ -490,7 +490,7 @@ body.snapping .snap{opacity:1}
 .faq-i p{padding:0 22px 22px 72px;color:var(--muted);font-size:15px;line-height:1.6}
 
 /* booking */
-#book h2.center{text-align:center}
+#book h2.center,#book h1.center{text-align:center}
 .assure{list-style:none;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 26px;margin-top:22px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
 .assure li{display:flex;align-items:center;gap:8px}
 .assure li::before{content:"";width:7px;height:7px;border:1.5px solid var(--blue);rotate:45deg}
@@ -758,7 +758,7 @@ canvas.trail{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none
 .links .dd-item b{display:block;font-size:15px;color:var(--ink)}
 .links .dd-item span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
 .dd-item:hover,.dd-item:focus-visible{background:var(--paper)}
-.tb{grid-template-columns:1.5fr 1fr 1.3fr 1fr .7fr}
+@media (min-width:1001px){.tb{grid-template-columns:1.5fr 1fr 1.3fr 1fr .7fr}}
 .tb-links{display:flex;flex-direction:column;gap:2px}
 
 /* listing pages (blog, case studies) */
@@ -989,3 +989,8 @@ a.post-card:hover{border-color:var(--blue);box-shadow:0 0 0 3px var(--sky-2)}
 @keyframes sd{0%,10%{opacity:0;scale:1.8}18%,92%{opacity:1;scale:1}100%{opacity:0}}
 .an-symbols .sweep{position:absolute;top:24%;height:50%;width:2px;background:var(--blue);box-shadow:0 0 12px 2px rgba(38,100,245,.55);animation:sweep var(--d) infinite}
 @keyframes sweep{0%{left:28%;opacity:0}5%{opacity:1}40%{left:73%;opacity:1}46%,100%{left:73%;opacity:0}}
+
+@media (max-width:720px){
+  .hero-dim .dim-label{white-space:normal;text-align:center;font-size:9.5px;letter-spacing:.1em;line-height:1.5}
+}
+.book-page h1{font-size:clamp(34px,5vw,60px);line-height:1.05;letter-spacing:-.03em;margin-bottom:0}
