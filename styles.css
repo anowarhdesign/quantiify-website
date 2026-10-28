@@ -371,7 +371,7 @@ body.snapping .snap{opacity:1}
   background:linear-gradient(var(--slate),var(--slate)) center/1px 100% no-repeat,linear-gradient(var(--slate),var(--slate)) center/100% 1px no-repeat}
 .cmp::before{top:-9px;left:-9px}.cmp::after{bottom:-9px;right:-9px}
 .cmp-head,.cmp-r{display:grid;grid-template-columns:minmax(0,2.4fr) repeat(4,minmax(0,1fr));align-items:stretch}
-.cmp-head{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink)}
+.cmp-head{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--muted-2)}
 .cmp-head>div{padding:16px 20px}
 .cmp-head .cmp-c{text-align:center}
 .cmp-head .cmp-c.q{color:#fff;background:var(--blue);font-weight:600}
@@ -832,3 +832,8 @@ a.post-card:hover{border-color:var(--blue);box-shadow:0 0 0 3px var(--sky-2)}
   .post-aside{position:static}
 }
 @media (max-width:720px){.post-grid,.cs-out{grid-template-columns:1fr}}
+
+.legal-date{margin-top:18px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.list-hero h1 em{font-style:normal;color:var(--blue)}
+.prose b{color:var(--ink)}
+.fine a{margin-left:2px}
