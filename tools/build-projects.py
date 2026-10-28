@@ -132,7 +132,10 @@ def page(p):
           <a class="btn btn-primary" href="#book">Book a call</a>
         </div>
       </div>
-      <figure class="p-photo reveal"><img src="../assets/product/{p['photo']}.webp" width="1200" height="800" alt="{p['name']} estimation"></figure>
+      <figure class="p-photo reveal">
+        <div class="p-photo-frame"><img src="../assets/product/{p['photo']}.webp" width="1200" height="800" alt="{p['name']} estimation"></div>
+        <figcaption class="mono"><span>Fig. 01</span><span>{p['name']}</span></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -158,10 +161,10 @@ def page(p):
         </div>
         <figure class="wf-img reveal"><img src="../assets/projects/{p['slug']}-onsite.webp" width="720" height="700" loading="lazy" alt="Estimator verification workflow with on-site review, AI legend detection, and audit trail"></figure>
       </div>
-      <p class="eyebrow wf-eyebrow"><span class="ref">P-03</span> Easy start, flexible work</p>
+      <p class="eyebrow wf-eyebrow"><span class="ref">P-03</span> A workflow your estimator can verify</p>
       <div class="wf flip">
         <div class="wf-copy">
-          <h2>A workflow your estimator can verify</h2>
+          <h2>Easy start, flexible work</h2>
           <p class="lede left">{WF_TEXT}</p>
           <ul class="fit">{fit(p['fit2'])}</ul>
         </div>
