@@ -20,6 +20,39 @@
     document.addEventListener('click', e => { if (!dd.contains(e.target)) set(false); });
   });
 
+  // ---------- before / after sliders (drawing vs built) ----------
+  document.querySelectorAll('[data-ba]').forEach(el => {
+    let p = 50, dragging = false, touched = false;
+    const set = v => { p = Math.max(0, Math.min(100, v)); el.style.setProperty('--p', p + '%'); el.setAttribute('aria-valuenow', Math.round(p)); };
+    const at = e => { const r = el.getBoundingClientRect(); return (e.clientX - r.left) / r.width * 100; };
+    el.addEventListener('pointerdown', e => { touched = true; dragging = true; el.setPointerCapture(e.pointerId); set(at(e)); });
+    el.addEventListener('pointermove', e => { if (dragging || e.pointerType === 'mouse') { touched = true; set(at(e)); } });
+    el.addEventListener('pointerup', () => { dragging = false; });
+    el.addEventListener('pointercancel', () => { dragging = false; });
+    el.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); touched = true; set(p + (e.key === 'ArrowRight' ? 5 : -5)); }
+    });
+    set(50);
+    // a short sweep the first time it is seen, so people know it moves
+    if (reduce) return;
+    new IntersectionObserver(([en], ob) => {
+      if (!en.isIntersecting) return;
+      ob.disconnect();
+      const keys = [[0, 50], [700, 78], [1500, 24], [2200, 50]], t0 = performance.now() + 300;
+      const ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+      (function f(t) {
+        if (touched) return;
+        const dt = t - t0;
+        if (dt < 0) return requestAnimationFrame(f);
+        let i = 0; while (i < keys.length - 2 && dt > keys[i + 1][0]) i++;
+        const [ta, va] = keys[i], [tb, vb] = keys[i + 1];
+        const k = Math.min(1, (dt - ta) / (tb - ta));
+        set(va + (vb - va) * ease(k));
+        if (dt < keys[keys.length - 1][0]) requestAnimationFrame(f);
+      })(performance.now());
+    }, { threshold: .5 }).observe(el);
+  });
+
   // ---------- rulers ----------
   function numberRulers() {
     document.querySelectorAll('.ruler-v').forEach(r => {
@@ -335,6 +368,7 @@
     tabs.forEach((b, j) => b.setAttribute('aria-selected', i === j));
     const im = document.getElementById('tradeImg');
     im.src = `assets/product/${d.img}.webp`; im.alt = d.t;
+    document.getElementById('tradeDraw').src = `assets/product/${d.img}-drawing.webp`;
     const tl = document.getElementById('tradeLink');
     tl.href = `projects/${d.slug}.html`; tl.innerHTML = `Explore ${d.t} &rarr;`;
     document.getElementById('tradeTitle').textContent = d.t;

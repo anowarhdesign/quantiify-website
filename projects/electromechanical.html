@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20261028210112">
+<link rel="stylesheet" href="../styles.css?v=20261028211156">
 </head>
 <body class="subpage">
 
@@ -75,8 +75,15 @@
         </div>
       </div>
       <figure class="p-photo reveal">
-        <div class="p-photo-frame"><img src="../assets/product/trade-electromechanical.webp" width="1200" height="800" alt="Electromechanical estimation"></div>
-        <figcaption class="mono"><span>Fig. 01</span><span>Electromechanical</span></figcaption>
+        <div class="p-photo-frame">
+          <div class="ba" data-ba role="slider" tabindex="0" aria-label="Drag to compare the drawing with the built result" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="ba-after" src="../assets/product/trade-electromechanical.webp" width="1200" height="800" alt="Electromechanical estimation">
+            <img class="ba-before" src="../assets/product/trade-electromechanical-drawing.webp" width="1200" height="800" alt="">
+            <div class="ba-handle" aria-hidden="true"><span><i>&#x2194;</i></span></div>
+            <span class="ba-tag l mono">Drawing</span><span class="ba-tag r mono">Built</span>
+          </div>
+        </div>
+        <figcaption class="mono"><span>Fig. 01 &middot; Drag to compare</span><span>Electromechanical</span></figcaption>
       </figure>
     </div>
   </section>
@@ -224,7 +231,7 @@
   <a class="sb-cta" href="#book">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
 </div>
 
-<script src="../shader.js?v=20261028210112"></script>
-<script src="../main.js?v=20261028210112"></script>
+<script src="../shader.js?v=20261028211156"></script>
+<script src="../main.js?v=20261028211156"></script>
 </body>
 </html>

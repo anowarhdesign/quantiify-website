@@ -133,8 +133,15 @@ def page(p):
         </div>
       </div>
       <figure class="p-photo reveal">
-        <div class="p-photo-frame"><img src="../assets/product/{p['photo']}.webp" width="1200" height="800" alt="{p['name']} estimation"></div>
-        <figcaption class="mono"><span>Fig. 01</span><span>{p['name']}</span></figcaption>
+        <div class="p-photo-frame">
+          <div class="ba" data-ba role="slider" tabindex="0" aria-label="Drag to compare the drawing with the built result" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="ba-after" src="../assets/product/{p['photo']}.webp" width="1200" height="800" alt="{p['name']} estimation">
+            <img class="ba-before" src="../assets/product/{p['photo']}-drawing.webp" width="1200" height="800" alt="">
+            <div class="ba-handle" aria-hidden="true"><span><i>&#x2194;</i></span></div>
+            <span class="ba-tag l mono">Drawing</span><span class="ba-tag r mono">Built</span>
+          </div>
+        </div>
+        <figcaption class="mono"><span>Fig. 01 &middot; Drag to compare</span><span>{p['name']}</span></figcaption>
       </figure>
     </div>
   </section>
