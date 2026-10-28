@@ -1,34 +1,30 @@
-"""Make CAD-style line drawings (the "before" side of the sliders) from photos.
+"""Make the "CAD drawing" side of the sliders from each takeoff sheet.
 
 Run from the site root:  python tools/make-drawings.py
-Each assets/product/trade-*.webp gets a matching *-drawing.webp.
+Each assets/cad/<trade>-takeoff.webp (elements highlighted by layer) gets a
+matching <trade>-cad.webp: the same sheet as plain monochrome linework, the way
+an estimator receives it. Both halves come from one image, so they line up.
 """
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-PAPER = np.array([251, 253, 255], float)
-INK = np.array([26, 107, 214], float)
-GRID = [226, 234, 246]
 
 
-def drawing(src, dst):
-    gray = Image.open(src).convert('L').filter(ImageFilter.GaussianBlur(1.1))
-    edges = np.asarray(gray.filter(ImageFilter.FIND_EDGES)).astype(float)
-    ink = np.clip((edges - 6) * 5.5, 0, 255)[..., None] / 255.0
-    out = PAPER * (1 - ink) + INK * ink
-    h, w = edges.shape
-    yy, xx = np.mgrid[0:h, 0:w]
-    grid = ((xx % 40 == 0) | (yy % 40 == 0)) & (ink[..., 0] < .15)
-    out[grid] = GRID
-    Image.fromarray(out.astype('uint8')).save(dst, 'WEBP', quality=84, method=6)
+def plain(src, dst):
+    a = np.asarray(Image.open(src).convert('RGB')).astype(float)
+    lum = a @ [0.299, 0.587, 0.114]
+    sat = a.max(2) - a.min(2)
+    coloured = sat > 40
+    # coloured strokes become mid-grey linework, everything else plain greyscale
+    out = np.where(coloured, np.minimum(lum, 150) * 0.7 + 40, lum)
+    Image.fromarray(np.clip(out, 0, 255).astype('uint8')).convert('RGB') \
+        .save(dst, 'WEBP', quality=88, method=6)
 
 
-for src in sorted((ROOT / 'assets/product').glob('trade-*.webp')):
-    if src.stem.endswith('-drawing'):
-        continue
-    dst = src.with_name(src.stem + '-drawing.webp')
-    drawing(src, dst)
+for src in sorted((ROOT / 'assets/cad').glob('*-takeoff.webp')):
+    dst = src.with_name(src.name.replace('-takeoff', '-cad'))
+    plain(src, dst)
     print('wrote', dst.relative_to(ROOT))

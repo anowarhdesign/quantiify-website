@@ -133,15 +133,9 @@ def page(p):
         </div>
       </div>
       <figure class="p-photo reveal">
-        <div class="p-photo-frame">
-          <div class="ba" data-ba role="slider" tabindex="0" aria-label="Drag to compare the drawing with the built result" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-            <img class="ba-after" src="../assets/product/{p['photo']}.webp" width="1200" height="800" alt="{p['name']} estimation">
-            <img class="ba-before" src="../assets/product/{p['photo']}-drawing.webp" width="1200" height="800" alt="">
-            <div class="ba-handle" aria-hidden="true"><span><i>&#x2194;</i></span></div>
-            <span class="ba-tag l mono">Drawing</span><span class="ba-tag r mono">Built</span>
-          </div>
+        <div class="p-photo-frame"><img src="../assets/product/{p['photo']}.webp" width="1200" height="800" alt="{p['name']} estimation"></div>
         </div>
-        <figcaption class="mono"><span>Fig. 01 &middot; Drag to compare</span><span>{p['name']}</span></figcaption>
+        <figcaption class="mono"><span>Fig. 01</span><span>{p['name']}</span></figcaption>
       </figure>
     </div>
   </section>
@@ -151,8 +145,21 @@ def page(p):
     <div class="wrap">
       <p class="eyebrow"><span class="ref">P-01</span> Quantities</p>
       <h2>Prepare the quantities your trade needs</h2>
-      <div class="qty-grid">
-{qty}      </div>
+      <div class="qty-wrap">
+        <figure class="p-photo qty-fig reveal">
+          <div class="p-photo-frame">
+            <div class="ba ba-cad" data-ba role="slider" tabindex="0" aria-label="Drag to compare the CAD drawing with Quantiify's AI takeoff" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+              <img class="ba-after" src="../assets/cad/{p['slug']}-takeoff.webp" loading="lazy" alt="{p['name']} drawing with AI-detected elements highlighted by layer">
+              <img class="ba-before" src="../assets/cad/{p['slug']}-cad.webp" loading="lazy" alt="">
+              <div class="ba-handle" aria-hidden="true"><span><i>&#x2194;</i></span></div>
+              <span class="ba-tag l mono">CAD drawing</span><span class="ba-tag r mono">AI takeoff</span>
+            </div>
+          </div>
+          <figcaption class="mono"><span>Fig. 02 &middot; Drag to compare</span><span>Your drawing &rarr; quantities</span></figcaption>
+        </figure>
+        <div class="qty-grid">
+{qty}        </div>
+      </div>
     </div>
   </section>
 
@@ -168,7 +175,7 @@ def page(p):
         </div>
         <figure class="p-photo wf-img reveal">
           <div class="p-photo-frame fit"><img src="../assets/projects/{p['slug']}-onsite.webp" width="720" height="700" loading="lazy" alt="Estimator verification workflow with on-site review, AI legend detection, and audit trail"></div>
-          <figcaption class="mono"><span>Fig. 02</span><span>Estimator review</span></figcaption>
+          <figcaption class="mono"><span>Fig. 03</span><span>Estimator review</span></figcaption>
         </figure>
       </div>
       <p class="eyebrow wf-eyebrow"><span class="ref">P-03</span> A workflow your estimator can verify</p>
@@ -180,7 +187,7 @@ def page(p):
         </div>
         <figure class="p-photo wf-img reveal">
           <div class="p-photo-frame fit"><img src="../assets/projects/{p['slug']}-review.webp" width="720" height="700" loading="lazy" alt="Quantiify {plain(p['name']).lower()} takeoff review and quantity pricing interface"></div>
-          <figcaption class="mono"><span>Fig. 03</span><span>Takeoff &amp; pricing review</span></figcaption>
+          <figcaption class="mono"><span>Fig. 04</span><span>Takeoff &amp; pricing review</span></figcaption>
         </figure>
       </div>
     </div>

@@ -367,8 +367,8 @@
     const d = T[i];
     tabs.forEach((b, j) => b.setAttribute('aria-selected', i === j));
     const im = document.getElementById('tradeImg');
-    im.src = `assets/product/${d.img}.webp`; im.alt = d.t;
-    document.getElementById('tradeDraw').src = `assets/product/${d.img}-drawing.webp`;
+    im.src = `assets/cad/${d.slug}-takeoff.webp`; im.alt = `${d.t} drawing with AI-detected elements highlighted by layer`;
+    document.getElementById('tradeDraw').src = `assets/cad/${d.slug}-cad.webp`;
     const tl = document.getElementById('tradeLink');
     tl.href = `projects/${d.slug}.html`; tl.innerHTML = `Explore ${d.t} &rarr;`;
     document.getElementById('tradeTitle').textContent = d.t;

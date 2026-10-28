@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20261028213057">
+<link rel="stylesheet" href="../styles.css?v=20261028213450">
 </head>
 <body class="subpage">
 
@@ -75,15 +75,9 @@
         </div>
       </div>
       <figure class="p-photo reveal">
-        <div class="p-photo-frame">
-          <div class="ba" data-ba role="slider" tabindex="0" aria-label="Drag to compare the drawing with the built result" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-            <img class="ba-after" src="../assets/product/trade-plumbing.webp" width="1200" height="800" alt="Sanitary &amp; plumbing estimation">
-            <img class="ba-before" src="../assets/product/trade-plumbing-drawing.webp" width="1200" height="800" alt="">
-            <div class="ba-handle" aria-hidden="true"><span><i>&#x2194;</i></span></div>
-            <span class="ba-tag l mono">Drawing</span><span class="ba-tag r mono">Built</span>
-          </div>
+        <div class="p-photo-frame"><img src="../assets/product/trade-plumbing.webp" width="1200" height="800" alt="Sanitary &amp; plumbing estimation"></div>
         </div>
-        <figcaption class="mono"><span>Fig. 01 &middot; Drag to compare</span><span>Sanitary &amp; plumbing</span></figcaption>
+        <figcaption class="mono"><span>Fig. 01</span><span>Sanitary &amp; plumbing</span></figcaption>
       </figure>
     </div>
   </section>
@@ -93,11 +87,24 @@
     <div class="wrap">
       <p class="eyebrow"><span class="ref">P-01</span> Quantities</p>
       <h2>Prepare the quantities your trade needs</h2>
-      <div class="qty-grid">
+      <div class="qty-wrap">
+        <figure class="p-photo qty-fig reveal">
+          <div class="p-photo-frame">
+            <div class="ba ba-cad" data-ba role="slider" tabindex="0" aria-label="Drag to compare the CAD drawing with Quantiify's AI takeoff" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+              <img class="ba-after" src="../assets/cad/sanitary-plumbing-takeoff.webp" loading="lazy" alt="Sanitary &amp; plumbing drawing with AI-detected elements highlighted by layer">
+              <img class="ba-before" src="../assets/cad/sanitary-plumbing-cad.webp" loading="lazy" alt="">
+              <div class="ba-handle" aria-hidden="true"><span><i>&#x2194;</i></span></div>
+              <span class="ba-tag l mono">CAD drawing</span><span class="ba-tag r mono">AI takeoff</span>
+            </div>
+          </div>
+          <figcaption class="mono"><span>Fig. 02 &middot; Drag to compare</span><span>Your drawing &rarr; quantities</span></figcaption>
+        </figure>
+        <div class="qty-grid">
           <div class="qty-card reveal"><span class="mono">01</span><h3>Linear sitework</h3><p>Measure utilities, roads, boundaries, and other linear civil scope.</p></div>
           <div class="qty-card reveal"><span class="mono">02</span><h3>Areas and surfaces</h3><p>Capture relevant paved, landscaped, graded, and treatment areas.</p></div>
           <div class="qty-card reveal"><span class="mono">03</span><h3>Site components</h3><p>Count and organize repeated civil and site elements from the plan set.</p></div>
           <div class="qty-card reveal"><span class="mono">04</span><h3>Calculated quantities</h3><p>Apply project logic to reviewed measurements and prepare structured outputs.</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -114,7 +121,7 @@
         </div>
         <figure class="p-photo wf-img reveal">
           <div class="p-photo-frame fit"><img src="../assets/projects/sanitary-plumbing-onsite.webp" width="720" height="700" loading="lazy" alt="Estimator verification workflow with on-site review, AI legend detection, and audit trail"></div>
-          <figcaption class="mono"><span>Fig. 02</span><span>Estimator review</span></figcaption>
+          <figcaption class="mono"><span>Fig. 03</span><span>Estimator review</span></figcaption>
         </figure>
       </div>
       <p class="eyebrow wf-eyebrow"><span class="ref">P-03</span> A workflow your estimator can verify</p>
@@ -126,7 +133,7 @@
         </div>
         <figure class="p-photo wf-img reveal">
           <div class="p-photo-frame fit"><img src="../assets/projects/sanitary-plumbing-review.webp" width="720" height="700" loading="lazy" alt="Quantiify sanitary & plumbing takeoff review and quantity pricing interface"></div>
-          <figcaption class="mono"><span>Fig. 03</span><span>Takeoff &amp; pricing review</span></figcaption>
+          <figcaption class="mono"><span>Fig. 04</span><span>Takeoff &amp; pricing review</span></figcaption>
         </figure>
       </div>
     </div>
@@ -231,7 +238,7 @@
   <a class="sb-cta" href="#book">Book a demo <span aria-hidden="true">&#x21B5;</span></a>
 </div>
 
-<script src="../shader.js?v=20261028213057"></script>
-<script src="../main.js?v=20261028213057"></script>
+<script src="../shader.js?v=20261028213450"></script>
+<script src="../main.js?v=20261028213450"></script>
 </body>
 </html>

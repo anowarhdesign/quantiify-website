@@ -643,3 +643,13 @@ body.snapping .snap{opacity:1}
 .section-dark .p-photo-frame::before,.section-dark .p-photo-frame::after{background:linear-gradient(var(--sky),var(--sky)) center/1px 100% no-repeat,linear-gradient(var(--sky),var(--sky)) center/100% 1px no-repeat}
 .section-dark .p-photo figcaption{border-top-color:#2d3650;color:var(--muted-2)}
 .section-dark .p-photo figcaption span:last-child{color:var(--sky)}
+
+/* CAD drawing vs AI takeoff sheets */
+.ba-cad{background:#fff}
+.ba-cad img{object-fit:contain;padding:10px}
+.p-photo-frame .ba.ba-cad{aspect-ratio:3/2}
+.qty-wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;margin-top:36px;align-items:start}
+.qty-wrap .qty-grid{grid-template-columns:1fr 1fr;margin-top:0}
+.qty-fig{margin:0}
+@media (max-width:1000px){.qty-wrap{grid-template-columns:1fr}}
+@media (max-width:720px){.qty-wrap .qty-grid{grid-template-columns:1fr}}
