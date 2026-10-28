@@ -84,5 +84,40 @@ panes = ''.join(f'''          <figure class="wf-pane" data-pane="{i}"{' hidden' 
 ''' for i, keys in enumerate(PANES))
 new_viewer = '<div class="p-photo-frame wf-viewer">\n' + panes + '        </div>\n        '
 s = s[:a] + new_viewer + s[b:]
+
+# ---------------------------------------------------------------- hero tour
+# The hero plays the whole product flow, one chapter per screen.
+OX, OY, SW, SH = 89, 109, 1371, 991     # symbol-count screen: crop offset and size
+SYMS = [[550,477],[608,477],[665,477],[884,427],[883,524],[537,535],[646,546],[776,580],[816,580],[873,580],[970,580],
+        [560,613],[651,613],[651,641],[762,635],[560,686],[651,686],[762,693],[850,691],[819,720],[840,734],[926,672],[1028,734],
+        [560,757],[651,757],[711,759],[762,767],[934,788],[997,655],[831,580],[651,657]]
+LEG_ROWS = [34.2, 39.8, 45.4, 51, 56.7, 62.3, 67.9]
+LEG_COUNTS = [(20.8, '36'), (24.4, '08'), (28.1, '02'), (31.7, '07'), (35.4, '18'), (39.1, '16')]
+FRAMES['legend'] = ('legend', 1800, 1422, 'Legend Overview with AI legend detection', 4200,
+    box('auto', 84.6, 8.6, 14.2, 2.8)
+    + ''.join(box(f'lrow r{k}', 55.6, y - 2.2, 24.6, 4.4) for k, y in enumerate(LEG_ROWS, 1))
+    + ''.join(f'<span class="cnt c{k} mono" style="--y:{y}%">{n}</span>' for k, (y, n) in enumerate(LEG_COUNTS, 1))
+    + CUR + tips('AI auto-detects the legend', 'Every legend symbol is matched', 'Counts fill in per legend'))
+FRAMES['symbols'] = ('../product/app-symbol-count-ui', SW, SH, 'Symbol counting on the drawing', 4200,
+    ''.join(f'<i class="sd" style="--x:{(x - OX) / SW * 100:.2f}%;--y:{(y - OY) / SH * 100:.2f}%;--k:{k}"></i>'
+            for k, (x, y) in enumerate(sorted(SYMS)))
+    + '<i class="sweep"></i>' + tip('Every symbol found and boxed on the sheet'))
+TOUR = [('Project setup', 'setup'), ('Upload', 'uploading'), ('AI legend detection', 'legend'), ('Symbol count', 'symbols'),
+        ('Cable takeoff', 'takeoff'), ('Estimate', 'estimate'), ('Export', 'export')]
+stage = ''.join(frame(k).replace('<div class="fr"', f'<div class="fr" data-i="{i}"' + (' hidden' if i else ''), 1)
+                for i, (_, k) in enumerate(TOUR))
+tabs = ''.join(f'<li><button type="button" data-tour="{i}"{" aria-current=\"step\"" if i == 0 else ""}><span>{i + 1:02d}</span>{t}<i class="pb"></i></button></li>'
+               for i, (t, _) in enumerate(TOUR))
+tour = f'''      <figure class="tour reveal" id="tour" aria-label="Quantiify product tour">
+        <div class="tour-frame">
+          <div class="tour-stage">
+{stage}          </div>
+        </div>
+        <ol class="tour-tabs mono">{tabs}</ol>
+      </figure>'''
+a = s.index('<figure class="product reveal">') if '<figure class="product reveal">' in s else s.index('<figure class="tour reveal"')
+a = s.rindex('\n', 0, a) + 1
+b = s.index('</figure>', a) + len('</figure>')   # neither figure nests another
+s = s[:a] + tour + s[b:]
 (ROOT / 'index.html').write_text(s, encoding='utf-8')
 print('viewer frames:', s.count('class="fr"'))

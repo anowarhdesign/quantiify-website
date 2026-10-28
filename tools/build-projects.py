@@ -137,7 +137,6 @@ def page(p):
       </div>
       <figure class="p-photo reveal">
         <div class="p-photo-frame"><img src="../assets/product/{p['photo']}.webp" width="1200" height="800" alt="{p['name']} estimation"></div>
-        </div>
         <figcaption class="mono"><span>Fig. 01</span><span>{p['name']}</span></figcaption>
       </figure>
     </div>

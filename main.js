@@ -58,6 +58,28 @@
     }, { threshold: .5 }).observe(el);
   });
 
+  // ---------- hero product tour: project setup -> export, one chapter per screen ----------
+  const tourEl = document.getElementById('tour');
+  if (tourEl) {
+    const frs = [...tourEl.querySelectorAll('.tour-stage .fr')];
+    const tbs = [...tourEl.querySelectorAll('[data-tour]')];
+    let ti = 0, tt, tourVisible = false;
+    const go = i => {
+      clearTimeout(tt); ti = i;
+      frs.forEach((f, k) => { f.hidden = k !== i; });
+      tbs.forEach((b, k) => {
+        b.toggleAttribute('aria-current', k === i);
+        b.classList.toggle('done', k < i);
+        const pb = b.querySelector('.pb'); pb.style.animation = 'none'; void pb.offsetWidth;
+        pb.style.animation = k === i && !reduce ? `tourPb ${frs[i].dataset.ms}ms linear forwards` : '';
+      });
+      if (tourVisible && !reduce) tt = setTimeout(() => go((ti + 1) % frs.length), +frs[i].dataset.ms);
+    };
+    tbs.forEach((b, i) => b.addEventListener('click', () => go(i)));
+    new IntersectionObserver(([e]) => { tourVisible = e.isIntersecting; if (tourVisible) go(ti); else clearTimeout(tt); }, { threshold: .3 }).observe(tourEl);
+    go(0);
+  }
+
   // ---------- How it works: step -> product screen ----------
   const wfSteps = [...document.querySelectorAll('[data-wf]')];
   if (wfSteps.length) {

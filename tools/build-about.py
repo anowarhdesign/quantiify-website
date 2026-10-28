@@ -72,13 +72,16 @@ main = f'''<main id="top">
           <a class="btn btn-ghost" href="index.html#pricing">Choose a plan</a>
         </div>
       </div>
-      <figure class="p-photo ab-photo reveal">
-        <div class="p-photo-frame"><img src="assets/product/about-blueprint.webp" width="928" height="1232" alt="Quantiify architectural blueprint">
-          <span class="ab-badge b1 mono">Our story</span>
-          <span class="ab-badge b2 mono">AI-powered workflow</span>
-          <span class="ab-badge b3 mono">Built for estimators</span>
+      <figure class="p-photo reveal">
+        <div class="p-photo-frame">
+          <div class="ba ba-cad" data-ba role="slider" tabindex="0" aria-label="Drag to compare a CAD drawing with Quantiify's AI takeoff" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="aspect-ratio:1034/748">
+            <img class="ba-after" src="assets/cad/electrification-takeoff.webp" width="1034" height="748" alt="Electrical layout with AI-detected elements highlighted">
+            <img class="ba-before" src="assets/cad/electrification-cad.webp" width="1034" height="748" alt="">
+            <div class="ba-handle" aria-hidden="true"><span><i>&#x2194;</i></span></div>
+            <span class="ba-tag l mono">CAD drawing</span><span class="ba-tag r mono">AI takeoff</span>
+          </div>
         </div>
-        <figcaption class="mono"><span>Fig. 01</span><span>Behind Quantiify</span></figcaption>
+        <figcaption class="mono"><span>Fig. 01 &middot; Drag to compare</span><span>Behind Quantiify</span></figcaption>
       </figure>
     </div>
   </section>
