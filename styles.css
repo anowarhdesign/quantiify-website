@@ -291,7 +291,7 @@ tr.new td{animation:rowin .4s both}
 .xh-h,.xh-v,.xh-box{position:absolute;left:0;top:0;will-change:transform;transition:opacity .2s}
 .xh-h{width:360px;height:1px;margin-left:-180px;background:linear-gradient(90deg,transparent,rgba(38,100,245,.22) 40%,rgba(38,100,245,.22) 60%,transparent)}
 .xh-v{width:1px;height:360px;margin-top:-180px;background:linear-gradient(transparent,rgba(38,100,245,.22) 40%,rgba(38,100,245,.22) 60%,transparent)}
-.xh-box{width:10px;height:10px;margin:-5px 0 0 -5px;border:1px solid rgba(38,100,245,.7);transition:transform 0s,border-radius .2s,background .2s,opacity .2s}
+.xh-box{width:10px;height:10px;margin:-5px 0 0 -5px;border:1px solid rgba(38,100,245,.7);transition:rotate .2s,scale .2s,background .2s,opacity .2s}
 .xh-box::after{content:"";position:absolute;inset:0;transform:scale(0);transition:transform .2s}
 body.cad .xhair{display:block}
 body.cad,body.cad a,body.cad button{cursor:none}

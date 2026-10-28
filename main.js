@@ -59,7 +59,7 @@
     addEventListener('mousemove', e => {
       h.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       v.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-      b.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      b.style.left = e.clientX + 'px'; b.style.top = e.clientY + 'px';
     });
     addEventListener('scroll', place, { passive: true });
     document.querySelectorAll('a, button, .who-card, .quote, .plan, .faq-i summary').forEach(el => {
