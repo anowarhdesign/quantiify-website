@@ -268,7 +268,7 @@ tr.new td{animation:rowin .4s both}
 .tb{display:grid;grid-template-columns:1.6fr 1.4fr 1.1fr .7fr;border:1.5px solid #3a4560}
 .tb-cell{padding:16px 18px;border-left:1px solid #3a4560;display:flex;flex-direction:column;gap:6px}
 .tb-cell:first-child{border-left:0}
-.tb-brand img{height:44px;width:auto;margin:4px 0}
+.tb-brand img{height:44px;width:auto;margin:4px 0;align-self:flex-start}
 .tb-brand p{font-size:13px;color:var(--muted-2)}
 .tb-k{font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#7d8aa5}
 .tb-v{font-size:14px;color:#fff}
