@@ -5,7 +5,6 @@
   // Booth-screen mode (?booth): show the QR code so visitors can book from their phones
   if (new URLSearchParams(location.search).has('booth')) {
     document.querySelector('.qr').hidden = false;
-    document.querySelector('.cta .lede').textContent = 'Stop by for a live run on your own sheets, or scan to book a call with the team.';
   }
 
   // ---------- rulers ----------
@@ -50,7 +49,7 @@
       b.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     });
     addEventListener('scroll', place, { passive: true });
-    document.querySelectorAll('a, button, .who-card, .quote, .duo-card').forEach(el => {
+    document.querySelectorAll('a, button, .who-card, .quote, .plan, .faq-i summary').forEach(el => {
       el.addEventListener('mouseenter', () => {
         target = el;
         const kind = el.matches('a, button') ? (el.matches('.btn, button') ? 'SELECT' : 'LINK') : 'OBJECT';
@@ -173,7 +172,7 @@
   const sheets = [...document.querySelectorAll('main > section')].map(sec => {
     const eb = sec.querySelector('.eyebrow');
     if (sec.classList.contains('hero')) return { sec, ref: 'Q-001', name: 'Overview' };
-    if (sec.classList.contains('cta')) return { sec, ref: 'Q-002', name: 'At the booth' };
+    if (sec.id === 'book') return { sec, ref: 'Q-002', name: 'Book a demo' };
     if (!eb) return null;
     const ref = eb.querySelector('.ref').textContent;
     return { sec, ref, name: eb.textContent.replace(ref, '').trim() };
@@ -231,6 +230,73 @@
   });
   addEventListener('resize', sync);
   sync();
+
+  // ---------- pricing: monthly / annual ----------
+  document.querySelectorAll('.bill button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.bill button').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); });
+    document.querySelectorAll('.price .amt').forEach(el => { el.textContent = Number(el.dataset[b.dataset.bill]).toLocaleString('en-US'); });
+  }));
+
+  // ---------- booking: calendar / request-a-call ----------
+  const tabCal = document.getElementById('tab-cal'), tabForm = document.getElementById('tab-form');
+  const panelCal = document.getElementById('panel-cal'), panelForm = document.getElementById('panel-form');
+  let calLoaded = false;
+  function loadCal() {
+    if (calLoaded) return; calLoaded = true;
+    // Cal.com inline embed (same event as optiify.ai/book-demo for now)
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+    Cal('init', '30min', { origin: 'https://app.cal.com' });
+    Cal.ns['30min']('inline', { elementOrSelector: '#cal-inline', config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' }, calLink: 'optiify/30min' });
+    Cal.ns['30min']('ui', { cssVarsPerTheme: { light: { 'cal-brand': '#2664f5' } }, hideEventTypeDetails: false, layout: 'month_view' });
+  }
+  function showBook(which) {
+    const cal = which === 'cal';
+    tabCal.setAttribute('aria-selected', cal); tabForm.setAttribute('aria-selected', !cal);
+    panelCal.hidden = !cal; panelForm.hidden = cal;
+    if (cal) loadCal();
+  }
+  tabCal.addEventListener('click', () => showBook('cal'));
+  tabForm.addEventListener('click', () => showBook('form'));
+  [tabCal, tabForm].forEach(t => t.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); const o = t === tabCal ? tabForm : tabCal; o.focus(); o.click(); }
+  }));
+  // Load the calendar shortly before the section scrolls into view
+  new IntersectionObserver((es, ob) => { if (es[0].isIntersecting && !panelCal.hidden) { loadCal(); ob.disconnect(); } }, { rootMargin: '600px 0px' })
+    .observe(document.getElementById('book'));
+
+  // Request-a-call form. Without an endpoint it falls back to a pre-filled email.
+  const form = document.getElementById('leadForm'), status = document.getElementById('formStatus'), done = document.getElementById('formDone');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const name = (fd.get('name') || '').trim(), email = (fd.get('email') || '').trim();
+    form.querySelectorAll('[aria-invalid]').forEach(x => x.removeAttribute('aria-invalid'));
+    const bad = [];
+    if (!name) bad.push(form.elements.name);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) bad.push(form.elements.email);
+    if (bad.length) {
+      bad.forEach(x => x.setAttribute('aria-invalid', 'true'));
+      status.textContent = 'Please add your name and a valid work email.';
+      bad[0].focus(); return;
+    }
+    const trades = fd.getAll('trades').join(', ');
+    const endpoint = form.dataset.endpoint;
+    if (endpoint) {
+      status.textContent = 'Sending…';
+      try {
+        const r = await fetch(endpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
+        if (!r.ok) throw new Error(r.status);
+        form.hidden = true; done.hidden = false; done.focus();
+      } catch { status.textContent = 'Something went wrong. Please email info@quantiify.ai.'; }
+      return;
+    }
+    const body = [
+      `Name: ${name}`, `Work email: ${email}`, `Company: ${fd.get('company') || '-'}`, `Phone: ${fd.get('phone') || '-'}`,
+      `Trades: ${trades || '-'}`, '', fd.get('message') || ''
+    ].join('\n');
+    location.href = `mailto:info@quantiify.ai?subject=${encodeURIComponent('Quantiify demo request: ' + name)}&body=${encodeURIComponent(body)}`;
+    status.textContent = 'Opening your email app to send the request…';
+  });
 
   // ---------- trades ----------
   const T = [
