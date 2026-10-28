@@ -7,6 +7,24 @@
     const qr = document.querySelector('.qr'); if (qr) qr.hidden = false;
   }
 
+  // ---------- normal pointer over forms and reading text (the CAD cursor is decorative) ----------
+  document.addEventListener('mouseover', e => {
+    document.body.classList.toggle('native', !!e.target.closest('input, textarea, select, .prose, .lede, .faq-i p, .cal-frame, .quote blockquote'));
+  });
+
+  // ---------- phone menu ----------
+  const menuBtn = document.querySelector('.menu-btn'), mnav = document.getElementById('mnav');
+  if (menuBtn && mnav) {
+    const setMenu = open => {
+      menuBtn.setAttribute('aria-expanded', open); menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mnav.hidden = !open; document.body.classList.toggle('menu-open', open);
+    };
+    menuBtn.addEventListener('click', () => setMenu(mnav.hidden));
+    mnav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !mnav.hidden) { setMenu(false); menuBtn.focus(); } });
+    matchMedia('(min-width:1001px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+  }
+
   // ---------- nav: Projects menu ----------
   document.querySelectorAll('.nav-dd').forEach(dd => {
     const btn = dd.querySelector('.dd-btn');
@@ -85,7 +103,7 @@
   if (wfSteps.length) {
     const panes = [...document.querySelectorAll('.wf-pane')];
     const capR = document.getElementById('wfCapR'), capL = document.getElementById('wfCapL');
-    let cur = 0, auto = true, wt;
+    let cur = 0, auto = false, wt;   // still screens: change only when a step is chosen
     // each step plays its frames (real screens) in order; then the next step, or loop once someone has interacted
     let inView = false;
     const playFrames = (i, f = 0) => {

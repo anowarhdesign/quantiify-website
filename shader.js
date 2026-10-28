@@ -116,28 +116,31 @@
       cv.width = Math.max(1, r.width * dpr); cv.height = Math.max(1, r.height * dpr);
       gl.viewport(0, 0, cv.width, cv.height);
     }
-    size(); addEventListener('resize', size);
+    size(); addEventListener('resize', () => { size(); kick(); });
     cv.parentElement.addEventListener('pointermove', e => {
       const r = cv.getBoundingClientRect();
       mouse.tx = (e.clientX - r.left) * dpr; mouse.ty = (r.bottom - e.clientY) * dpr;
       if (mouse.x < -9000) { mouse.x = mouse.tx; mouse.y = mouse.ty; }
+      kick();
     });
 
+    // The plan is still: it only redraws while the cursor highlight is easing.
     let visible = false, raf = 0;
-    const t0 = performance.now();
-    function draw(now) {
+    const kick = () => { if (visible && !raf) raf = requestAnimationFrame(draw); };
+    function draw() {
+      raf = 0;
       mouse.x += (mouse.tx - mouse.x) * .05; mouse.y += (mouse.ty - mouse.y) * .05;
       gl.uniform2f(uRes, cv.width, cv.height);
       gl.uniform1f(uS, 46 * dpr);
-      gl.uniform1f(uT, reduce ? 12 : (now - t0) / 1000 + 12);
+      gl.uniform1f(uT, 12);
       gl.uniform2f(uMouse, mouse.x, mouse.y);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
-      if (visible && !reduce) raf = requestAnimationFrame(draw);
+      if (Math.abs(mouse.tx - mouse.x) + Math.abs(mouse.ty - mouse.y) > .5) kick();
     }
     new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
-      cancelAnimationFrame(raf);
-      if (visible) raf = requestAnimationFrame(draw);
+      cancelAnimationFrame(raf); raf = 0;
+      kick();
     }).observe(cv);
     cv.classList.add('on');
   });
