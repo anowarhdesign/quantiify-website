@@ -56,8 +56,8 @@ FRAMES = {
                + '<span class="toast mono">Estimate_E-101.xlsx &middot; ready</span>' + CUR
                + tips('Pick Excel, CSV or PDF', 'Download a BOQ-ready file')),
 }
-# How it works shows one still screen per step (the hero tour carries the animation)
-PANES = [['upload'], ['SLIDER'], ['takeoff'], ['estimate'], ['export']]
+# How it works: each step plays a short animated sequence of real screens
+PANES = [['dashboard', 'setup', 'uploading', 'upload'], ['detecting', 'SLIDER'], ['takeoff'], ['estimate'], ['export']]
 SLIDER_MS = 4400
 # On phones each screen zooms into the part that matters (transform-origin, % of the screen)
 FOCUS = {'dashboard': (78, 30), 'setup': (58, 42), 'uploading': (58, 34), 'upload': (60, 45), 'detecting': (62, 45),
@@ -84,7 +84,7 @@ def frame(key, anim=True):
 
 
 panes = ''.join(f'''          <figure class="wf-pane" data-pane="{i}"{' hidden' if i else ''}>
-{''.join(frame(k, anim=False) for k in keys)}            <div class="fr-dots" aria-hidden="true">{''.join('<i></i>' for _ in keys) if len(keys) > 1 else ''}</div>
+{''.join(frame(k) for k in keys)}            <div class="fr-dots" aria-hidden="true">{''.join('<i></i>' for _ in keys) if len(keys) > 1 else ''}</div>
           </figure>
 ''' for i, keys in enumerate(PANES))
 new_viewer = '<div class="p-photo-frame wf-viewer">\n' + panes + '        </div>\n        '

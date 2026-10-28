@@ -103,7 +103,7 @@
   if (wfSteps.length) {
     const panes = [...document.querySelectorAll('.wf-pane')];
     const capR = document.getElementById('wfCapR'), capL = document.getElementById('wfCapL');
-    let cur = 0, auto = false, wt;   // still screens: change only when a step is chosen
+    let cur = 0, auto = true, wt;
     // each step plays its frames (real screens) in order; then the next step, or loop once someone has interacted
     let inView = false;
     const playFrames = (i, f = 0) => {

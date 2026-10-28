@@ -1034,8 +1034,6 @@ body.cad select{cursor:pointer}
 .tb-links a{display:block;padding:6px 0}
 .quote .who{margin-top:20px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
-/* performance: skip layout/paint of off-screen sections until they are near */
-main > section:not(.hero):not(.p-hero):not(.list-hero),.titleblock{content-visibility:auto;contain-intrinsic-size:auto 900px}
 
 /* contrast */
 .eyebrow{color:var(--slate)}
