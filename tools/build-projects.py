@@ -159,7 +159,10 @@ def page(p):
           <p class="lede left">{WF_TEXT}</p>
           <ul class="fit">{fit(p['fit1'])}</ul>
         </div>
-        <figure class="wf-img reveal"><img src="../assets/projects/{p['slug']}-onsite.webp" width="720" height="700" loading="lazy" alt="Estimator verification workflow with on-site review, AI legend detection, and audit trail"></figure>
+        <figure class="p-photo wf-img reveal">
+          <div class="p-photo-frame fit"><img src="../assets/projects/{p['slug']}-onsite.webp" width="720" height="700" loading="lazy" alt="Estimator verification workflow with on-site review, AI legend detection, and audit trail"></div>
+          <figcaption class="mono"><span>Fig. 02</span><span>Estimator review</span></figcaption>
+        </figure>
       </div>
       <p class="eyebrow wf-eyebrow"><span class="ref">P-03</span> A workflow your estimator can verify</p>
       <div class="wf flip">
@@ -168,7 +171,10 @@ def page(p):
           <p class="lede left">{WF_TEXT}</p>
           <ul class="fit">{fit(p['fit2'])}</ul>
         </div>
-        <figure class="wf-img reveal"><img src="../assets/projects/{p['slug']}-review.webp" width="720" height="700" loading="lazy" alt="Quantiify {plain(p['name']).lower()} takeoff review and quantity pricing interface"></figure>
+        <figure class="p-photo wf-img reveal">
+          <div class="p-photo-frame fit"><img src="../assets/projects/{p['slug']}-review.webp" width="720" height="700" loading="lazy" alt="Quantiify {plain(p['name']).lower()} takeoff review and quantity pricing interface"></div>
+          <figcaption class="mono"><span>Fig. 03</span><span>Takeoff &amp; pricing review</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -180,10 +186,6 @@ def page(p):
       <h2>Built for modern {name_lc.lower()} estimation</h2>
       <div class="feats">
 {feats}      </div>
-      <div class="cta-row left">
-        <a class="btn btn-ghost" href="#book">Book a call</a>
-        <a class="btn btn-primary" href="../index.html#pricing">Choose a plan</a>
-      </div>
     </div>
   </section>
 

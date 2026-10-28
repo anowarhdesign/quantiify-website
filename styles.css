@@ -592,7 +592,10 @@ body.snapping .snap{opacity:1}
 .fit li{display:flex;gap:12px;align-items:baseline;color:var(--ink-2)}
 .fit li::before{content:"";flex:none;width:7px;height:7px;border:1.5px solid var(--blue);rotate:45deg;translate:0 -2px}
 .wf-img{margin:0;position:relative}
-.wf-img img{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;filter:drop-shadow(0 24px 40px rgba(11,18,32,.14))}
+.wf-img{max-width:560px;width:100%;justify-self:center}
+.p-photo-frame.fit{background:var(--paper-2)}
+.p-photo-frame.fit img{aspect-ratio:auto;object-fit:contain}
+.feats{margin-bottom:0}
 .feats{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line-2);margin:36px 0 32px}
 .feat{padding:24px 20px 6px;border-left:1px dashed var(--line-2)}
 .feat:first-child{border-left:0;padding-left:0}
