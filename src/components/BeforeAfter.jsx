@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { prefersReducedMotion } from '../lib/motion.js';
+import { asset } from '../content/site.js';
 
 const ease = x => (x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);
 const SWEEP = [[0, 50], [700, 78], [1500, 24], [2200, 50]];   // [ms, %] keyframes
@@ -87,10 +88,9 @@ const BeforeAfter = forwardRef(function BeforeAfter(
 export default BeforeAfter;
 
 /** The standard CAD drawing vs AI takeoff pair for a trade (assets/cad/<slug>-cad|takeoff.webp). */
-export const cadPair = (asset, slug, { alt = '', lazy = true, size = true, srcset = false } = {}) => {
+export const cadPair = (slug, { alt = '', lazy = true, size = true } = {}) => {
   const img = kind => ({
     src: asset(`cad/${slug}-${kind}.webp`),
-    ...(srcset ? { srcSet: `${asset(`cad/${slug}-${kind}-900.webp`)} 900w, ${asset(`cad/${slug}-${kind}.webp`)} 1034w`, sizes: '(max-width: 720px) 100vw, 1100px' } : {}),
     ...(size ? { width: '1034', height: '748' } : {}),
     ...(lazy ? { loading: 'lazy' } : {}),
   });

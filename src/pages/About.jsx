@@ -8,7 +8,7 @@ import { ABOUT_STEPS, BELIEFS, OFFER_BOQ, OFFER_STEPS } from '../content/about.j
 import { asset } from '../content/site.js';
 
 function Offer() {
-  const pair = cadPair(asset, 'electrification', { alt: 'Electrical layout with AI-detected lights, fans, sockets and AC points highlighted' });
+  const pair = cadPair('electrification', { alt: 'Electrical layout with AI-detected lights, fans, sockets and AC points highlighted' });
   return (
     <section id="offer" className="section offer">
       <div className="wrap">
@@ -39,7 +39,7 @@ function Offer() {
 }
 
 export default function About() {
-  const hero = cadPair(asset, 'electrification', { alt: 'Electrical layout with AI-detected elements highlighted', lazy: false });
+  const hero = cadPair('electrification', { alt: 'Electrical layout with AI-detected elements highlighted', lazy: false });
   return (
     <>
       <section className="hero p-hero ab-hero">

@@ -11,10 +11,11 @@ import { asset } from '../../content/site.js';
 export default function BookingSection() {
   const { hash, search } = useLocation();
   const [tab, setTab] = useState('cal');           // the prerendered page always starts on the calendar
+  const [ready, setReady] = useState(false);       // tab chosen from the URL; only then may the calendar load
   const [booth, setBooth] = useState(false);
   const sectionRef = useRef(null), calTab = useRef(null), formTab = useRef(null);
 
-  useEffect(() => { if (hash === '#request') setTab('form'); }, [hash]);
+  useEffect(() => { if (hash === '#request') setTab('form'); setReady(true); }, [hash]);
   useEffect(() => { setBooth(new URLSearchParams(search).has('booth')); }, [search]);
 
   const onKey = e => {
@@ -41,7 +42,7 @@ export default function BookingSection() {
         </div>
 
         <div className="book-panel" id="panel-cal" role="tabpanel" aria-labelledby="tab-cal" hidden={tab !== 'cal'}>
-          <CalEmbed active={tab === 'cal'} sectionRef={sectionRef} />
+          <CalEmbed active={ready && tab === 'cal'} sectionRef={sectionRef} />
         </div>
 
         <div className="book-panel" id="panel-form" role="tabpanel" aria-labelledby="tab-form" hidden={tab !== 'form'}>

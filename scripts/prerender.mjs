@@ -34,7 +34,7 @@ for (const r of ROUTES) {
 
 // GitHub Pages serves 404.html for unknown URLs; the client router renders the same Not found page.
 write('404.html', page(render('/404'), '<title>Page not found · Quantiify</title>\n<meta name="robots" content="noindex">', '')
-  .replace('<meta name="robots" content="index, follow, max-image-preview:large">\n', ''));
+  .replace(/<meta name="robots" content="index[^"]*">\r?\n?/, ''));
 
 // sitemap / llms.txt list pages in path order (blog/* before blog.html, as the old SEO script did)
 const byPath = [...ROUTES].sort((a, b) => {

@@ -25,7 +25,7 @@ function WorkflowRow({ title, items, flip, img, w, h, alt, fig }) {
 /** Trade landing page (projects/<slug>.html). */
 export default function Project({ slug }) {
   const p = PROJECTS.find(x => x.slug === slug);
-  const pair = cadPair(asset, p.slug, { alt: `${p.name} drawing with AI-detected elements highlighted by layer`, size: false });
+  const pair = cadPair(p.slug, { alt: `${p.name} drawing with AI-detected elements highlighted by layer`, size: false });
   return (
     <>
       <section className="hero p-hero">
